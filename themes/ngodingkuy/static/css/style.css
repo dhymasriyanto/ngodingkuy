@@ -1,8 +1,7 @@
-/* Minimal Pixel Style CSS */
 body {
-    background-color: #dff5df; /* pastel green */
-    color: #000000; /* black text */
-    font-family: 'Courier New', monospace;
+    background-color: #dff5df;
+    color: #000000;
+    font-family: "Courier New", monospace;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
@@ -11,12 +10,12 @@ body {
 .container {
     max-width: 700px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0 20px 20px;
 }
 
 .site-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .site-title {
@@ -28,7 +27,7 @@ body {
 .site-subtitle {
     font-size: 1.2rem;
     margin: 10px 0 0 0;
-    color: #2d5016; /* dark green accent */
+    color: #2d5016;
 }
 
 .post-preview {
@@ -47,7 +46,7 @@ body {
 }
 
 .post-preview h2 a:hover {
-    color: #2d5016; /* dark green hover */
+    color: #2d5016;
 }
 
 .post-preview time {
@@ -85,9 +84,9 @@ body {
 }
 
 a {
-    color: #0000aa; /* dark blue for links */
+    color: #0000aa;
 }
 
 a:hover {
-    color: #2d5016; /* dark green hover */
+    color: #2d5016;
 }
