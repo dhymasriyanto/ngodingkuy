@@ -1,5 +1,6 @@
 {
-   "baseURL": "https://ngodingkuy.site/",
-   "languageCode": "en-us",
-   "title": "NgodingKuy!"
+    "baseURL": "https://ngodingkuy.site/",
+    "languageCode": "en-us",
+    "title": "NgodingKuy!",
+    "theme": "ngodingkuy"
 }
