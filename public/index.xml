@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Javascript in Action</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</link>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</link>
       <pubDate>Tue, 14 Apr 2026 09:11:28 +0000</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</guid>
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</guid>
       <description>How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
 BOM BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &amp;lsquo;window&amp;rsquo; we can make the browser show pop-up message with running alert() method in browser console.
 DOM DOM stands for Document Object Model, it is just like BOM, but we access it using global object called documents.</description>
@@ -20,10 +20,10 @@ DOM DOM stands for Document Object Model, it is just like BOM, but we access it 
     
     <item>
       <title>Welcome to ngodingkuy</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/welcome/</link>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/</link>
       <pubDate>Mon, 30 Mar 2026 10:00:00 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/welcome/</guid>
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/</guid>
       <description>After all this time, I am trying to actively write again, with something fresh.
 In this simple blog, I will try to write everything I have learned as an archive.
 Better late than never.</description>
@@ -119,7 +119,7 @@ Kali ini, saya bakalan nulis apapun yang pengen ditulis&amp;hellip; Tapi mungkin
       <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
       <description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
 Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
-Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
+ Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
 Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</description>
     </item>
     
@@ -158,7 +158,7 @@ Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, me
       <guid>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</guid>
       <description>Halo semua, kembali lagi bersama Author :&#39;)
 Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
-Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
+ Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
 JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</description>
     </item>
     

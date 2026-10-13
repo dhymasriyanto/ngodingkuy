@@ -6,22 +6,31 @@
     <description>Recent content in Categories on ngodingkuy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Jan 2022 17:13:29 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>NodeJS</title>
-      <link>https://ngodingkuy.ngodingkuy.site/categories/nodejs/</link>
-      <pubDate>Mon, 17 Jan 2022 17:13:29 +0700</pubDate>
+      <title>Javascript</title>
+      <link>https://ngodingkuy.ngodingkuy.site/categories/javascript/</link>
+      <pubDate>Tue, 14 Apr 2026 09:11:28 +0000</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/categories/nodejs/</guid>
+      <guid>https://ngodingkuy.ngodingkuy.site/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tulisan</title>
       <link>https://ngodingkuy.ngodingkuy.site/categories/tulisan/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0700</pubDate>
+      <pubDate>Mon, 30 Mar 2026 10:00:00 +0700</pubDate>
       
       <guid>https://ngodingkuy.ngodingkuy.site/categories/tulisan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NodeJS</title>
+      <link>https://ngodingkuy.ngodingkuy.site/categories/nodejs/</link>
+      <pubDate>Mon, 17 Jan 2022 17:13:29 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/categories/nodejs/</guid>
       <description></description>
     </item>
     

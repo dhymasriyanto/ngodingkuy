@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>back - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -49,6 +51,14 @@
                         </span>
                     
                 </div>
+
+                
+                
+                    <div class="post-preview-thumb">
+                        <a href="https://ngodingkuy.ngodingkuy.site/posts/i-am-back/"><img src="/posts/i-am-back/sorry.png" alt="Hello, I&#39;m Back :&#39;v" loading="lazy"></a>
+                    </div>
+                
+
                 <p>&lt;?php echo &#34;Assalamualaikum!&#34;; ?&gt;Hai, teman teman&hellip;
 Sekian lama, akhirnya Author nulis lagi.. :')
 Maaf kan saya, mungkin penanganan website ini kurang maksimal&hellip; Dan terlebih lagi, Author cuma punya beberapa konten&hellip; :V
@@ -86,12 +96,32 @@ Kali ini, saya bakalan nulis apapun yang pengen ditulis&hellip; Tapi mungkin jan
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

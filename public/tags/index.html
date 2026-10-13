@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tags - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -34,18 +36,23 @@
         <ul class="terms-list">
             
                 <li>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/javascript/">[ javascript ]</a>
+                    <span class="term-count">(9 articles)</span>
+                </li>
+            
+                <li>
                     <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/nodejs/">[ nodejs ]</a>
                     <span class="term-count">(9 articles)</span>
                 </li>
             
                 <li>
-                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/javascript/">[ javascript ]</a>
-                    <span class="term-count">(8 articles)</span>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/modules/">[ modules ]</a>
+                    <span class="term-count">(3 articles)</span>
                 </li>
             
                 <li>
-                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/modules/">[ modules ]</a>
-                    <span class="term-count">(3 articles)</span>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/catatan/">[ catatan ]</a>
+                    <span class="term-count">(2 articles)</span>
                 </li>
             
                 <li>
@@ -84,7 +91,12 @@
                 </li>
             
                 <li>
-                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/catatan/">[ catatan ]</a>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/bom/">[ bom ]</a>
+                    <span class="term-count">(1 articles)</span>
+                </li>
+            
+                <li>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/dom/">[ dom ]</a>
                     <span class="term-count">(1 articles)</span>
                 </li>
             
@@ -115,6 +127,16 @@
             
                 <li>
                     <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/java/">[ JAVA ]</a>
+                    <span class="term-count">(1 articles)</span>
+                </li>
+            
+                <li>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/learn/">[ learn ]</a>
+                    <span class="term-count">(1 articles)</span>
+                </li>
+            
+                <li>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/nulis/">[ nulis ]</a>
                     <span class="term-count">(1 articles)</span>
                 </li>
             
@@ -153,6 +175,16 @@
                     <span class="term-count">(1 articles)</span>
                 </li>
             
+                <li>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/tulisan/">[ tulisan ]</a>
+                    <span class="term-count">(1 articles)</span>
+                </li>
+            
+                <li>
+                    <a class="term-name" href="https://ngodingkuy.ngodingkuy.site/tags/writing/">[ writing ]</a>
+                    <span class="term-count">(1 articles)</span>
+                </li>
+            
         </ul>
     </div>
 
@@ -180,12 +212,32 @@
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

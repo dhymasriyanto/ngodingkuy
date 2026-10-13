@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NodeJS - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -46,10 +48,17 @@
             
         </div>
 
+        
+        
+            <div class="post-banner">
+                <img src="/posts/nodejs/nodejs.png" alt="NodeJS" loading="lazy">
+            </div>
+        
+
         <div class="post-content">
             <p>Halo semua, kembali lagi bersama Author :')</p>
 <p>Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!</p>
-<h1 id="center-apa-itu-nodejs-center"><!-- raw HTML omitted --> Apa itu NodeJS? <!-- raw HTML omitted --></h1>
+<h1 id="center-apa-itu-nodejs-center"><center> Apa itu NodeJS? <center></h1>
 <h2 id="nodejs-itu-javasript-kok">NodeJS itu JavaSript kok.</h2>
 <p>Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.</p>
 <p>JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah <em>runtime</em> yang dibangun untuk Chrome V8, yang memungkinkan kita untuk <strong>menjalankan JavaScript diluar browser</strong>. Wah keren kan?</p>
@@ -126,12 +135,12 @@ Kita juga bisa bikin <em>basic script</em> loh dengan NodeJS. <em>Simple Script<
             
                 <li>
                     <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
                 </li>
             
                 <li>
                     <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
                 </li>
             
                 <li>
@@ -198,12 +207,32 @@ Kita juga bisa bikin <em>basic script</em> loh dengan NodeJS. <em>Simple Script<
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

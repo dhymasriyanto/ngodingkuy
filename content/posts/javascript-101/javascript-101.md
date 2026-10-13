@@ -1,8 +1,10 @@
 ---
 title: "Javascript in Action"
-date: 2026-04-14T09:11:28Z
 author: "Dhymas Julyan Riyanto"
+date: 2026-04-14T09:11:28Z
 draft: false
+tags: ["javascript", "learn", "dom", "bom"]
+categories: ["Javascript"]
 ---
 
 #  How does javascript control web and ur browser?

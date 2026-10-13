@@ -28,7 +28,7 @@ Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang dig
       <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
       <description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
 Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
-Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
+ Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
 Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</description>
     </item>
     

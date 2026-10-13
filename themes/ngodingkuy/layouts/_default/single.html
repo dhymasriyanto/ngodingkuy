@@ -21,6 +21,13 @@
             {{ end }}
         </div>
 
+        {{ $images := .Resources.ByType "image" }}
+        {{ with index $images 0 }}
+            <div class="post-banner">
+                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+            </div>
+        {{ end }}
+
         <div class="post-content">
             {{ .Content }}
         </div>

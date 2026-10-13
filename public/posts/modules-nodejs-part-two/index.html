@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modules Nodejs - ECMAScript Module - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -46,13 +48,20 @@
             
         </div>
 
+        
+        
+            <div class="post-banner">
+                <img src="/posts/modules-nodejs-part-two/modules.png" alt="Modules Nodejs - ECMAScript Module" loading="lazy">
+            </div>
+        
+
         <div class="post-content">
             <p>Untuk penggunaan <em>module</em> pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default <em>syntax</em> untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.</p>
 <p>Agar <em>JavaScript</em> benar-benar universal di segala <em>environment</em>, untuk itu diperlukan cara yang lebih futuristik.</p>
 <p>Untuk itu, hadirlah ES <em>module</em> atau ECMAScript <em>module</em>.</p>
 <p>Nah, pada postingan kali ini kita akan membahas tentang ES <em>module</em> tersebut.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!--Sebelum memulai, hal yang harus kita lakukan adalah memberi tahu kepada NodeJS, berapa versi _module_ yang kita inginkan.-->
+<!--Ada beberapa cara yang dapat kita lakukan.-->
 <h2 id="ekstensi-mjs">Ekstensi <code>.mjs</code></h2>
 <p><code>.mjs</code> atau juga <em>module</em> JS merupakan sebuah ekstensi khusus yang digunakan untuk aplikasi NodeJS.</p>
 <p>Dengan menggunakan ekstensi <code>.mjs</code>, membuat Node tahu bahwa kita sedang menggunakan ES <em>module</em> di dalam file ini, dibandingkan dengan <code>.js</code>.</p>
@@ -144,12 +153,12 @@
             
                 <li>
                     <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
                 </li>
             
                 <li>
                     <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
                 </li>
             
                 <li>
@@ -216,12 +225,32 @@
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

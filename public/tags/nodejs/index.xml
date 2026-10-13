@@ -83,7 +83,7 @@ Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang dig
       <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
       <description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
 Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
-Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
+ Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
 Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</description>
     </item>
     
@@ -122,7 +122,7 @@ Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, me
       <guid>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</guid>
       <description>Halo semua, kembali lagi bersama Author :&#39;)
 Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
-Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
+ Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
 JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</description>
     </item>
     

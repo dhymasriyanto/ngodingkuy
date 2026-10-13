@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modules NodeJS - Common Module - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -46,10 +48,17 @@
             
         </div>
 
+        
+        
+            <div class="post-banner">
+                <img src="/posts/modules-nodejs-part-one/modules.png" alt="Modules NodeJS - Common Module" loading="lazy">
+            </div>
+        
+
         <div class="post-content">
             <p>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya <em>script tag</em> (<code>&lt;script&gt;&lt;script&gt;</code>) untuk memasukkan file JavaScript kita pada aplikasi kita.</p>
 <p>Nah, untuk itu lah kita memerlukan <em>modules</em> untuk saling berbagi satu JS ke JS lainnya.</p>
-<h1 id="center-apa-itu-_module_-center"><!-- raw HTML omitted --> Apa itu <em>Module</em>? <!-- raw HTML omitted --></h1>
+<h1 id="center-apa-itu-_module_-center"><center> Apa itu <em>Module</em>? <center></h1>
 <p><em>Module</em> merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.</p>
 <p><em>Module</em> ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu <em>global scope</em>.</p>
 <p>Karena pada dasar nya sama saja seperti membungkus kode JS kita ke dalam sebuah fungsi. Fungsi ini tidak akan mengganggu <em>scope</em> lain sampai ia dipanggil.</p>
@@ -156,12 +165,12 @@ Secara <em>default</em> <code>require</code> membaca untuk file dengan ekstensi 
             
                 <li>
                     <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
                 </li>
             
                 <li>
                     <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
                 </li>
             
                 <li>
@@ -228,12 +237,32 @@ Secara <em>default</em> <code>require</code> membaca untuk file dengan ekstensi 
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

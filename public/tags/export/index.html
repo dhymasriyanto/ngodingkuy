@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>export - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -49,6 +51,14 @@
                         </span>
                     
                 </div>
+
+                
+                
+                    <div class="post-preview-thumb">
+                        <a href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/"><img src="/posts/modules-nodejs-part-two/modules.png" alt="Modules Nodejs - ECMAScript Module" loading="lazy"></a>
+                    </div>
+                
+
                 <p>Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
 Agar JavaScript benar-benar universal di segala environment, untuk itu diperlukan cara yang lebih futuristik.
 Untuk itu, hadirlah ES module atau ECMAScript module.
@@ -72,9 +82,17 @@ Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang dig
                         </span>
                     
                 </div>
+
+                
+                
+                    <div class="post-preview-thumb">
+                        <a href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/"><img src="/posts/modules-nodejs-part-one/modules.png" alt="Modules NodeJS - Common Module" loading="lazy"></a>
+                    </div>
+                
+
                 <p>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&lt;script&gt;&lt;script&gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
 Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
-Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
+ Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
 Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</p>
                 <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/">Read post -&gt;</a>
             </article>
@@ -107,12 +125,32 @@ Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor jug
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

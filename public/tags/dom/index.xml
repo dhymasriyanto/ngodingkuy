@@ -6,17 +6,16 @@
     <description>Recent content in dom on ngodingkuy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Oct 2026 10:00:00 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/dom/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/dom/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>JavaScript 101: How JS Controls Your Browser (BOM vs DOM)</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</link>
-      <pubDate>Tue, 13 Oct 2026 10:00:00 +0700</pubDate>
+      <title>Javascript in Action</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</link>
+      <pubDate>Tue, 14 Apr 2026 09:11:28 +0000</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</guid>
-      <description>Welcome back to another note :&#39;)
-Most of us use JavaScript daily to build interactive UI, animate buttons, handle form submissions, or fetch backend APIs. But sometimes we overlook the foundational mechanics: how does JavaScript actually take control of your browser and web document under the hood?
-The whole mechanism boils down to two key concepts: BOM and DOM.
- 1. BOM (Browser Object Model) As the name implies, BOM represents the browser window and environment itself, completely independent of the actual HTML content loaded inside it.</description>
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</guid>
+      <description>How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
+BOM BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &amp;lsquo;window&amp;rsquo; we can make the browser show pop-up message with running alert() method in browser console.
+DOM DOM stands for Document Object Model, it is just like BOM, but we access it using global object called documents.</description>
     </item>
     
   </channel>

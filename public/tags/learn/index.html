@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>learn - ngodingkuy</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a>
+    </nav>
+
+    <h1 class="section-title">learn</h1>
+
+    
+
+    <div class="posts-list" id="posts-container">
+        
+            <article class="post-preview post-item " data-index="0">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a></h2>
+                <div class="post-meta">
+                    <time datetime="2026-04-14">April 14, 2026</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By Dhymas Julyan Riyanto</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/javascript/">[Javascript]</a>
+                            
+                        </span>
+                    
+                </div>
+
+                
+                
+
+                <p>How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
+BOM BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &lsquo;window&rsquo; we can make the browser show pop-up message with running alert() method in browser console.
+DOM DOM stands for Document Object Model, it is just like BOM, but we access it using global object called documents.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Read post -&gt;</a>
+            </article>
+        
+    </div>
+
+    
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
+</footer>
+
+</body>
+</html>

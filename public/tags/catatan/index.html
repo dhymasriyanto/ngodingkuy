@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>catatan - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -35,6 +37,31 @@
     <div class="posts-list" id="posts-container">
         
             <article class="post-preview post-item " data-index="0">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a></h2>
+                <div class="post-meta">
+                    <time datetime="2026-03-30">March 30, 2026</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By Dhymas Julyan Riyanto</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/tulisan/">[Tulisan]</a>
+                            
+                        </span>
+                    
+                </div>
+
+                
+                
+
+                <p>After all this time, I am trying to actively write again, with something fresh.
+In this simple blog, I will try to write everything I have learned as an archive.
+Better late than never.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item " data-index="1">
                 <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/nodejs/">NodeJS</a></h2>
                 <div class="post-meta">
                     <time datetime="2021-08-07">August 7, 2021</time>
@@ -49,9 +76,17 @@
                         </span>
                     
                 </div>
+
+                
+                
+                    <div class="post-preview-thumb">
+                        <a href="https://ngodingkuy.ngodingkuy.site/posts/nodejs/"><img src="/posts/nodejs/nodejs.png" alt="NodeJS" loading="lazy"></a>
+                    </div>
+                
+
                 <p>Halo semua, kembali lagi bersama Author :')
 Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
-Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
+ Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
 JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</p>
                 <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/nodejs/">Read post -&gt;</a>
             </article>
@@ -84,12 +119,32 @@ JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? 
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

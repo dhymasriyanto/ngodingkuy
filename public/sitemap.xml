@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</loc>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/bom/</loc>
+    <lastmod>2026-04-14T09:11:28+00:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/categories/</loc>
+    <lastmod>2026-04-14T09:11:28+00:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/dom/</loc>
+    <lastmod>2026-04-14T09:11:28+00:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/categories/javascript/</loc>
+    <lastmod>2026-04-14T09:11:28+00:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/javascript/</loc>
+    <lastmod>2026-04-14T09:11:28+00:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</loc>
+    <lastmod>2026-04-14T09:11:28+00:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/learn/</loc>
     <lastmod>2026-04-14T09:11:28+00:00</lastmod>
   </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/</loc>
@@ -11,16 +29,28 @@
     <loc>https://ngodingkuy.ngodingkuy.site/posts/</loc>
     <lastmod>2026-04-14T09:11:28+00:00</lastmod>
   </url><url>
-    <loc>https://ngodingkuy.ngodingkuy.site/posts/welcome/</loc>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/</loc>
+    <lastmod>2026-04-14T09:11:28+00:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/catatan/</loc>
     <lastmod>2026-03-30T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>https://ngodingkuy.ngodingkuy.site/categories/</loc>
-    <lastmod>2022-01-17T17:13:29+07:00</lastmod>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/nulis/</loc>
+    <lastmod>2026-03-30T10:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/categories/tulisan/</loc>
+    <lastmod>2026-03-30T10:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/tulisan/</loc>
+    <lastmod>2026-03-30T10:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/</loc>
+    <lastmod>2026-03-30T10:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://ngodingkuy.ngodingkuy.site/tags/writing/</loc>
+    <lastmod>2026-03-30T10:00:00+07:00</lastmod>
   </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/tags/file/</loc>
-    <lastmod>2022-01-17T17:13:29+07:00</lastmod>
-  </url><url>
-    <loc>https://ngodingkuy.ngodingkuy.site/tags/javascript/</loc>
     <lastmod>2022-01-17T17:13:29+07:00</lastmod>
   </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/categories/nodejs/</loc>
@@ -33,9 +63,6 @@
     <lastmod>2022-01-17T17:13:29+07:00</lastmod>
   </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/tags/system/</loc>
-    <lastmod>2022-01-17T17:13:29+07:00</lastmod>
-  </url><url>
-    <loc>https://ngodingkuy.ngodingkuy.site/tags/</loc>
     <lastmod>2022-01-17T17:13:29+07:00</lastmod>
   </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/tags/library/</loc>
@@ -80,9 +107,6 @@
     <loc>https://ngodingkuy.ngodingkuy.site/tags/saya-kembali/</loc>
     <lastmod>2022-01-01T00:00:00+07:00</lastmod>
   </url><url>
-    <loc>https://ngodingkuy.ngodingkuy.site/categories/tulisan/</loc>
-    <lastmod>2022-01-01T00:00:00+07:00</lastmod>
-  </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</loc>
     <lastmod>2021-08-07T14:32:50+07:00</lastmod>
   </url><url>
@@ -103,9 +127,6 @@
   </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/tags/repl/</loc>
     <lastmod>2021-08-07T10:54:07+07:00</lastmod>
-  </url><url>
-    <loc>https://ngodingkuy.ngodingkuy.site/tags/catatan/</loc>
-    <lastmod>2021-08-07T09:56:26+07:00</lastmod>
   </url><url>
     <loc>https://ngodingkuy.ngodingkuy.site/tags/install/</loc>
     <lastmod>2021-08-07T09:56:26+07:00</lastmod>

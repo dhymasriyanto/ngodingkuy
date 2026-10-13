@@ -2,13 +2,14 @@
     <section class="posts-section">
         <h2 class="section-title">Latest Posts</h2>
         {{ range first 3 .Site.RegularPages.ByDate.Reverse }}
+            {{ $page := . }}
             <article class="post-preview">
-                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                <h2><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h2>
                 <div class="post-meta">
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                    <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "January 2, 2006" }}</time>
                     <span class="meta-sep">&bull;</span>
-                    <span class="author">By {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Params.author }}{{ end }}</span>
-                    {{ with .Params.categories }}
+                    <span class="author">By {{ with $page.Params.author }}{{ . }}{{ else }}{{ $page.Site.Params.author }}{{ end }}</span>
+                    {{ with $page.Params.categories }}
                         <span class="meta-sep">&bull;</span>
                         <span class="post-categories">
                             {{ range . }}
@@ -17,8 +18,16 @@
                         </span>
                     {{ end }}
                 </div>
-                <p>{{ .Summary }}</p>
-                <a class="read-more" href="{{ .Permalink }}">Read post -&gt;</a>
+
+                {{ $images := $page.Resources.ByType "image" }}
+                {{ with index $images 0 }}
+                    <div class="post-preview-thumb">
+                        <a href="{{ $page.Permalink }}"><img src="{{ .RelPermalink }}" alt="{{ $page.Title }}" loading="lazy"></a>
+                    </div>
+                {{ end }}
+
+                <p>{{ $page.Summary }}</p>
+                <a class="read-more" href="{{ $page.Permalink }}">Read post -&gt;</a>
             </article>
         {{ else }}
             <p>No posts published yet.</p>

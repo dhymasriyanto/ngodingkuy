@@ -6,7 +6,9 @@ aliases:
     - /tentang/
 ---
 
-{{< figure src="/img/tentang/icon.png" class="img-fluid" >}}
+<div class="about-icon-container">
+    <img src="/img/tentang/ngodingkuy-icon.png" alt="ngodingkuy logo" class="about-logo">
+</div>
 
 ## What is [_Ngoding Kuy!_](https://ngodingkuy.ngodingkuy.site/) ?
 

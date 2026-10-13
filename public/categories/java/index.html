@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JAVA - ngodingkuy</title>
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+    <link rel="shortcut icon" href="/favicon.ico?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <header class="site-header" id="top">
@@ -49,6 +51,14 @@
                         </span>
                     
                 </div>
+
+                
+                
+                    <div class="post-preview-thumb">
+                        <a href="https://ngodingkuy.ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/"><img src="/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.png" alt="Cara Menginstall JDK Dan Menampilkan Hello World" loading="lazy"></a>
+                    </div>
+                
+
                 <p>JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE (JAVA Runtime Environment). Berikut perbedaan ketiganya:
   JVM adalah komponen dari platform JAVA yang berfungsi untuk mengeksekusi program-program
   JRE adalah bagian JAVA yang membuat JVM
@@ -84,12 +94,32 @@
             <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
             <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
             <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
         </p>
         
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
 
 </body>

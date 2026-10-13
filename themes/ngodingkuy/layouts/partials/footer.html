@@ -20,10 +20,30 @@
             {{ with .github }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>{{ end }}
             {{ with .instagram }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>{{ end }}
             {{ with .facebook }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>{{ end }}
-            {{ with .email }}<a href="{{ . }}">[ Email ]</a>{{ end }}
+            {{ with .email }}<a href="{{ . | safeURL }}" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>{{ end }}
         </p>
         {{ end }}
 
         <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
+
+    <script>
+    (function () {
+        const emailLink = document.getElementById('email-contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function (e) {
+                const mail = 'gojin003@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(mail).then(function () {
+                        const orig = emailLink.textContent;
+                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
+                        setTimeout(function () {
+                            emailLink.textContent = orig;
+                        }, 2500);
+                    }).catch(function () {});
+                }
+            });
+        }
+    })();
+    </script>
 </footer>
