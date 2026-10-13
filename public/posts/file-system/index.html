@@ -2,17 +2,108 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Standard Library - File System - ngodingkuy</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
-    <link rel="shortcut icon" href="/favicon.ico?v=4">
-    <link rel="stylesheet" href="/css/style.css?v=4">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Standard Library - File System - ngodingkuy</title>
+
+
+<link rel="canonical" href="https://ngodingkuy.site/posts/file-system/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+
+
+    
+
+<meta name="description" content="File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
+Terdapat 3 jenis library dalam File System, yakni:
+ Library yang …">
+
+
+<meta name="keywords" content="file, system, nodejs, javascript">
+
+<meta name="author" content="dhymas">
+
+
+<link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+
+
+
+
+
+    
+
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Standard Library - File System">
+<meta property="og:description" content="File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
+Terdapat 3 jenis library dalam File System, yakni:
+ Library yang bersifat blocking atau synchronous Library …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/file-system/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/file-system/file.png">
+
+
+    <meta property="article:published_time" content="2022-01-17T17:13:29&#43;07:00">
+    <meta property="article:modified_time" content="2022-01-17T17:13:29&#43;07:00">
+    <meta property="article:tag" content="file"><meta property="article:tag" content="system"><meta property="article:tag" content="nodejs"><meta property="article:tag" content="javascript">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Standard Library - File System">
+<meta name="twitter:description" content="File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
+Terdapat 3 jenis library dalam File System, yakni:
+ Library yang bersifat blocking atau synchronous Library …">
+<meta name="twitter:image" content="https://ngodingkuy.site/posts/file-system/file.png">
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Standard Library - File System",
+  "description": "File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.\nTerdapat 3 jenis library dalam File System, yakni:\n Library yang bersifat blocking atau synchronous Library yang bersifat non-blocking atau asynchronous …",
+  "url": "https://ngodingkuy.site/posts/file-system/",
+  "datePublished": "2022-01-17T17:13:29+07:00",
+  "dateModified": "2022-01-17T17:13:29+07:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ngodingkuy.site/posts/file-system/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "dhymas"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ngodingkuy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngodingkuy.site/img/favicon.png"
+    }
+  },
+  "image": "https://ngodingkuy.site/posts/file-system/file.png"
+}
+</script>
+
+
+
+<link rel="stylesheet" href="/css/style.css?v=4">
+
 </head>
 <body>
     <header class="site-header" id="top">
     <div class="container">
         <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn. write. remember.</p>
+        <p class="site-subtitle">learn it, write it, re-learn it.</p>
         <nav class="site-nav">
             <a href="/">[ Home ]</a>
             <a href="/posts/">[ Posts ]</a>
@@ -125,13 +216,13 @@
         <div class="prev-post">
             
                 <span class="nav-label">&lt;- Previous:</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
             
         </div>
         <div class="next-post">
             
                 <span class="nav-label">Next -&gt;</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
+                <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
             
         </div>
     </nav>
@@ -143,27 +234,27 @@
             
                 <li>
                     <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
+                    <a href="https://ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
                 </li>
             
                 <li>
                     <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
+                    <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                    <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                    <a href="https://ngodingkuy.site/posts/os/">Standard Library - OS</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-04">2022-01-04</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+                    <a href="https://ngodingkuy.site/posts/global-async/">Global Async</a>
                 </li>
             
         </ul>
@@ -175,7 +266,7 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/file-system\/";
+            this.page.url = "https:\/\/ngodingkuy.site\/posts\/file-system\/";
             this.page.identifier = "\/posts\/file-system\/";
             this.language = "en";
         };

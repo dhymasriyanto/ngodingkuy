@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ .Title }} - {{ .Site.Title }}</title>
-    <link rel="icon" type="image/png" href="{{ "img/favicon.png" | relURL }}?v=4">
-    <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}?v=4">
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=4">
+    {{ partial "head.html" . }}
 </head>
 <body>
     {{ partial "header.html" . }}

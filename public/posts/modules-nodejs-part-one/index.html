@@ -2,17 +2,104 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modules NodeJS - Common Module - ngodingkuy</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
-    <link rel="shortcut icon" href="/favicon.ico?v=4">
-    <link rel="stylesheet" href="/css/style.css?v=4">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Modules NodeJS - Common Module - ngodingkuy</title>
+
+
+<link rel="canonical" href="https://ngodingkuy.site/posts/modules-nodejs-part-one/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+
+
+    
+
+<meta name="description" content="Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&lt;script&gt;&lt;script&gt;) untuk memasukkan file JavaScript kita pada …">
+
+
+<meta name="keywords" content="nodejs, javascript, modules, import, export">
+
+<meta name="author" content="dhymas">
+
+
+<link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+
+
+
+
+
+    
+
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Modules NodeJS - Common Module">
+<meta property="og:description" content="Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&lt;script&gt;&lt;script&gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
+Nah, untuk itu lah kita …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/modules-nodejs-part-one/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/modules-nodejs-part-one/modules.png">
+
+
+    <meta property="article:published_time" content="2021-08-07T14:32:50&#43;07:00">
+    <meta property="article:modified_time" content="2021-08-07T14:32:50&#43;07:00">
+    <meta property="article:tag" content="nodejs"><meta property="article:tag" content="javascript"><meta property="article:tag" content="modules"><meta property="article:tag" content="import"><meta property="article:tag" content="export">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Modules NodeJS - Common Module">
+<meta name="twitter:description" content="Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&lt;script&gt;&lt;script&gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
+Nah, untuk itu lah kita …">
+<meta name="twitter:image" content="https://ngodingkuy.site/posts/modules-nodejs-part-one/modules.png">
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Modules NodeJS - Common Module",
+  "description": "Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (\u0026lt;script\u0026gt;\u0026lt;script\u0026gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.\nNah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS …",
+  "url": "https://ngodingkuy.site/posts/modules-nodejs-part-one/",
+  "datePublished": "2021-08-07T14:32:50+07:00",
+  "dateModified": "2021-08-07T14:32:50+07:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ngodingkuy.site/posts/modules-nodejs-part-one/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "dhymas"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ngodingkuy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngodingkuy.site/img/favicon.png"
+    }
+  },
+  "image": "https://ngodingkuy.site/posts/modules-nodejs-part-one/modules.png"
+}
+</script>
+
+
+
+<link rel="stylesheet" href="/css/style.css?v=4">
+
 </head>
 <body>
     <header class="site-header" id="top">
     <div class="container">
         <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn. write. remember.</p>
+        <p class="site-subtitle">learn it, write it, re-learn it.</p>
         <nav class="site-nav">
             <a href="/">[ Home ]</a>
             <a href="/posts/">[ Posts ]</a>
@@ -147,13 +234,13 @@ Secara <em>default</em> <code>require</code> membaca untuk file dengan ekstensi 
         <div class="prev-post">
             
                 <span class="nav-label">&lt;- Previous:</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/">Global NodeJS</a>
+                <a href="https://ngodingkuy.site/posts/global-nodejs/">Global NodeJS</a>
             
         </div>
         <div class="next-post">
             
                 <span class="nav-label">Next -&gt;</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/i-am-back/">Hello, I&#39;m Back :&#39;v</a>
+                <a href="https://ngodingkuy.site/posts/i-am-back/">Hello, I&#39;m Back :&#39;v</a>
             
         </div>
     </nav>
@@ -165,27 +252,27 @@ Secara <em>default</em> <code>require</code> membaca untuk file dengan ekstensi 
             
                 <li>
                     <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
+                    <a href="https://ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
                 </li>
             
                 <li>
                     <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
+                    <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-17">2022-01-17</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                    <a href="https://ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                    <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                    <a href="https://ngodingkuy.site/posts/os/">Standard Library - OS</a>
                 </li>
             
         </ul>
@@ -197,7 +284,7 @@ Secara <em>default</em> <code>require</code> membaca untuk file dengan ekstensi 
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/modules-nodejs-part-one\/";
+            this.page.url = "https:\/\/ngodingkuy.site\/posts\/modules-nodejs-part-one\/";
             this.page.identifier = "\/posts\/modules-nodejs-part-one\/";
             this.language = "en";
         };

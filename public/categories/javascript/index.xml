@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on ngodingkuy</title>
-    <link>https://ngodingkuy.ngodingkuy.site/categories/javascript/</link>
+    <link>https://ngodingkuy.site/categories/javascript/</link>
     <description>Recent content in Javascript on ngodingkuy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.site/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Javascript in Action</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</link>
+      <link>https://ngodingkuy.site/posts/javascript-101/javascript-101/</link>
       <pubDate>Tue, 14 Apr 2026 09:11:28 +0000</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</guid>
+      <guid>https://ngodingkuy.site/posts/javascript-101/javascript-101/</guid>
       <description>How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
 BOM BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &amp;lsquo;window&amp;rsquo; we can make the browser show pop-up message with running alert() method in browser console.
 DOM DOM stands for Document Object Model, it is just like BOM, but we access it using global object called documents.</description>

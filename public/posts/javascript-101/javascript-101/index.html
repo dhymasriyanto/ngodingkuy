@@ -2,17 +2,103 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Javascript in Action - ngodingkuy</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
-    <link rel="shortcut icon" href="/favicon.ico?v=4">
-    <link rel="stylesheet" href="/css/style.css?v=4">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Javascript in Action - ngodingkuy</title>
+
+
+<link rel="canonical" href="https://ngodingkuy.site/posts/javascript-101/javascript-101/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+
+
+    
+
+<meta name="description" content="How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
+BOM BOM stands for Browser Object …">
+
+
+<meta name="keywords" content="javascript, learn, dom, bom">
+
+<meta name="author" content="Dhymas Julyan Riyanto">
+
+
+<link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+
+
+
+
+
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Javascript in Action">
+<meta property="og:description" content="How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
+BOM BOM stands for Browser Object Model, with it we can give special …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/javascript-101/javascript-101/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/img/favicon.png">
+
+
+    <meta property="article:published_time" content="2026-04-14T09:11:28Z">
+    <meta property="article:modified_time" content="2026-04-14T09:11:28Z">
+    <meta property="article:tag" content="javascript"><meta property="article:tag" content="learn"><meta property="article:tag" content="dom"><meta property="article:tag" content="bom">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Javascript in Action">
+<meta name="twitter:description" content="How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
+BOM BOM stands for Browser Object Model, with it we can give special …">
+<meta name="twitter:image" content="https://ngodingkuy.site/img/favicon.png">
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Javascript in Action",
+  "description": "How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.\nBOM BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute …",
+  "url": "https://ngodingkuy.site/posts/javascript-101/javascript-101/",
+  "datePublished": "2026-04-14T09:11:28Z",
+  "dateModified": "2026-04-14T09:11:28Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ngodingkuy.site/posts/javascript-101/javascript-101/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Dhymas Julyan Riyanto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ngodingkuy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngodingkuy.site/img/favicon.png"
+    }
+  },
+  "image": "https://ngodingkuy.site/img/favicon.png"
+}
+</script>
+
+
+
+<link rel="stylesheet" href="/css/style.css?v=4">
+
 </head>
 <body>
     <header class="site-header" id="top">
     <div class="container">
         <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn. write. remember.</p>
+        <p class="site-subtitle">learn it, write it, re-learn it.</p>
         <nav class="site-nav">
             <a href="/">[ Home ]</a>
             <a href="/posts/">[ Posts ]</a>
@@ -83,7 +169,7 @@
         <div class="prev-post">
             
                 <span class="nav-label">&lt;- Previous:</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
+                <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
             
         </div>
         <div class="next-post">
@@ -98,27 +184,27 @@
             
                 <li>
                     <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
+                    <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-17">2022-01-17</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                    <a href="https://ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                    <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                    <a href="https://ngodingkuy.site/posts/os/">Standard Library - OS</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-04">2022-01-04</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+                    <a href="https://ngodingkuy.site/posts/global-async/">Global Async</a>
                 </li>
             
         </ul>
@@ -130,7 +216,7 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/javascript-101\/javascript-101\/";
+            this.page.url = "https:\/\/ngodingkuy.site\/posts\/javascript-101\/javascript-101\/";
             this.page.identifier = "\/posts\/javascript-101\/javascript-101\/";
             this.language = "en";
         };

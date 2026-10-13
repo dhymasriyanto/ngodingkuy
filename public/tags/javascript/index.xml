@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>javascript on ngodingkuy</title>
-    <link>https://ngodingkuy.ngodingkuy.site/tags/javascript/</link>
+    <link>https://ngodingkuy.site/tags/javascript/</link>
     <description>Recent content in javascript on ngodingkuy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.site/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Javascript in Action</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</link>
+      <link>https://ngodingkuy.site/posts/javascript-101/javascript-101/</link>
       <pubDate>Tue, 14 Apr 2026 09:11:28 +0000</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/</guid>
+      <guid>https://ngodingkuy.site/posts/javascript-101/javascript-101/</guid>
       <description>How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
 BOM BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &amp;lsquo;window&amp;rsquo; we can make the browser show pop-up message with running alert() method in browser console.
 DOM DOM stands for Document Object Model, it is just like BOM, but we access it using global object called documents.</description>
@@ -20,10 +20,10 @@ DOM DOM stands for Document Object Model, it is just like BOM, but we access it 
     
     <item>
       <title>Standard Library - File System</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/file-system/</link>
+      <link>https://ngodingkuy.site/posts/file-system/</link>
       <pubDate>Mon, 17 Jan 2022 17:13:29 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/file-system/</guid>
+      <guid>https://ngodingkuy.site/posts/file-system/</guid>
       <description>File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
 Terdapat 3 jenis library dalam File System, yakni:
  Library yang bersifat blocking atau synchronous Library yang bersifat non-blocking atau asynchronous menggunakan callback Library yang bersifat non-blocking atau asynchronous tapi menggunakan promise  Untuk dokumentasi lebih lanjut dapat di lihat disini
@@ -33,10 +33,10 @@ Jika menggunakan callback, kita harus menggunakan callback terus menerus, dan ma
     
     <item>
       <title>Standard Library - OS</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/os/</link>
+      <link>https://ngodingkuy.site/posts/os/</link>
       <pubDate>Sun, 16 Jan 2022 15:31:27 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/os/</guid>
+      <guid>https://ngodingkuy.site/posts/os/</guid>
       <description>Apa itu Standard Library?
 Seperti namanya, standard library merupakan library yang secara default disediakan oleh nodejs.
 Kali ini, kita akan membahas sebuah standard library dari nodejs yaitu OS.
@@ -47,10 +47,10 @@ Beberapa contohnya sebagai berikut:
     
     <item>
       <title>Global Async</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/global-async/</link>
+      <link>https://ngodingkuy.site/posts/global-async/</link>
       <pubDate>Tue, 04 Jan 2022 20:01:06 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/global-async/</guid>
+      <guid>https://ngodingkuy.site/posts/global-async/</guid>
       <description>Pada JavaSript biasanya kita menggunakan async await kita perlu membuat function yang ditandai sebagai async.
 Nah, pada saat menggunakan module secara default kita sudah menggunakan async, untuk itu kita sudah bisa menggunakan async tanpa harus menggunakan keyword async.
 Mari kita coba dengan contoh berikut:
@@ -61,10 +61,10 @@ const hallo = await contohPromise() console.</description>
     
     <item>
       <title>Modules Nodejs - ECMAScript Module</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/</link>
+      <link>https://ngodingkuy.site/posts/modules-nodejs-part-two/</link>
       <pubDate>Mon, 03 Jan 2022 00:00:44 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/</guid>
+      <guid>https://ngodingkuy.site/posts/modules-nodejs-part-two/</guid>
       <description>Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
 Agar JavaScript benar-benar universal di segala environment, untuk itu diperlukan cara yang lebih futuristik.
 Untuk itu, hadirlah ES module atau ECMAScript module.
@@ -74,10 +74,10 @@ Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang dig
     
     <item>
       <title>Modules NodeJS - Common Module</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</link>
+      <link>https://ngodingkuy.site/posts/modules-nodejs-part-one/</link>
       <pubDate>Sat, 07 Aug 2021 14:32:50 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
+      <guid>https://ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
       <description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
 Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
  Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
@@ -86,10 +86,10 @@ Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor jug
     
     <item>
       <title>Global NodeJS</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/</link>
+      <link>https://ngodingkuy.site/posts/global-nodejs/</link>
       <pubDate>Sat, 07 Aug 2021 12:11:46 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/</guid>
+      <guid>https://ngodingkuy.site/posts/global-nodejs/</guid>
       <description>Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
 Global object dapat digunakan secara global pada aplikasi dan pada semua module.
 Tidak perlu melakukan include pada aplikasi lagi, kalian tinggal pakai saja global object ini.
@@ -100,10 +100,10 @@ Berikut list umum yang diberikan oleh objek global pada NodeJS:
     
     <item>
       <title>Mengeksekusi NodeJS</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/</link>
+      <link>https://ngodingkuy.site/posts/executing-nodejs/</link>
       <pubDate>Sat, 07 Aug 2021 10:54:07 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/</guid>
+      <guid>https://ngodingkuy.site/posts/executing-nodejs/</guid>
       <description>Bagaimana cara mengeksekusi NodeJS?  Nah, setelah kita berhasil menginstall NodeJS berdasarkan postingan sebelumnya, kali ini kita akan mencoba mengeksekusi NodeJS, agar dapat digunakan.
 Node REPL Apa itu REPL?
 REPL merupakan singkatan dari Read, Evaluate, Print, Loop.
@@ -113,10 +113,10 @@ Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, me
     
     <item>
       <title>NodeJS</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</link>
+      <link>https://ngodingkuy.site/posts/nodejs/</link>
       <pubDate>Sat, 07 Aug 2021 09:56:26 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</guid>
+      <guid>https://ngodingkuy.site/posts/nodejs/</guid>
       <description>Halo semua, kembali lagi bersama Author :&#39;)
 Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
  Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.

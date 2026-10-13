@@ -2,17 +2,104 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modules Nodejs - ECMAScript Module - ngodingkuy</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
-    <link rel="shortcut icon" href="/favicon.ico?v=4">
-    <link rel="stylesheet" href="/css/style.css?v=4">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Modules Nodejs - ECMAScript Module - ngodingkuy</title>
+
+
+<link rel="canonical" href="https://ngodingkuy.site/posts/modules-nodejs-part-two/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+
+
+    
+
+<meta name="description" content="Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan …">
+
+
+<meta name="keywords" content="nodejs, javascript, modules, import, export">
+
+<meta name="author" content="dhymas">
+
+
+<link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+
+
+
+
+
+    
+
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Modules Nodejs - ECMAScript Module">
+<meta property="og:description" content="Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
+Agar JavaScript …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/modules-nodejs-part-two/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/modules-nodejs-part-two/modules.png">
+
+
+    <meta property="article:published_time" content="2022-01-03T00:00:44&#43;07:00">
+    <meta property="article:modified_time" content="2022-01-03T00:00:44&#43;07:00">
+    <meta property="article:tag" content="nodejs"><meta property="article:tag" content="javascript"><meta property="article:tag" content="modules"><meta property="article:tag" content="import"><meta property="article:tag" content="export">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Modules Nodejs - ECMAScript Module">
+<meta name="twitter:description" content="Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
+Agar JavaScript …">
+<meta name="twitter:image" content="https://ngodingkuy.site/posts/modules-nodejs-part-two/modules.png">
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Modules Nodejs - ECMAScript Module",
+  "description": "Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.\nAgar JavaScript benar-benar universal di segala environment, untuk itu …",
+  "url": "https://ngodingkuy.site/posts/modules-nodejs-part-two/",
+  "datePublished": "2022-01-03T00:00:44+07:00",
+  "dateModified": "2022-01-03T00:00:44+07:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ngodingkuy.site/posts/modules-nodejs-part-two/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "dhymas"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ngodingkuy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngodingkuy.site/img/favicon.png"
+    }
+  },
+  "image": "https://ngodingkuy.site/posts/modules-nodejs-part-two/modules.png"
+}
+</script>
+
+
+
+<link rel="stylesheet" href="/css/style.css?v=4">
+
 </head>
 <body>
     <header class="site-header" id="top">
     <div class="container">
         <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn. write. remember.</p>
+        <p class="site-subtitle">learn it, write it, re-learn it.</p>
         <nav class="site-nav">
             <a href="/">[ Home ]</a>
             <a href="/posts/">[ Posts ]</a>
@@ -135,13 +222,13 @@
         <div class="prev-post">
             
                 <span class="nav-label">&lt;- Previous:</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/i-am-back/">Hello, I&#39;m Back :&#39;v</a>
+                <a href="https://ngodingkuy.site/posts/i-am-back/">Hello, I&#39;m Back :&#39;v</a>
             
         </div>
         <div class="next-post">
             
                 <span class="nav-label">Next -&gt;</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+                <a href="https://ngodingkuy.site/posts/global-async/">Global Async</a>
             
         </div>
     </nav>
@@ -153,27 +240,27 @@
             
                 <li>
                     <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
+                    <a href="https://ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
                 </li>
             
                 <li>
                     <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
+                    <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-17">2022-01-17</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                    <a href="https://ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                    <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
                 </li>
             
                 <li>
                     <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                    <a href="https://ngodingkuy.site/posts/os/">Standard Library - OS</a>
                 </li>
             
         </ul>
@@ -185,7 +272,7 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/modules-nodejs-part-two\/";
+            this.page.url = "https:\/\/ngodingkuy.site\/posts\/modules-nodejs-part-two\/";
             this.page.identifier = "\/posts\/modules-nodejs-part-two\/";
             this.language = "en";
         };

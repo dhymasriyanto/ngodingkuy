@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>modules on ngodingkuy</title>
-    <link>https://ngodingkuy.ngodingkuy.site/tags/modules/</link>
+    <link>https://ngodingkuy.site/tags/modules/</link>
     <description>Recent content in modules on ngodingkuy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Jan 2022 20:01:06 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/modules/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 20:01:06 +0700</lastBuildDate><atom:link href="https://ngodingkuy.site/tags/modules/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Global Async</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/global-async/</link>
+      <link>https://ngodingkuy.site/posts/global-async/</link>
       <pubDate>Tue, 04 Jan 2022 20:01:06 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/global-async/</guid>
+      <guid>https://ngodingkuy.site/posts/global-async/</guid>
       <description>Pada JavaSript biasanya kita menggunakan async await kita perlu membuat function yang ditandai sebagai async.
 Nah, pada saat menggunakan module secara default kita sudah menggunakan async, untuk itu kita sudah bisa menggunakan async tanpa harus menggunakan keyword async.
 Mari kita coba dengan contoh berikut:
@@ -23,10 +23,10 @@ const hallo = await contohPromise() console.</description>
     
     <item>
       <title>Modules Nodejs - ECMAScript Module</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/</link>
+      <link>https://ngodingkuy.site/posts/modules-nodejs-part-two/</link>
       <pubDate>Mon, 03 Jan 2022 00:00:44 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/</guid>
+      <guid>https://ngodingkuy.site/posts/modules-nodejs-part-two/</guid>
       <description>Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
 Agar JavaScript benar-benar universal di segala environment, untuk itu diperlukan cara yang lebih futuristik.
 Untuk itu, hadirlah ES module atau ECMAScript module.
@@ -36,10 +36,10 @@ Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang dig
     
     <item>
       <title>Modules NodeJS - Common Module</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</link>
+      <link>https://ngodingkuy.site/posts/modules-nodejs-part-one/</link>
       <pubDate>Sat, 07 Aug 2021 14:32:50 +0700</pubDate>
       
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
+      <guid>https://ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
       <description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
 Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
  Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
