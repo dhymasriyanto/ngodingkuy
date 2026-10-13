@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>execute on ngodingkuy</title>
+    <link>https://ngodingkuy.ngodingkuy.site/tags/execute/</link>
+    <description>Recent content in execute on ngodingkuy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Aug 2021 10:54:07 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/execute/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mengeksekusi NodeJS</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/</link>
+      <pubDate>Sat, 07 Aug 2021 10:54:07 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/</guid>
+      <description>Bagaimana cara mengeksekusi NodeJS?  Nah, setelah kita berhasil menginstall NodeJS berdasarkan postingan sebelumnya, kali ini kita akan mencoba mengeksekusi NodeJS, agar dapat digunakan.
+Node REPL Apa itu REPL?
+REPL merupakan singkatan dari Read, Evaluate, Print, Loop.
+Mangsudnya?
+Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, mengeksekusi, mengeprint, dan loop sesuai dengan konteks runtime yang kita pilih. Ya dalam kasus kita ini contohnya Node. Yang menjadikan kita juga punya console yang sama kayak di browser.</description>
+    </item>
+    
+  </channel>
+</rss>

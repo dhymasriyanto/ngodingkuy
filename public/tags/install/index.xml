@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>install on ngodingkuy</title>
+    <link>https://ngodingkuy.ngodingkuy.site/tags/install/</link>
+    <description>Recent content in install on ngodingkuy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Aug 2021 09:56:26 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/install/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NodeJS</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</link>
+      <pubDate>Sat, 07 Aug 2021 09:56:26 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</guid>
+      <description>Halo semua, kembali lagi bersama Author :&#39;)
+Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
+Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
+JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,6 +1,21 @@
 {
-    "baseURL": "https://ngodingkuy.site/",
+    "baseURL": "https://ngodingkuy.ngodingkuy.site/",
     "languageCode": "en-us",
     "title": "ngodingkuy",
-    "theme": "ngodingkuy"
+    "theme": "ngodingkuy",
+    "disqusShortname": "ngodingkuy",
+    "params": {
+        "author": "Dhymas Julyan Riyanto",
+        "description": "learn. write. remember.",
+        "social": {
+            "github": "https://github.com/dhymasriyanto",
+            "instagram": "https://instagram.com/dhymasriyanto",
+            "facebook": "https://facebook.com/dhymas.riyanto.3",
+            "email": "mailto:gojin003@gmail.com"
+        }
+    },
+    "taxonomies": {
+        "category": "categories",
+        "tag": "tags"
+    }
 }

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NodeJS - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a>
+    </nav>
+
+    <h1 class="section-title">NodeJS</h1>
+
+    
+
+    <div class="posts-list" id="posts-container">
+        
+            <article class="post-preview post-item " data-index="0">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a></h2>
+                <div class="post-meta">
+                    <time datetime="2022-01-17">January 17, 2022</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
+Terdapat 3 jenis library dalam File System, yakni:
+ Library yang bersifat blocking atau synchronous Library yang bersifat non-blocking atau asynchronous menggunakan callback Library yang bersifat non-blocking atau asynchronous tapi menggunakan promise  Untuk dokumentasi lebih lanjut dapat di lihat disini
+Author sendiri menyarankan menggunakan promise, karena lebih mudah, dan juga bisa menggunakan async await.
+Jika menggunakan callback, kita harus menggunakan callback terus menerus, dan malah menyebabkan callback hell.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item " data-index="1">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a></h2>
+                <div class="post-meta">
+                    <time datetime="2022-01-16">January 16, 2022</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Setelah OS, ada lagi standard library yang dapat kita gunakan untuk keperluan kita.
+Kali ini kita akan membahas mengenai Path.
+Path merupakan sebuah standard library nodejs yang bisa digunakan untuk bekerja dengan lokasi file dan direktori/folder.
+Perlu digarisbawahi bahwa kita library ini bekerja dengan lokasi file, bukan file nya.
+Beberapa contoh penggunaan function sebagai berikut:
+ path.basename(path([, ext])) : digunakan ketika ingin mengetahui basename dari lokasi file kita. path.delimiter() : dikarenakan delimiter tiap OS berbeda beda, sehingga memungkinkan untuk menetukan nya dengan fungsi ini.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/path/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item " data-index="2">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a></h2>
+                <div class="post-meta">
+                    <time datetime="2022-01-16">January 16, 2022</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Apa itu Standard Library?
+Seperti namanya, standard library merupakan library yang secara default disediakan oleh nodejs.
+Kali ini, kita akan membahas sebuah standard library dari nodejs yaitu OS.
+OS dapat digunakan untuk membantu kita mendapatkan informasi mengenai sistem operasi yang digunakan.
+Beberapa contohnya sebagai berikut:
+ os.arch() : digunakan untuk melihat arsitektur dari sistem operasi yang digunakan. os.cpus() : digunakan untuk mengetahui detail CPU yang kita gunakan. os.freemem() : atau juga free memory, untuk mengetahui berapa besar memori yang tidak terpakai saat ini.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/os/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item " data-index="3">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a></h2>
+                <div class="post-meta">
+                    <time datetime="2022-01-04">January 4, 2022</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Pada JavaSript biasanya kita menggunakan async await kita perlu membuat function yang ditandai sebagai async.
+Nah, pada saat menggunakan module secara default kita sudah menggunakan async, untuk itu kita sudah bisa menggunakan async tanpa harus menggunakan keyword async.
+Mari kita coba dengan contoh berikut:
+Buatlah sebuah file async.js
+function contohPromise(){ return Promise.resolve(&#39;hello&#39;) } Karena kode di atas merupakan promise, jadi kita bisa menggunakan await di baris selanjutnya;
+const hallo = await contohPromise() console.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item " data-index="4">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/">Modules Nodejs - ECMAScript Module</a></h2>
+                <div class="post-meta">
+                    <time datetime="2022-01-03">January 3, 2022</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
+Agar JavaScript benar-benar universal di segala environment, untuk itu diperlukan cara yang lebih futuristik.
+Untuk itu, hadirlah ES module atau ECMAScript module.
+Nah, pada postingan kali ini kita akan membahas tentang ES module tersebut.
+Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang digunakan untuk aplikasi NodeJS.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item post-deferred" data-index="5">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/">Modules NodeJS - Common Module</a></h2>
+                <div class="post-meta">
+                    <time datetime="2021-08-07">August 7, 2021</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&lt;script&gt;&lt;script&gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
+Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
+Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
+Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item post-deferred" data-index="6">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/">Global NodeJS</a></h2>
+                <div class="post-meta">
+                    <time datetime="2021-08-07">August 7, 2021</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[nodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
+Global object dapat digunakan secara global pada aplikasi dan pada semua module.
+Tidak perlu melakukan include pada aplikasi lagi, kalian tinggal pakai saja global object ini.
+Umum
+Berikut list umum yang diberikan oleh objek global pada NodeJS:
+  global : Dimana dapat digunakan sama halnya seperti window pada console browser. Coba kembali pada file index.js yang telah kita buat kemarin&hellip; Lalu buat console.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item post-deferred" data-index="7">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/">Mengeksekusi NodeJS</a></h2>
+                <div class="post-meta">
+                    <time datetime="2021-08-07">August 7, 2021</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Bagaimana cara mengeksekusi NodeJS?  Nah, setelah kita berhasil menginstall NodeJS berdasarkan postingan sebelumnya, kali ini kita akan mencoba mengeksekusi NodeJS, agar dapat digunakan.
+Node REPL Apa itu REPL?
+REPL merupakan singkatan dari Read, Evaluate, Print, Loop.
+Mangsudnya?
+Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, mengeksekusi, mengeprint, dan loop sesuai dengan konteks runtime yang kita pilih. Ya dalam kasus kita ini contohnya Node. Yang menjadikan kita juga punya console yang sama kayak di browser.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/">Read post -&gt;</a>
+            </article>
+        
+            <article class="post-preview post-item post-deferred" data-index="8">
+                <h2><a href="https://ngodingkuy.ngodingkuy.site/posts/nodejs/">NodeJS</a></h2>
+                <div class="post-meta">
+                    <time datetime="2021-08-07">August 7, 2021</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By dhymas</span>
+                    
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            
+                                <a href="/categories/nodejs/">[NodeJS]</a>
+                            
+                        </span>
+                    
+                </div>
+                <p>Halo semua, kembali lagi bersama Author :')
+Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
+Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
+JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</p>
+                <a class="read-more" href="https://ngodingkuy.ngodingkuy.site/posts/nodejs/">Read post -&gt;</a>
+            </article>
+        
+    </div>
+
+    
+    <div class="lazy-load-controller" id="lazy-controller">
+        <p id="lazy-status" class="lazy-status">Showing 5 of 9 posts...</p>
+        <div id="scroll-sentinel" style="height: 40px; margin-top: 10px;"></div>
+    </div>
+
+    <script>
+    (function () {
+        const batchSize = 5;
+        const items = Array.from(document.querySelectorAll('.post-item'));
+        const total = items.length;
+        let currentVisible = Math.min(5, total);
+        let isLoading = false;
+
+        const statusP = document.getElementById('lazy-status');
+        const sentinel = document.getElementById('scroll-sentinel');
+
+        function checkPositionAndReveal() {
+            if (currentVisible >= total || isLoading) return;
+            if (!sentinel) return;
+
+            const rect = sentinel.getBoundingClientRect();
+            if (rect.top <= window.innerHeight + 300) {
+                revealNextBatch();
+            }
+        }
+
+        function revealNextBatch() {
+            if (isLoading || currentVisible >= total) return;
+            isLoading = true;
+
+            const nextLimit = Math.min(currentVisible + batchSize, total);
+            for (let i = currentVisible; i < nextLimit; i++) {
+                items[i].classList.remove('post-deferred');
+                items[i].style.display = 'block';
+            }
+            currentVisible = nextLimit;
+
+            if (currentVisible >= total) {
+                if (statusP) statusP.textContent = 'All ' + total + ' posts loaded.';
+                if (observer && sentinel) observer.unobserve(sentinel);
+                window.removeEventListener('scroll', onScrollHandler);
+            } else {
+                if (statusP) statusP.textContent = 'Showing ' + currentVisible + ' of ' + total + ' posts...';
+                
+                setTimeout(function () {
+                    isLoading = false;
+                    checkPositionAndReveal();
+                }, 150);
+                return;
+            }
+
+            setTimeout(function () {
+                isLoading = false;
+            }, 100);
+        }
+
+        function onScrollHandler() {
+            checkPositionAndReveal();
+        }
+
+        window.addEventListener('scroll', onScrollHandler, { passive: true });
+
+        let observer = null;
+        if ('IntersectionObserver' in window && sentinel) {
+            observer = new IntersectionObserver(function (entries) {
+                if (entries[0].isIntersecting) {
+                    revealNextBatch();
+                }
+            }, { rootMargin: '300px' });
+            observer.observe(sentinel);
+        }
+
+        
+        setTimeout(checkPositionAndReveal, 300);
+    })();
+    </script>
+    <noscript>
+        <style>
+            .post-deferred { display: block !important; }
+            .lazy-load-controller { display: none !important; }
+        </style>
+    </noscript>
+    
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

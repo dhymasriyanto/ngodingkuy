@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Standard Library - File System - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
+    </nav>
+
+    <article class="post">
+        <h1>Standard Library - File System</h1>
+        <div class="post-meta">
+            <span class="author">By dhymas</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="2022-01-17">January 17, 2022</time>
+            
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    
+                        
+                        <a href="/categories/nodejs/">[NodeJS]</a>
+                    
+                </span>
+            
+        </div>
+
+        <div class="post-content">
+            <p><em>File system</em> merupakan <em>standard library</em> yang bisa digunakan untuk memanipulasi <em>file system</em>.</p>
+<p>Terdapat 3 jenis <em>library</em> dalam <em>File System</em>, yakni:</p>
+<ul>
+<li><em>Library</em> yang bersifat <em>blocking</em> atau <em>synchronous</em></li>
+<li><em>Library</em> yang bersifat <em>non-blocking</em> atau <em>asynchronous</em> menggunakan <em>callback</em></li>
+<li><em>Library</em> yang bersifat <em>non-blocking</em> atau <em>asynchronous</em> tapi menggunakan <em>promise</em></li>
+</ul>
+<p>Untuk dokumentasi lebih lanjut dapat di lihat <a href="https://nodejs.org/api/fs.html">disini</a></p>
+<p><em>Author</em> sendiri menyarankan menggunakan <em>promise</em>, karena lebih mudah, dan juga bisa menggunakan <code>async await</code>.</p>
+<p>Jika menggunakan <em>callback</em>, kita harus menggunakan <em>callback</em> terus menerus, dan malah menyebabkan <em>callback hell</em>.</p>
+<p>Sedangkan untuk <em>blocking</em> sendiri dapat digunakan untuk pembelajaran, namun kalau bisa jangan gunakan untuk sebuah <em>project</em>, karena dia akan melakukan <em>blocking</em> terhadap <em>event-loop nodejs</em>-nya.</p>
+<p>Untuk penulisan fungsi pada penerapan antara <em>blocking</em>, <em>promise</em> ataupun <em>callback</em> dapat dilihat pada dokumentasi resmi nya.</p>
+<p>Untuk contoh penggunaan <em>blocking</em> dan juga <em>callback</em> dapat dilihat sebagai berikut:</p>
+<p>Buat sebuah file bernama <code>file-system.mjs</code> terlebih dahulu, lalu buat contoh kode di bawah ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">fs</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;fs&#39;</span>
+</code></pre></div><p>Kode di atas memungkinkan kita untuk melakukan <em>import</em> terhadap library <em>File System</em>. Untuk library yang ini, dapat dipakai untuk <em>blocking</em> dan juga <em>callback</em>.</p>
+<p>Perbedaan mendasar antara <em>blocking</em> dan juga <em>callback</em> ialah ketika salah satu fungsi terdapat kata <code>Sync()</code> maka itu merupakan <em>library</em> yang menggunakan tipe <em>blocking</em>, begitu pula sebaliknya.</p>
+<p>Contoh jika kita ingin menggunakan <em>blocking</em>, maka kita dapat menggunakan kode seperti ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFileSync</span>(<span style="color:#e6db74">&#39;file-system.mjs&#39;</span>)
+</code></pre></div><p>Sedangkan ketika ingin menggunakan <em>callback</em> maka kode di atas akan menjadi seperti ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFile</span>(<span style="color:#e6db74">&#39;file-system.mjs&#39;</span>, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">data</span>) =&gt; {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) <span style="color:#66d9ef">throw</span> <span style="color:#a6e22e">err</span>;
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">toString</span>());
+}) )
+</code></pre></div><p>Pada kode di atas terlihat kita tidak menggunakan tambahan kata <code>Sync()</code> pada fungsi ketika menggunakan <em>callback</em>, namun kita harus menggunakan <em>callback</em> di dalam parameternya.</p>
+<p>Baiklah, selanjutnya kita akan menggunakan <em>library</em> yang lebih <em>author</em> rekomendasikan, yaitu <em>promise</em></p>
+<p>Untuk menggunakan <em>promise</em>, pada saat melakukan <em>import</em> akan menjadi seperti berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">fs</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;fs/promises&#39;</span>
+</code></pre></div><p>Nah ketika telah meng-import <code>fs/promises</code> maka sudah menjadi promise.</p>
+<p>Sekarang coba tulis kode di bawah:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">buffer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFile</span>(<span style="color:#e6db74">&#39;file-system.mjs&#39;</span>)
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">buffer</span>.<span style="color:#a6e22e">to</span> String())
+</code></pre></div><p>Kode di atas merupakan kode yang kita tulis ketika kita menggunakan <em>library</em> yang bersifat <em>promise</em>,  dan untuk penggunaan-nya kita bisa memakai await sebagai <code>key</code>.</p>
+<p>Kode di atas memungkinkan kita untuk membaca isi file <code>file-system.mjs</code> itu sendiri, dan kemudian menuliskannya ke konsol dengan menggunakan <code>buffer</code> (<code>buffer</code> akan di bahas di postingan lain).</p>
+<p>Kemudian kita mengubah <code>buffer</code> file menjadi <em>String</em> dengan menggunakan fungsi <code>.toString()</code>.</p>
+<p>Jika kita <em>run</em> kode di atas dengan <code>node file-system.mjs</code> maka akan menampilkan <em>output</em> sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/file-system/output.jpg"/>
+</figure>
+
+<p>Selanjutnya coba kita buat sebuah kode untuk menuliskan data ke dalam sebuah file, seperti dibawah ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFile</span>(<span style="color:#e6db74">&#39;tempt.txt&#39;</span>, <span style="color:#e6db74">&#39;hello&#39;</span>)
+</code></pre></div><p>Jika kita jalankan kode di atas maka akan menampilkan <em>output</em> berupa file <code>temp.txt</code> pada direktori <em>project</em> kita.</p>
+<p>Baiklah, begitulah yang bisa kita lakukan dengan <em>standard library</em> dari nodejs <em>file system</em>, kita mampu memanipulasi file, baik dari membaca, ataupun mengubah, menghapus, dan sebagainya. Kalian hanya perlu membaca dokumentasi lebih lanjut pada website resminya.</p>
+<p>Apalagi jika kalian sudah familiar dengan perintah terminal linux, kalian akan lebih mengenal dengan mudah, karena beberapa fungsi mengambil referensi yang sama dengan perintah-perintah di linux, seperti <code>rmdir</code>, <code>rm</code>, <code>mkfile</code>, <code>cp</code>, <code>link</code>, dan lain sebagainya.</p>
+
+        </div>
+
+        
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            
+                <a class="tag-badge" href="/tags/file/">#file</a>
+            
+                <a class="tag-badge" href="/tags/system/">#system</a>
+            
+                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
+            
+                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
+            
+        </div>
+        
+    </article>
+
+    
+    <nav class="post-pagination">
+        <div class="prev-post">
+            
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+            
+        </div>
+        <div class="next-post">
+            
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+            
+        </div>
+    </nav>
+    
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            
+                <li>
+                    <time datetime="2026-04-14">2026-04-14</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                </li>
+            
+                <li>
+                    <time datetime="2026-03-30">2026-03-30</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-04">2022-01-04</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+                </li>
+            
+        </ul>
+    </section>
+
+    
+<div class="disqus-section">
+    <h3 class="disqus-title">Comments</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/file-system\/";
+            this.page.identifier = "\/posts\/file-system\/";
+            this.language = "en";
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://ngodingkuy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

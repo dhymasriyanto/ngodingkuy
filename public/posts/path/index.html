@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Standard Library - Path - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
+    </nav>
+
+    <article class="post">
+        <h1>Standard Library - Path</h1>
+        <div class="post-meta">
+            <span class="author">By dhymas</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="2022-01-16">January 16, 2022</time>
+            
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    
+                        
+                        <a href="/categories/nodejs/">[NodeJS]</a>
+                    
+                </span>
+            
+        </div>
+
+        <div class="post-content">
+            <p>Setelah OS, ada lagi standard library yang dapat kita gunakan untuk keperluan kita.</p>
+<p>Kali ini kita akan membahas mengenai Path.</p>
+<p>Path merupakan sebuah standard library nodejs yang bisa digunakan untuk bekerja dengan lokasi file dan direktori/folder.</p>
+<p>Perlu digarisbawahi bahwa kita library ini bekerja dengan lokasi file, bukan file nya.</p>
+<p>Beberapa contoh penggunaan <em>function</em> sebagai berikut:</p>
+<ul>
+<li><code>path.basename(path([, ext]))</code> : digunakan ketika ingin mengetahui basename dari lokasi file kita.</li>
+<li><code>path.delimiter()</code> : dikarenakan delimiter tiap OS berbeda beda, sehingga memungkinkan untuk menetukan nya dengan fungsi ini.</li>
+<li><code>path.dirname()</code> : digunakan untuk mendapatkan nama direktori.</li>
+<li><code>path.extname()</code> : digunakan untuk mendapatkan ekstensi dari file tersebut.</li>
+<li>dan lain-lain.</li>
+</ul>
+<p>Untuk lebih detail, kalian bisa membaca di dokumentasi-nya langsung di <a href="https://nodejs.org/api/path.html">sini</a>. Pada dokumentasi tersebut terdapat banyak detail penjelasan pemakaiannya, sampai apa saja yang di <em>return</em> ketika kita memakai-nya.</p>
+<p>Mari kita buat sebuah file <code>path.mjs</code>, lalu seperti biasa mari kita import path dari library yang seperti sebagai berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;os&#39;</span>
+</code></pre></div><p>Sebelumnya mari kita buat sebuah <em>variable</em> <code>file</code>, sebagai direktori dari file kita. Namun file dari direktori ini tidak harus ada, karena ini hanya sebuah <em>String</em> dari lokasi file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/home/user/contoh.txt&#39;</span>
+</code></pre></div><p>Baiklah selanjutnya sekarang coba beberapa contoh pada dokumentasi, seperti sebagai berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">dirname</span>(<span style="color:#a6e22e">file</span>))
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">basename</span>(<span style="color:#a6e22e">file</span>))
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">extname</span>(<span style="color:#a6e22e">file</span>))
+</code></pre></div><p>Nah ketika kita menjalankan kode di atas dengan <code>node path.mjs</code> maka akan menghasilkan <em>output</em> sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/path/output.jpg"/>
+</figure>
+
+<p>Dari output di atas dapat kita lihat bahwa ketika kita menggunakan <code>path.dirname()</code> akan mengeluarkan <em>output</em> berupa <em>String</em> lokasi file yaitu <code>/home/user</code>.</p>
+<p>Dan kemudian ketika ingin mengetahui nama dari file dapat menggunakan fungsi <em>basename</em>, dan juga mampu menyediakan informasi dari ekstensi file yang tersimpan pada variabel <code>file</code> dengan fungsi <code>extname</code>.</p>
+<p>Library ini berguna untuk mengekstrak informasi dari lokasi file, bukan untuk memanipulasi file, seperti membuat file, atau memasukkan data ke file.</p>
+<p>Jika ingin seperti itu kita harus menggunakan <em>library file system</em> pada postingan selanjutnya.</p>
+
+        </div>
+
+        
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            
+                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
+            
+                <a class="tag-badge" href="/tags/library/">#library</a>
+            
+                <a class="tag-badge" href="/tags/path/">#path</a>
+            
+        </div>
+        
+    </article>
+
+    
+    <nav class="post-pagination">
+        <div class="prev-post">
+            
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+            
+        </div>
+        <div class="next-post">
+            
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+            
+        </div>
+    </nav>
+    
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            
+                <li>
+                    <time datetime="2026-04-14">2026-04-14</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                </li>
+            
+                <li>
+                    <time datetime="2026-03-30">2026-03-30</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-17">2022-01-17</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-04">2022-01-04</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+                </li>
+            
+        </ul>
+    </section>
+
+    
+<div class="disqus-section">
+    <h3 class="disqus-title">Comments</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/path\/";
+            this.page.identifier = "\/posts\/path\/";
+            this.language = "en";
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://ngodingkuy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

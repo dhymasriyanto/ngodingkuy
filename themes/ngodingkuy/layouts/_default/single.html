@@ -1,9 +1,70 @@
 {{ define "main" }}
+    <nav class="breadcrumb-nav">
+        <a href="{{ "/" | relURL }}">&lt;- Back to Home</a> | <a href="{{ "posts/" | relURL }}">All Posts</a>
+    </nav>
+
     <article class="post">
         <h1>{{ .Title }}</h1>
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <div class="post-meta">
+            <span class="author">By {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Params.author }}{{ end }}</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ with .Params.categories }}
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    {{ range $index, $cat := . }}
+                        {{ if gt $index 0 }}, {{ end }}
+                        <a href="{{ "categories/" | relURL }}{{ $cat | urlize }}/">[{{ $cat }}]</a>
+                    {{ end }}
+                </span>
+            {{ end }}
+        </div>
+
         <div class="post-content">
             {{ .Content }}
         </div>
+
+        {{ with .Params.tags }}
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            {{ range . }}
+                <a class="tag-badge" href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
     </article>
+
+    {{ if or .PrevInSection .NextInSection }}
+    <nav class="post-pagination">
+        <div class="prev-post">
+            {{ with .PrevInSection }}
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+        </div>
+        <div class="next-post">
+            {{ with .NextInSection }}
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+        </div>
+    </nav>
+    {{ end }}
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            {{ range first 5 (where .Site.RegularPages "Permalink" "ne" .Permalink) }}
+                <li>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </li>
+            {{ else }}
+                <li>No other posts available.</li>
+            {{ end }}
+        </ul>
+    </section>
+
+    {{ partial "disqus.html" . }}
 {{ end }}

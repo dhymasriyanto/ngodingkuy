@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Global Async - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
+    </nav>
+
+    <article class="post">
+        <h1>Global Async</h1>
+        <div class="post-meta">
+            <span class="author">By dhymas</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="2022-01-04">January 4, 2022</time>
+            
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    
+                        
+                        <a href="/categories/nodejs/">[NodeJS]</a>
+                    
+                </span>
+            
+        </div>
+
+        <div class="post-content">
+            <p>Pada JavaSript biasanya kita menggunakan <code>async await</code> kita perlu membuat <em>function</em> yang ditandai  sebagai <code>async</code>.</p>
+<p>Nah, pada saat menggunakan <em>module</em> secara <em>default</em> kita sudah menggunakan <code>async</code>, untuk itu kita sudah bisa menggunakan <code>async</code> tanpa harus menggunakan <em>keyword</em> <code>async</code>.</p>
+<p>Mari kita coba dengan contoh berikut:</p>
+<p>Buatlah sebuah file <code>async.js</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">contohPromise</span>(){
+	<span style="color:#66d9ef">return</span> Promise.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;hello&#39;</span>)
+}
+</code></pre></div><p>Karena kode di atas merupakan <em>promise</em>, jadi kita bisa menggunakan <code>await</code> di baris selanjutnya;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hallo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">contohPromise</span>()
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">hallo</span>)
+</code></pre></div><p>Sekarang coba <em>run</em> kode di atas, maka akan menghasilkan <em>output</em> sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/global-async/error1.png"/>
+</figure>
+
+<p>Jika kita tetap menginginkan untuk membuat file dengan tipe <code>.js</code> maka kita harus membuat sebuah fungsi dengan tipe <code>async</code>, seperti sebagai berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">run</span>() {
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hallo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">contohPromise</span>()
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">hallo</span>)
+}
+</code></pre></div><p>Lalu jalan tambahkan baris baru untuk memanggil fungsi <code>run()</code> di atas.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">run</span>()
+</code></pre></div><p>Dan ketika kalian jalankan maka akan nampak <em>output</em> sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/global-async/hello1.jpg"/>
+</figure>
+
+<p>Sekarang, mari kita coba menggunakan <code>.mjs</code> untuk menggunakan fungsi <code>async</code> secara default.</p>
+<p>Buat file baru bernama <code>async.mjs</code> dan buat kode seperti yang sebelumnya:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">contohPromise</span>(){
+	<span style="color:#66d9ef">return</span> Promise.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;hello&#39;</span>)
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hallo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">contohPromise</span>()
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">hallo</span>)
+</code></pre></div><p>Maka, ketika kita jalankan, maka akan menghasilkan <em>output</em> sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/global-async/async.jpg"/>
+</figure>
+
+<p>Jadi, dapat disimpulkan, bahwa dengan menggunakan file yang memiliki ekstensi <code>.mjs</code> secara  <em>default</em> sudah merupakan <code>async</code> <em>function</em>, sehingga sudah dapat menggunakan <em>keyword</em> <code>await</code> pada file tersebut.</p>
+
+        </div>
+
+        
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            
+                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
+            
+                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
+            
+                <a class="tag-badge" href="/tags/modules/">#modules</a>
+            
+                <a class="tag-badge" href="/tags/async/">#async</a>
+            
+        </div>
+        
+    </article>
+
+    
+    <nav class="post-pagination">
+        <div class="prev-post">
+            
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/">Modules Nodejs - ECMAScript Module</a>
+            
+        </div>
+        <div class="next-post">
+            
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+            
+        </div>
+    </nav>
+    
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            
+                <li>
+                    <time datetime="2026-04-14">2026-04-14</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                </li>
+            
+                <li>
+                    <time datetime="2026-03-30">2026-03-30</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-17">2022-01-17</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                </li>
+            
+        </ul>
+    </section>
+
+    
+<div class="disqus-section">
+    <h3 class="disqus-title">Comments</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/global-async\/";
+            this.page.identifier = "\/posts\/global-async\/";
+            this.language = "en";
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://ngodingkuy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

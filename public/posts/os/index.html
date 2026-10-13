@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Standard Library - OS - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
+    </nav>
+
+    <article class="post">
+        <h1>Standard Library - OS</h1>
+        <div class="post-meta">
+            <span class="author">By dhymas</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="2022-01-16">January 16, 2022</time>
+            
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    
+                        
+                        <a href="/categories/nodejs/">[NodeJS]</a>
+                    
+                </span>
+            
+        </div>
+
+        <div class="post-content">
+            <p><strong>Apa itu Standard Library?</strong></p>
+<p>Seperti namanya, standard library merupakan library yang secara default disediakan oleh nodejs.</p>
+<p>Kali ini, kita akan membahas sebuah standard library dari nodejs yaitu OS.</p>
+<p>OS dapat digunakan untuk membantu kita mendapatkan informasi mengenai sistem operasi yang digunakan.</p>
+<p>Beberapa contohnya sebagai berikut:</p>
+<ul>
+<li><code>os.arch()</code> : digunakan untuk melihat arsitektur dari sistem operasi yang digunakan.</li>
+<li><code>os.cpus()</code> : digunakan untuk mengetahui detail CPU yang kita gunakan.</li>
+<li><code>os.freemem()</code> : atau juga <em>free memory</em>, untuk mengetahui berapa besar memori yang tidak terpakai saat ini.</li>
+<li><code>os.homedir()</code> : untuk mengetahui lokasi direktori <em>home</em> user.</li>
+<li><code>os.hostname()</code> : untuk mengetahui nama hostname.</li>
+<li>dan masih banyak lagi.</li>
+</ul>
+<p>Untuk lebih detail, kalian bisa membaca di dokumentasi-nya langsung di <a href="https://nodejs.org/api/os.html">sini</a>.
+Pada dokumentasi tersebut terdapat banyak detail penjelasan pemakaiannya, sampai apa saja yang di <em>return</em> ketika kita memakai-nya.</p>
+<p>Baik, sekarang mari kita coba beberapa dari contoh library OS ini.</p>
+<p>Buatlah sebuah file baru <code>os.mjs</code>.</p>
+<p>Kemudian mari lakukan <em>import</em> untuk dapat menggunakan library OS ini.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">os</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;os&#39;</span>
+</code></pre></div><p>Setelah berhasil melakukan import, sekarang coba gunakan beberapa perintah yang tersedia di dokumentasi-nya. Kalian bisa melakukan-nya dengan menggunakan <code>console.info</code> misalnya, seperti sebagai berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">platform</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">arch</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">freemem</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">totalmem</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">homedir</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">hostname</span>())
+</code></pre></div><p>Sekarang kalian bisa coba untuk menjalankannya dengan menggunakan perintah <code>node os.mjs</code>.
+Maka contoh <em>output</em> yang terlihat pada laptop <em>author</em> sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/os/output.jpg"/>
+</figure>
+
+<p>Pada gambar di atas terlihat bahwa platform yang <em>author</em> gunakan ialah linux.
+Kemudian arsitektur yang berjalan di sistem operasi <em>author</em> adalah x64.
+Lalu total <em>free memory</em> yang ada ialah sebesar kurang lebih 7GB yang tertulis dalam bentuk Byte.<br>
+Dan juga ada total <em>memory</em> sebesar kurang lebih 12GB dalam bentuk Byte.
+Kemudian juga terdapat <em>path</em> directory <em>home</em>, dan juga <em>hostname</em> tersebut.</p>
+<p>Kita juga bisa melihat detail cpu, dengan menggunakan <code>console.table()</code> agar lebih nyaman dilihat.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">cpus</span>())
+</code></pre></div><p>Maka output yang akan terlihat sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/os/tables.jpg"/>
+</figure>
+
+<p>Oke, mungkin kalian bisa melakukan hal lebih pada library ini. Silahkan lakukan eksplorasi lebih dalam pada dokumentasi-nya untuk penggunaan lebih lanjut.</p>
+
+        </div>
+
+        
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            
+                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
+            
+                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
+            
+                <a class="tag-badge" href="/tags/library/">#library</a>
+            
+        </div>
+        
+    </article>
+
+    
+    <nav class="post-pagination">
+        <div class="prev-post">
+            
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+            
+        </div>
+        <div class="next-post">
+            
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+            
+        </div>
+    </nav>
+    
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            
+                <li>
+                    <time datetime="2026-04-14">2026-04-14</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                </li>
+            
+                <li>
+                    <time datetime="2026-03-30">2026-03-30</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-17">2022-01-17</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-04">2022-01-04</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+                </li>
+            
+        </ul>
+    </section>
+
+    
+<div class="disqus-section">
+    <h3 class="disqus-title">Comments</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/os\/";
+            this.page.identifier = "\/posts\/os\/";
+            this.language = "en";
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://ngodingkuy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

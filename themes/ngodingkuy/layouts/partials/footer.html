@@ -1,5 +1,29 @@
 <footer class="site-footer">
     <div class="container">
-        <p>Built with Hugo • ngodingkuy theme</p>
+        <p class="footer-nav">
+            <a href="{{ "/" | relURL }}">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="{{ "posts/" | relURL }}">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="{{ "categories/" | relURL }}">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="{{ "search/" | relURL }}">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="{{ "about/" | relURL }}">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        {{ with .Site.Params.social }}
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            {{ with .github }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>{{ end }}
+            {{ with .instagram }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>{{ end }}
+            {{ with .facebook }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>{{ end }}
+            {{ with .email }}<a href="{{ . }}">[ Email ]</a>{{ end }}
+        </p>
+        {{ end }}
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
     </div>
 </footer>

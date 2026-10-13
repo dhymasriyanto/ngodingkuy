@@ -1,6 +1,13 @@
-<header class="site-header">
+<header class="site-header" id="top">
     <div class="container">
-        <h1 class="site-title">&lt;ngodingkuy/&gt;</h1>
-        <p class="site-subtitle"> learn. write. remember.  </p>
+        <h1 class="site-title"><a href="{{ "/" | relURL }}">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="{{ "/" | relURL }}">[ Home ]</a>
+            <a href="{{ "posts/" | relURL }}">[ Posts ]</a>
+            <a href="{{ "categories/" | relURL }}">[ Categories ]</a>
+            <a href="{{ "search/" | relURL }}">[ Search ]</a>
+            <a href="{{ "about/" | relURL }}">[ About ]</a>
+        </nav>
     </div>
 </header>

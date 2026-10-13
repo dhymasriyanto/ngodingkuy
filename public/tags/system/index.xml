@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>system on ngodingkuy</title>
+    <link>https://ngodingkuy.ngodingkuy.site/tags/system/</link>
+    <description>Recent content in system on ngodingkuy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Jan 2022 17:13:29 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/system/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Standard Library - File System</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/file-system/</link>
+      <pubDate>Mon, 17 Jan 2022 17:13:29 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/file-system/</guid>
+      <description>File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
+Terdapat 3 jenis library dalam File System, yakni:
+ Library yang bersifat blocking atau synchronous Library yang bersifat non-blocking atau asynchronous menggunakan callback Library yang bersifat non-blocking atau asynchronous tapi menggunakan promise  Untuk dokumentasi lebih lanjut dapat di lihat disini
+Author sendiri menyarankan menggunakan promise, karena lebih mudah, dan juga bisa menggunakan async await.
+Jika menggunakan callback, kita harus menggunakan callback terus menerus, dan malah menyebabkan callback hell.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on ngodingkuy</title>
+    <link>https://ngodingkuy.ngodingkuy.site/tags/web/</link>
+    <description>Recent content in web on ngodingkuy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Oct 2026 10:00:00 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript 101: How JS Controls Your Browser (BOM vs DOM)</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</link>
+      <pubDate>Tue, 13 Oct 2026 10:00:00 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</guid>
+      <description>Welcome back to another note :&#39;)
+Most of us use JavaScript daily to build interactive UI, animate buttons, handle form submissions, or fetch backend APIs. But sometimes we overlook the foundational mechanics: how does JavaScript actually take control of your browser and web document under the hood?
+The whole mechanism boils down to two key concepts: BOM and DOM.
+ 1. BOM (Browser Object Model) As the name implies, BOM represents the browser window and environment itself, completely independent of the actual HTML content loaded inside it.</description>
+    </item>
+    
+  </channel>
+</rss>

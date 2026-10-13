@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mengeksekusi NodeJS - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
+    </nav>
+
+    <article class="post">
+        <h1>Mengeksekusi NodeJS</h1>
+        <div class="post-meta">
+            <span class="author">By dhymas</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="2021-08-07">August 7, 2021</time>
+            
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    
+                        
+                        <a href="/categories/nodejs/">[NodeJS]</a>
+                    
+                </span>
+            
+        </div>
+
+        <div class="post-content">
+            <h1 id="center-bagaimana-cara-mengeksekusi-nodejs-center"><!-- raw HTML omitted --> Bagaimana cara mengeksekusi NodeJS? <!-- raw HTML omitted --></h1>
+<p>Nah, setelah kita berhasil menginstall NodeJS berdasarkan postingan sebelumnya, kali ini kita akan mencoba mengeksekusi NodeJS, agar dapat digunakan.</p>
+<h2 id="node-repl">Node REPL</h2>
+<p><em>Apa itu REPL?</em></p>
+<p>REPL merupakan singkatan dari <em>Read, Evaluate, Print, Loop</em>.</p>
+<p><em>Mangsudnya?</em></p>
+<p>Pada umumnya REPL itu merupakan <em>shell</em> interaktif, yang berguna untuk membaca, mengeksekusi, mengeprint, dan loop sesuai dengan konteks runtime yang kita pilih. Ya dalam kasus kita ini contohnya Node. Yang menjadikan kita juga punya <em>console</em> yang sama kayak di browser.</p>
+<p>Untuk menggunakan REPL, tinggal ketik :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">node
+</code></pre></div><p>di <em>terminal</em> ataupun <em>command prompt</em> kalian.</p>
+<p>Nah, nanti akan muncul seperti ini:</p>
+<figure class="img-fluid"><img src="/img/executing-nodejs/execute.png"/>
+</figure>
+
+<p>Nah, itu kalian sudah masuk ke Node REPL, loh!</p>
+<p>Nah, kalian bisa kreasikan <em>script</em> yang telah kalian pelajari pada JavaScript di dalam REPL ini.</p>
+<p>Contohnya coba kalian ketik seperti ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">me</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Dhymas&#34;</span>;
+</code></pre></div><p>Lalu silahkan tekan Enter.</p>
+<p>Nah, apa yang kalian lakukan sudah persis seperti pada <em>console tools</em> pada browser kalian.</p>
+<p>Sekarang coba ketik ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">me</span>
+</code></pre></div><p>Bahkan, sebelum kalian enter, REPL dapat menentukan nilai pada konstanta <code>me</code>.</p>
+<p>Inilah yang disebut dengan interaktif <em>shell</em>.</p>
+<p>Selanjutnya, coba kalian ketik seperti ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Hallo Dunia!&#34;</span>);
+</code></pre></div><p>Dan tekan Enter.</p>
+<p>Pasti, kalian akan mendapatkan <em>error</em> seperti ini:</p>
+<figure class="img-fluid"><img src="/img/executing-nodejs/alert.png"/>
+</figure>
+
+<p><em>Lah Kok bisa?</em></p>
+<p>Ini terjadi karena pada dasarnya meskipun NodeJS menggunakan JavaScript sebagai bahasa pemrogramannya, tidak semua fungsi yang bisa dilakukan di dalam browser ada di NodeJS. Hal ini karena REPL pada dasarnya tidak memiliki GUI untuk menampilkan modal <em>alert</em> tersebut</p>
+<h2 id="eksekusi-melalui-file">Eksekusi melalui file</h2>
+<p>Keren juga sih REPL, tapi kalo make itu, kalian mungkin ga bisa <em>build</em> aplikasi besar. Mungkin sih, tergantung kalian juga, wkwk :V</p>
+<p>Nah cara yang pada umumnya dilakukan ialah kita menulis program kita pada file, dan meminta NodeJS untuk mengeksekusi nya.</p>
+<p><em>Bikin file index.js</em></p>
+<p>Pertama, coba kalian bikin file <code>index.js</code>. Dalam file itu coba kalian ketik <em>syntax</em> sederhana dari JavaScript. Semisal <code>console.log('Hallo Dunia')</code>.</p>
+<p>Untuk mengeksekusi file ini pada <em>runtime</em> NodeJS, silahkan buka terminal ataupun <em>command prompt</em> di lokasi kalian menyimpan file <code>index.js</code> tadi.</p>
+<p>Setelah itu, untuk mengeksekusi file ini kalian bisa mengetikkan seperti ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">node index.js
+</code></pre></div><p>Done! Selamat udah bisa mengeksekusi file dengan menggunakan NodeJS!</p>
+<p>&hellip;</p>
+<p>Oke untuk ini segini dulu&hellip; Lanjut lagi nanti, hehe&hellip;</p>
+
+        </div>
+
+        
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            
+                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
+            
+                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
+            
+                <a class="tag-badge" href="/tags/repl/">#REPL</a>
+            
+                <a class="tag-badge" href="/tags/file/">#file</a>
+            
+                <a class="tag-badge" href="/tags/execute/">#execute</a>
+            
+        </div>
+        
+    </article>
+
+    
+    <nav class="post-pagination">
+        <div class="prev-post">
+            
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/nodejs/">NodeJS</a>
+            
+        </div>
+        <div class="next-post">
+            
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/">Global NodeJS</a>
+            
+        </div>
+    </nav>
+    
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            
+                <li>
+                    <time datetime="2026-04-14">2026-04-14</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                </li>
+            
+                <li>
+                    <time datetime="2026-03-30">2026-03-30</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-17">2022-01-17</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                </li>
+            
+        </ul>
+    </section>
+
+    
+<div class="disqus-section">
+    <h3 class="disqus-title">Comments</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/executing-nodejs\/";
+            this.page.identifier = "\/posts\/executing-nodejs\/";
+            this.language = "en";
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://ngodingkuy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

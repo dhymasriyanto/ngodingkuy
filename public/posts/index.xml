@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ngodingkuy</title>
+    <link>https://ngodingkuy.ngodingkuy.site/posts/</link>
+    <description>Recent content in Posts on ngodingkuy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Apr 2026 09:11:28 +0000</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript in Action</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</link>
+      <pubDate>Tue, 14 Apr 2026 09:11:28 +0000</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</guid>
+      <description>How does javascript control web and ur browser? So, basically there are two ways javascript control ur browser: BOM and DOM.
+BOM BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &amp;lsquo;window&amp;rsquo; we can make the browser show pop-up message with running alert() method in browser console.
+DOM DOM stands for Document Object Model, it is just like BOM, but we access it using global object called documents.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to ngodingkuy</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/welcome/</link>
+      <pubDate>Mon, 30 Mar 2026 10:00:00 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/welcome/</guid>
+      <description>After all this time, I am trying to actively write again, with something fresh.
+In this simple blog, I will try to write everything I have learned as an archive.
+Better late than never.</description>
+    </item>
+    
+    <item>
+      <title>Standard Library - File System</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/file-system/</link>
+      <pubDate>Mon, 17 Jan 2022 17:13:29 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/file-system/</guid>
+      <description>File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
+Terdapat 3 jenis library dalam File System, yakni:
+ Library yang bersifat blocking atau synchronous Library yang bersifat non-blocking atau asynchronous menggunakan callback Library yang bersifat non-blocking atau asynchronous tapi menggunakan promise  Untuk dokumentasi lebih lanjut dapat di lihat disini
+Author sendiri menyarankan menggunakan promise, karena lebih mudah, dan juga bisa menggunakan async await.
+Jika menggunakan callback, kita harus menggunakan callback terus menerus, dan malah menyebabkan callback hell.</description>
+    </item>
+    
+    <item>
+      <title>Standard Library - Path</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/path/</link>
+      <pubDate>Sun, 16 Jan 2022 17:53:30 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/path/</guid>
+      <description>Setelah OS, ada lagi standard library yang dapat kita gunakan untuk keperluan kita.
+Kali ini kita akan membahas mengenai Path.
+Path merupakan sebuah standard library nodejs yang bisa digunakan untuk bekerja dengan lokasi file dan direktori/folder.
+Perlu digarisbawahi bahwa kita library ini bekerja dengan lokasi file, bukan file nya.
+Beberapa contoh penggunaan function sebagai berikut:
+ path.basename(path([, ext])) : digunakan ketika ingin mengetahui basename dari lokasi file kita. path.delimiter() : dikarenakan delimiter tiap OS berbeda beda, sehingga memungkinkan untuk menetukan nya dengan fungsi ini.</description>
+    </item>
+    
+    <item>
+      <title>Standard Library - OS</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/os/</link>
+      <pubDate>Sun, 16 Jan 2022 15:31:27 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/os/</guid>
+      <description>Apa itu Standard Library?
+Seperti namanya, standard library merupakan library yang secara default disediakan oleh nodejs.
+Kali ini, kita akan membahas sebuah standard library dari nodejs yaitu OS.
+OS dapat digunakan untuk membantu kita mendapatkan informasi mengenai sistem operasi yang digunakan.
+Beberapa contohnya sebagai berikut:
+ os.arch() : digunakan untuk melihat arsitektur dari sistem operasi yang digunakan. os.cpus() : digunakan untuk mengetahui detail CPU yang kita gunakan. os.freemem() : atau juga free memory, untuk mengetahui berapa besar memori yang tidak terpakai saat ini.</description>
+    </item>
+    
+    <item>
+      <title>Global Async</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/global-async/</link>
+      <pubDate>Tue, 04 Jan 2022 20:01:06 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/global-async/</guid>
+      <description>Pada JavaSript biasanya kita menggunakan async await kita perlu membuat function yang ditandai sebagai async.
+Nah, pada saat menggunakan module secara default kita sudah menggunakan async, untuk itu kita sudah bisa menggunakan async tanpa harus menggunakan keyword async.
+Mari kita coba dengan contoh berikut:
+Buatlah sebuah file async.js
+function contohPromise(){ return Promise.resolve(&amp;#39;hello&amp;#39;) } Karena kode di atas merupakan promise, jadi kita bisa menggunakan await di baris selanjutnya;
+const hallo = await contohPromise() console.</description>
+    </item>
+    
+    <item>
+      <title>Modules Nodejs - ECMAScript Module</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/</link>
+      <pubDate>Mon, 03 Jan 2022 00:00:44 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-two/</guid>
+      <description>Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
+Agar JavaScript benar-benar universal di segala environment, untuk itu diperlukan cara yang lebih futuristik.
+Untuk itu, hadirlah ES module atau ECMAScript module.
+Nah, pada postingan kali ini kita akan membahas tentang ES module tersebut.
+Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang digunakan untuk aplikasi NodeJS.</description>
+    </item>
+    
+    <item>
+      <title>Hello, I&#39;m Back :&#39;v</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/i-am-back/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/i-am-back/</guid>
+      <description>&amp;lt;?php echo &amp;#34;Assalamualaikum!&amp;#34;; ?&amp;gt;Hai, teman teman&amp;hellip;
+Sekian lama, akhirnya Author nulis lagi.. :&#39;)
+Maaf kan saya, mungkin penanganan website ini kurang maksimal&amp;hellip; Dan terlebih lagi, Author cuma punya beberapa konten&amp;hellip; :V
+Sekali lagi saya mohon maaf, dikarenakan beberapa kesibukan, membuat saya benar-benar lupa untuk ngisi waktu luang dengan menulis di blog ini&amp;hellip; Wkwk&amp;hellip;
+Ya, di awal tahun 2022 ini, Author memutuskan untuk mencoba rajin nulis di blog ini.
+Kali ini, saya bakalan nulis apapun yang pengen ditulis&amp;hellip; Tapi mungkin jangan terlalu berharap juga sama saya.</description>
+    </item>
+    
+    <item>
+      <title>Modules NodeJS - Common Module</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</link>
+      <pubDate>Sat, 07 Aug 2021 14:32:50 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
+      <description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
+Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
+Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
+Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</description>
+    </item>
+    
+    <item>
+      <title>Global NodeJS</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/</link>
+      <pubDate>Sat, 07 Aug 2021 12:11:46 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/</guid>
+      <description>Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
+Global object dapat digunakan secara global pada aplikasi dan pada semua module.
+Tidak perlu melakukan include pada aplikasi lagi, kalian tinggal pakai saja global object ini.
+Umum
+Berikut list umum yang diberikan oleh objek global pada NodeJS:
+  global : Dimana dapat digunakan sama halnya seperti window pada console browser. Coba kembali pada file index.js yang telah kita buat kemarin&amp;hellip; Lalu buat console.</description>
+    </item>
+    
+    <item>
+      <title>Mengeksekusi NodeJS</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/</link>
+      <pubDate>Sat, 07 Aug 2021 10:54:07 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/executing-nodejs/</guid>
+      <description>Bagaimana cara mengeksekusi NodeJS?  Nah, setelah kita berhasil menginstall NodeJS berdasarkan postingan sebelumnya, kali ini kita akan mencoba mengeksekusi NodeJS, agar dapat digunakan.
+Node REPL Apa itu REPL?
+REPL merupakan singkatan dari Read, Evaluate, Print, Loop.
+Mangsudnya?
+Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, mengeksekusi, mengeprint, dan loop sesuai dengan konteks runtime yang kita pilih. Ya dalam kasus kita ini contohnya Node. Yang menjadikan kita juga punya console yang sama kayak di browser.</description>
+    </item>
+    
+    <item>
+      <title>NodeJS</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</link>
+      <pubDate>Sat, 07 Aug 2021 09:56:26 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/nodejs/</guid>
+      <description>Halo semua, kembali lagi bersama Author :&#39;)
+Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
+Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
+JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</description>
+    </item>
+    
+    <item>
+      <title>Cara Menginstall JDK Dan Menampilkan Hello World</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/</link>
+      <pubDate>Thu, 01 Aug 2019 10:35:21 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/</guid>
+      <description>JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE (JAVA Runtime Environment). Berikut perbedaan ketiganya:
+  JVM adalah komponen dari platform JAVA yang berfungsi untuk mengeksekusi program-program
+  JRE adalah bagian JAVA yang membuat JVM
+  JDK membolehkan developer untuk meng-compile program JAVA, sehingga dapat di eksekusi oleh JVM dan JRE</description>
+    </item>
+    
+    <item>
+      <title>Hai!</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/hai/</link>
+      <pubDate>Thu, 01 Aug 2019 05:44:09 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/hai/</guid>
+      <description>&amp;lt;?php echo &amp;#34;Assalamualaikum!&amp;#34;; ?&amp;gt;Selamat datang di blog Ngoding Kuy!!
+Ini merupakan tulisan pertama Author (yang Author upload). Untuk ke depannya, mohon bantuannya ya! Semoga Author rajin untuk upload terus informasi-informasi menarik ataupun ilmu-ilmu yang Author ketahui.
+Blog ini ngga cuma dunia IT aja, kok. Tapi bakalan ada info menarik lainnya yang bakal Author upload, termasuk cerita-cerita pengalaman Author. Nanti postingan-postingannya akan di bagi menjadi kategori-kategori tertentu.
+By the way&amp;hellip; Blog ini juga masih dalam tahap pengembangan, jadi mohon kritik dan saran yang membangun demi perkembangan blog ini.</description>
+    </item>
+    
+  </channel>
+</rss>

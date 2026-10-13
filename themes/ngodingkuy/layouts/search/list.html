@@ -1,0 +1,40 @@
+{{ define "main" }}
+    <nav class="breadcrumb-nav">
+        <a href="{{ "/" | relURL }}">&lt;- Back to Home</a>
+    </nav>
+
+    <h1 class="section-title">Search Articles</h1>
+    
+    <div class="search-box">
+        <form id="search-form" onsubmit="return false;">
+            <div class="search-input-wrapper">
+                <span class="search-prompt-prefix">&gt;</span>
+                <input type="text" id="search-input" placeholder="Type keywords to search..." autocomplete="off">
+            </div>
+            <button type="submit" id="search-button">[ Search ]</button>
+        </form>
+    </div>
+
+    <div class="search-status" id="search-status">Type keywords above to search articles.</div>
+
+    <div class="search-results-container">
+        <ul id="results-of-search" class="search-results-list"></ul>
+    </div>
+
+    <script>
+      window.store = {
+        {{ range where .Site.RegularPages "Section" "posts" }}
+        "{{ .Permalink }}": {
+            "title": {{ .Title | jsonify }},
+            "tags": [{{ range .Params.Tags }}{{ . | jsonify }},{{ end }}],
+            "categories": [{{ range .Params.Categories }}{{ . | jsonify }},{{ end }}],
+            "content": {{ .Plain | jsonify }},
+            "url": "{{ .Permalink }}",
+            "date": "{{ .Date.Format "January 2, 2006" }}"
+        },
+        {{ end }}
+      };
+    </script>
+    <script src="{{ "js/lunr.js" | relURL }}"></script>
+    <script src="{{ "js/search.js" | relURL }}?v=3"></script>
+{{ end }}

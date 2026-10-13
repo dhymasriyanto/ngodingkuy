@@ -1,0 +1,20 @@
+{{ define "main" }}
+    <nav class="breadcrumb-nav">
+        <a href="{{ "/" | relURL }}">&lt;- Back to Home</a>
+    </nav>
+
+    <h1 class="section-title">{{ .Title }}</h1>
+
+    <div class="terms-container">
+        <ul class="terms-list">
+            {{ range .Data.Terms.ByCount }}
+                <li>
+                    <a class="term-name" href="{{ .Page.Permalink }}">[ {{ .Page.Title }} ]</a>
+                    <span class="term-count">({{ .Count }} articles)</span>
+                </li>
+            {{ else }}
+                <li>No entries available.</li>
+            {{ end }}
+        </ul>
+    </div>
+{{ end }}

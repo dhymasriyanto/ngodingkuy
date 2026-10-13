@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>path on ngodingkuy</title>
+    <link>https://ngodingkuy.ngodingkuy.site/tags/path/</link>
+    <description>Recent content in path on ngodingkuy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Jan 2022 17:53:30 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/path/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Standard Library - Path</title>
+      <link>https://ngodingkuy.ngodingkuy.site/posts/path/</link>
+      <pubDate>Sun, 16 Jan 2022 17:53:30 +0700</pubDate>
+      
+      <guid>https://ngodingkuy.ngodingkuy.site/posts/path/</guid>
+      <description>Setelah OS, ada lagi standard library yang dapat kita gunakan untuk keperluan kita.
+Kali ini kita akan membahas mengenai Path.
+Path merupakan sebuah standard library nodejs yang bisa digunakan untuk bekerja dengan lokasi file dan direktori/folder.
+Perlu digarisbawahi bahwa kita library ini bekerja dengan lokasi file, bukan file nya.
+Beberapa contoh penggunaan function sebagai berikut:
+ path.basename(path([, ext])) : digunakan ketika ingin mengetahui basename dari lokasi file kita. path.delimiter() : dikarenakan delimiter tiap OS berbeda beda, sehingga memungkinkan untuk menetukan nya dengan fungsi ini.</description>
+    </item>
+    
+  </channel>
+</rss>

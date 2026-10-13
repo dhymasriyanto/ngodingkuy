@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modules Nodejs - ECMAScript Module - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
+    </nav>
+
+    <article class="post">
+        <h1>Modules Nodejs - ECMAScript Module</h1>
+        <div class="post-meta">
+            <span class="author">By dhymas</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="2022-01-03">January 3, 2022</time>
+            
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    
+                        
+                        <a href="/categories/nodejs/">[NodeJS]</a>
+                    
+                </span>
+            
+        </div>
+
+        <div class="post-content">
+            <p>Untuk penggunaan <em>module</em> pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default <em>syntax</em> untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.</p>
+<p>Agar <em>JavaScript</em> benar-benar universal di segala <em>environment</em>, untuk itu diperlukan cara yang lebih futuristik.</p>
+<p>Untuk itu, hadirlah ES <em>module</em> atau ECMAScript <em>module</em>.</p>
+<p>Nah, pada postingan kali ini kita akan membahas tentang ES <em>module</em> tersebut.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="ekstensi-mjs">Ekstensi <code>.mjs</code></h2>
+<p><code>.mjs</code> atau juga <em>module</em> JS merupakan sebuah ekstensi khusus yang digunakan untuk aplikasi NodeJS.</p>
+<p>Dengan menggunakan ekstensi <code>.mjs</code>, membuat Node tahu bahwa kita sedang menggunakan ES <em>module</em> di dalam file ini, dibandingkan dengan <code>.js</code>.</p>
+<p><em>Apa ni, <code>.js</code> aja pusing, nambah lagi <code>.mjs</code>!</em></p>
+<p>Tenang, kalian masih tetap bisa menggunakan ekstensi <code>.js</code>, kok.</p>
+<p>Kalian bisa melakukan <em>setting</em> di file <code>package.json</code> dengan menambahkan <code>&quot;type&quot;: &quot;module&quot;</code> yang mana masih membolehkan kalian menggunakan ekstensi <code>.js</code> .</p>
+<p>Namun hadirnya ekstensi <code>.mjs</code> merupakan cara mudah yang diberikan agar pengerjaan aplikasi yang menggunakan NodeJS tidak membingungkan diri kita dan lebih simpel.</p>
+<p>Untuk itu, kita harus membuat file yang memiliki ekstensi <code>.mjs</code> terlebih dahulu untuk dapat menggunakan ES <em>module</em> ini.</p>
+<p>Disini contohnya ialah file <code>index.mjs</code>.</p>
+<p>Pada file <code>index.mjs</code> ini, cobalah untuk membuat <em>code</em> berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> () =&gt; {
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;hello&#39;</span>)
+}
+</code></pre></div><p>Sama seperti pada postingan sebelumnya, kita telah membuat fungsi yang disimpan pada konstanta <code>action</code> dan fungsi tersebut melakukan <em>logging</em> kata <code>hello</code> pada <em>console</em>.</p>
+<p>Namun jika diperhatikan dengan seksama, terdapat sebuah perbedaan dengan cara pada CommonJS sebelumnya.</p>
+<p>Pada CommonJS kita diharuskan mengekspos kode dengan menggunakan <code>modules.export</code>, namun pada ES <em>module</em> ini, kita hanya tinggal menambahkan keyword <code>export</code> di awal kode.</p>
+<p>Lebih simpel bukan?</p>
+<p>Baiklah, selanjutnya pada file baru, contohnya dengan nama <code>app.mjs</code> untuk melakukan <em>import</em> dapat kita lakukan sebagai berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">action</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./index.mjs&#39;</span>
+</code></pre></div><p>Kali ini kita tidak perlu memakai <em>keyword</em> <code>require</code> lagi.</p>
+<p>Selanjutnya tambahkan di <em>line</em> berikutnya, kode seperti berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">action</span>()
+</code></pre></div><p>Sama seperti sebelumnya, kita memanggil fungsi <code>action()</code> yang telah di <em>export</em>.</p>
+<p>Pada akhirnya file <code>index.mjs</code> akan terlihat seperti berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> () =&gt; {
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;hello&#39;</span>)
+}
+</code></pre></div><p>Dan file <code>app.mjs</code> akan terlihat sebagai berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">action</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./index.mjs&#39;</span>
+
+<span style="color:#a6e22e">action</span>()
+</code></pre></div><p>Gimana? Lebih ringkas bukan?</p>
+<p>Nah, coba kita jalankan contoh diatas.</p>
+<p>Ketikkan <code>node app.mjs</code> pada terminal kita, dan lihatlah <em>output</em> yang dihasilkan.</p>
+<figure class="img-fluid"><img src="/img/modules-nodejs-two/hello.jpg"/>
+</figure>
+
+<p>Selamat! Kita telah berhasil menggunakan <em>module</em> pada NodeJS.</p>
+<p>Sekarang, bagaimana jika kita menerapkan kode di atas pada file yang memiliki ekstensi <code>.js</code>?</p>
+<p>Jika kita merubah ekstensi <code>.mjs</code> menjadi <code>.js</code>, maka ketika kita mencoba menjalankan <code>node app.js</code> maka akan mendapat <em>error</em> sebagai berikut:</p>
+<figure class="img-fluid"><img src="/img/modules-nodejs-two/error.jpg"/>
+</figure>
+
+<p>Kita akan mendapatkan <em>error</em> bahwa kita tidak dapat menggunakan <em>import statement</em> diluar <em>module</em>.</p>
+<p>Dari <em>error</em> di atas dapat dilihat bahwasanya kita disarankan untuk menggunakan ekstensi <code>.mjs</code>, atau mengatur <code>&quot;type&quot;: &quot;module&quot;</code> pada <code>package.json</code>.</p>
+<p>Dokumentasi lebih lanjut dapat dibaca di <a href="https://nodejs.org/api/esm.html">sini</a></p>
+<p>Atau juga bisa baca <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export">ini</a> dan <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">ini</a></p>
+
+        </div>
+
+        
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            
+                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
+            
+                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
+            
+                <a class="tag-badge" href="/tags/modules/">#modules</a>
+            
+                <a class="tag-badge" href="/tags/import/">#import</a>
+            
+                <a class="tag-badge" href="/tags/export/">#export</a>
+            
+        </div>
+        
+    </article>
+
+    
+    <nav class="post-pagination">
+        <div class="prev-post">
+            
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/i-am-back/">Hello, I&#39;m Back :&#39;v</a>
+            
+        </div>
+        <div class="next-post">
+            
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
+            
+        </div>
+    </nav>
+    
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            
+                <li>
+                    <time datetime="2026-04-14">2026-04-14</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                </li>
+            
+                <li>
+                    <time datetime="2026-03-30">2026-03-30</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-17">2022-01-17</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                </li>
+            
+        </ul>
+    </section>
+
+    
+<div class="disqus-section">
+    <h3 class="disqus-title">Comments</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/modules-nodejs-part-two\/";
+            this.page.identifier = "\/posts\/modules-nodejs-part-two\/";
+            this.language = "en";
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://ngodingkuy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,5 +1,9 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
+    <nav class="breadcrumb-nav">
+        <a href="{{ "/" | relURL }}">&lt;- Back to Home</a>
+    </nav>
+
+    <h1 class="section-title">{{ .Title }}</h1>
 
     {{ if .Content }}
         <div class="section-content">
@@ -7,13 +11,113 @@
         </div>
     {{ end }}
 
-    <div class="posts-list">
-        {{ range .Pages.ByDate.Reverse }}
-            <article class="post-preview">
+    <div class="posts-list" id="posts-container">
+        {{ range $index, $page := .Pages.ByDate.Reverse }}
+            <article class="post-preview post-item {{ if ge $index 5 }}post-deferred{{ end }}" data-index="{{ $index }}">
                 <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                <div class="post-meta">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                    <span class="meta-sep">&bull;</span>
+                    <span class="author">By {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Params.author }}{{ end }}</span>
+                    {{ with .Params.categories }}
+                        <span class="meta-sep">&bull;</span>
+                        <span class="post-categories">
+                            {{ range . }}
+                                <a href="{{ "categories/" | relURL }}{{ . | urlize }}/">[{{ . }}]</a>
+                            {{ end }}
+                        </span>
+                    {{ end }}
+                </div>
                 <p>{{ .Summary }}</p>
+                <a class="read-more" href="{{ .Permalink }}">Read post -&gt;</a>
             </article>
+        {{ else }}
+            <p>No posts available in this list.</p>
         {{ end }}
     </div>
+
+    {{ if gt (len .Pages) 5 }}
+    <div class="lazy-load-controller" id="lazy-controller">
+        <p id="lazy-status" class="lazy-status">Showing 5 of {{ len .Pages }} posts...</p>
+        <div id="scroll-sentinel" style="height: 40px; margin-top: 10px;"></div>
+    </div>
+
+    <script>
+    (function () {
+        const batchSize = 5;
+        const items = Array.from(document.querySelectorAll('.post-item'));
+        const total = items.length;
+        let currentVisible = Math.min(5, total);
+        let isLoading = false;
+
+        const statusP = document.getElementById('lazy-status');
+        const sentinel = document.getElementById('scroll-sentinel');
+
+        function checkPositionAndReveal() {
+            if (currentVisible >= total || isLoading) return;
+            if (!sentinel) return;
+
+            const rect = sentinel.getBoundingClientRect();
+            if (rect.top <= window.innerHeight + 300) {
+                revealNextBatch();
+            }
+        }
+
+        function revealNextBatch() {
+            if (isLoading || currentVisible >= total) return;
+            isLoading = true;
+
+            const nextLimit = Math.min(currentVisible + batchSize, total);
+            for (let i = currentVisible; i < nextLimit; i++) {
+                items[i].classList.remove('post-deferred');
+                items[i].style.display = 'block';
+            }
+            currentVisible = nextLimit;
+
+            if (currentVisible >= total) {
+                if (statusP) statusP.textContent = 'All ' + total + ' posts loaded.';
+                if (observer && sentinel) observer.unobserve(sentinel);
+                window.removeEventListener('scroll', onScrollHandler);
+            } else {
+                if (statusP) statusP.textContent = 'Showing ' + currentVisible + ' of ' + total + ' posts...';
+                // Check again in case sentinel is still within view after DOM expands
+                setTimeout(function () {
+                    isLoading = false;
+                    checkPositionAndReveal();
+                }, 150);
+                return;
+            }
+
+            setTimeout(function () {
+                isLoading = false;
+            }, 100);
+        }
+
+        function onScrollHandler() {
+            checkPositionAndReveal();
+        }
+
+        window.addEventListener('scroll', onScrollHandler, { passive: true });
+
+        let observer = null;
+        if ('IntersectionObserver' in window && sentinel) {
+            observer = new IntersectionObserver(function (entries) {
+                if (entries[0].isIntersecting) {
+                    revealNextBatch();
+                }
+            }, { rootMargin: '300px' });
+            observer.observe(sentinel);
+        }
+
+        // Initial check in case window is large
+        setTimeout(checkPositionAndReveal, 300);
+    })();
+    </script>
+    <noscript>
+        <style>
+            .post-deferred { display: block !important; }
+            .lazy-load-controller { display: none !important; }
+        </style>
+    </noscript>
+    {{ end }}
 {{ end }}

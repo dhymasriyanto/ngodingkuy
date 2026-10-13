@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modules NodeJS - Common Module - ngodingkuy</title>
+    <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+    <header class="site-header" id="top">
+    <div class="container">
+        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
+        <p class="site-subtitle">learn. write. remember.</p>
+        <nav class="site-nav">
+            <a href="/">[ Home ]</a>
+            <a href="/posts/">[ Posts ]</a>
+            <a href="/categories/">[ Categories ]</a>
+            <a href="/search/">[ Search ]</a>
+            <a href="/about/">[ About ]</a>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        
+    <nav class="breadcrumb-nav">
+        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
+    </nav>
+
+    <article class="post">
+        <h1>Modules NodeJS - Common Module</h1>
+        <div class="post-meta">
+            <span class="author">By dhymas</span>
+            <span class="meta-sep">&bull;</span>
+            <time datetime="2021-08-07">August 7, 2021</time>
+            
+                <span class="meta-sep">&bull;</span>
+                <span class="post-categories">
+                    Categories: 
+                    
+                        
+                        <a href="/categories/nodejs/">[NodeJS]</a>
+                    
+                </span>
+            
+        </div>
+
+        <div class="post-content">
+            <p>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya <em>script tag</em> (<code>&lt;script&gt;&lt;script&gt;</code>) untuk memasukkan file JavaScript kita pada aplikasi kita.</p>
+<p>Nah, untuk itu lah kita memerlukan <em>modules</em> untuk saling berbagi satu JS ke JS lainnya.</p>
+<h1 id="center-apa-itu-_module_-center"><!-- raw HTML omitted --> Apa itu <em>Module</em>? <!-- raw HTML omitted --></h1>
+<p><em>Module</em> merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.</p>
+<p><em>Module</em> ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu <em>global scope</em>.</p>
+<p>Karena pada dasar nya sama saja seperti membungkus kode JS kita ke dalam sebuah fungsi. Fungsi ini tidak akan mengganggu <em>scope</em> lain sampai ia dipanggil.</p>
+<p>Ada dua tipe <em>module</em>, untuk postingan kali ini kita akan membahas tentang <em>module</em> yang pertama, yaitu <em>module</em> umum.</p>
+<h2 id="module-umum">Module umum</h2>
+<p>Pada dasarnya, secara <em>default</em> NodeJS menggunakan module JavasScript yang umum.</p>
+<p>Bagaimana itu? Mari kita buat.</p>
+<p>Pertama buat lah file baru bernama <code>index.js</code>.</p>
+<p>Lalu buat kode seperti ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;hello&#34;</span>);
+};
+</code></pre></div><p>Kita telah membuat fungsi yang disimpan ke dalam konstanta <code>action</code>. Fungsi tersebut melakukan <em>logging</em> ke <em>console</em> berupa kata <code>hello</code>.</p>
+<p>Kode ini dapat dijalankan pada browser maupun Node.</p>
+<p>Kita juga bisa membagikan fungsi <code>action</code> ini ke file JavaScript lainnya.</p>
+<p>Namun ada sebuah perbedaaan, jika kita melakukannya di browser, file ini akan di <em>attach</em> ke <em>global</em> sehingga dapat diakses via <code>window</code> pada file JS lainnya.</p>
+<p>Tetapi pada NodeJS, tidak ada <code>window</code>, tidak ada yang di <em>attach</em> di <em>global</em> (<code>window</code>) secara <em>default</em>. Karena seluruh file di dalam NodeJS sebenarnya di-enkapsulasi di dalam sebuah modul tersendiri, sehingga tidak terjadi kebocoran.</p>
+<p>Yang harus kita lakukan adalah mengekspos kode kita sehingga bisa digunakan oleh file lain.</p>
+<p>Nah untuk penggunaan modul secara umum, kita dapat menambah kode berikut di bawah kode yang telah kita tulis tadi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">action</span>;
+</code></pre></div><p>Kode di atas menyatakan bahwa kita telah melakukan <em>export</em> fungsi <code>action</code>. Dimana kita memasukkan nilai ataupun fungsi <code>action</code> ke dalam <code>module.exports</code>.</p>
+<p>Nah, kali ini kita telah berhasil membuat fungsi <code>action</code> terekspos.</p>
+<p>Lalu selanjutnya, buat lah file baru bernama <code>app.js</code> misalnya, lalu tulis kode berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;./index&#34;</span>);
+</code></pre></div><p>Kita membuat sebuah kode <em>global</em> bernama <code>action</code> lagi, dimana kita memasukkan file <code>index.js</code> ke dalamnya dengan menggunakan fungsi <em>global</em> <code>require</code>.</p>
+<p>Note:
+Secara <em>default</em> <code>require</code> membaca untuk file dengan ekstensi <code>.js</code>. Jika file yang kita butuhkan merupakan file dengan ekstensi <code>.js</code> maka kita tidak harus menuliskan parameter pada fungsi require secara lengkap beserta ekstensinya. Namun jika file yang kita butuhkan bukan merupakan file <code>.js</code> maka kita harus menambahkan ekstensi tersebut.</p>
+<p>Selanjutnya tambahkan di <em>line</em> berikutnya, kode seperti berikut :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">action</span>();
+</code></pre></div><p>Pada kode di atas kita memanggil fungsi <code>action()</code> yang sudah berada di dalam konstanta <code>action</code> untuk dijalankan.</p>
+<p>Pada akhirnya file <code>index.js</code> akan terlihat seperti berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;hello&#34;</span>);
+};
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">action</span>;
+</code></pre></div><p>Sedangkan file <code>app.js</code> akan terlihat seperti berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;./index&#34;</span>);
+
+<span style="color:#a6e22e">action</span>();
+</code></pre></div><p>Selanjutnya, coba jalankan <code>node app.js</code> pada terminal kita.</p>
+<figure class="img-fluid"><img src="/img/modules-nodejs/app.png"/>
+</figure>
+
+<p>Nah, kita berhasil membuat <em>module</em> umum&hellip;</p>
+<p>Kalian juga bisa membungkus fungsi <code>action</code> pada file <code>index.js</code> menjadi sebuah objek. Sehingga kodenya akan terlihat seperti ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;hello&#34;</span>);
+};
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">action</span> };
+</code></pre></div><p>Nah, kita telah menjadikan fungsi <code>action</code> pada <code>index.js</code> sebagai objek.</p>
+<p>Selanjutnya, untuk file <code>app.js</code> ada sedikit perubahan yang harus kita lakukan.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;.index&#34;</span>);
+
+<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">action</span>();
+</code></pre></div><p>Pada kode di atas, terlihat konstanta <code>action</code> telah berubah menjadi objek setelah menyimpan JS pada file <code>index.js</code>.</p>
+<p>Untuk itu, ketika ingin memanggil fungsi <code>action</code> pada file <code>index.js</code> kita tidak bisa langsung memanggil <code>action()</code>, melainkan harus dengan <code>action.action()</code>.</p>
+<p>Hal ini dikarenakan kita telah menjadikan fungsi <code>action</code> pada file <code>index.js</code> sebagai objek, dan kita memanggil fungsi <code>action</code> file <code>index.js</code> di dalam objek <code>action</code> pada file <code>app.js</code> tersebut.</p>
+<p>Silahkan jalankan <code>node app</code> kembali untuk melihat <em>output</em> fungsi <code>action</code> setelah dibungkus menjadi objek.</p>
+<p>&hellip;</p>
+<p>Oke segitu dulu, lanjut ke tipe module kedua di next postingan&hellip;</p>
+
+        </div>
+
+        
+        <div class="post-tags-section">
+            <span class="tags-label">Tags:</span>
+            
+                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
+            
+                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
+            
+                <a class="tag-badge" href="/tags/modules/">#modules</a>
+            
+                <a class="tag-badge" href="/tags/import/">#import</a>
+            
+                <a class="tag-badge" href="/tags/export/">#export</a>
+            
+        </div>
+        
+    </article>
+
+    
+    <nav class="post-pagination">
+        <div class="prev-post">
+            
+                <span class="nav-label">&lt;- Previous:</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/global-nodejs/">Global NodeJS</a>
+            
+        </div>
+        <div class="next-post">
+            
+                <span class="nav-label">Next -&gt;</span><br>
+                <a href="https://ngodingkuy.ngodingkuy.site/posts/i-am-back/">Hello, I&#39;m Back :&#39;v</a>
+            
+        </div>
+    </nav>
+    
+
+    <section class="other-posts">
+        <h2>Other Posts</h2>
+        <ul class="other-posts-list">
+            
+                <li>
+                    <time datetime="2026-04-14">2026-04-14</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/javascript-101/">Javascript in Action</a>
+                </li>
+            
+                <li>
+                    <time datetime="2026-03-30">2026-03-30</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-17">2022-01-17</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
+                </li>
+            
+                <li>
+                    <time datetime="2022-01-16">2022-01-16</time>
+                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
+                </li>
+            
+        </ul>
+    </section>
+
+    
+<div class="disqus-section">
+    <h3 class="disqus-title">Comments</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/modules-nodejs-part-one\/";
+            this.page.identifier = "\/posts\/modules-nodejs-part-one\/";
+            this.language = "en";
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://ngodingkuy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <p class="footer-nav">
+            <a href="/">[ Home ]</a>
+            <span class="sep">|</span>
+            <a href="/posts/">[ Posts ]</a>
+            <span class="sep">|</span>
+            <a href="/categories/">[ Categories ]</a>
+            <span class="sep">|</span>
+            <a href="/search/">[ Search ]</a>
+            <span class="sep">|</span>
+            <a href="/about/">[ About ]</a>
+            <span class="sep">|</span>
+            <a href="#top">[ Back to Top ]</a>
+        </p>
+
+        
+        <p class="footer-social">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
+            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
+            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
+            <a href="mailto:gojin003@gmail.com">[ Email ]</a>
+        </p>
+        
+
+        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
+    </div>
+</footer>
+
+</body>
+</html>

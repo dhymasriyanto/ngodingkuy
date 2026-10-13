@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ .Title }} - {{ .Site.Title }}</title>
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=3">
 </head>
 <body>
     {{ partial "header.html" . }}
@@ -12,7 +12,7 @@
     <main class="container">
         {{ block "main" . }}{{ end }}
     </main>
-
+    
     {{ partial "footer.html" . }}
 </body>
 </html>
