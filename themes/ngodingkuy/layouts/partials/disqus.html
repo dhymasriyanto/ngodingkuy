@@ -9,6 +9,13 @@
             this.language = "en";
         };
         (function () {
+            var dt = document.getElementById('disqus_thread');
+            if (dt) {
+                var isDark = document.documentElement.classList.contains('dark-theme');
+                dt.style.backgroundColor = isDark ? '#15260f' : '#dff5df';
+                dt.style.color = isDark ? '#dff5df' : '#000000';
+                dt.style.colorScheme = isDark ? 'dark' : 'light';
+            }
             var d = document, s = d.createElement('script');
             s.src = 'https://{{ .Site.DisqusShortname }}.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());

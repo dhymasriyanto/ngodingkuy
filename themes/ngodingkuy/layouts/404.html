@@ -1,0 +1,18 @@
+{{ define "main" }}
+    <nav class="breadcrumb-nav">
+        <a href="{{ "/" | relURL }}">&lt;- Back to Home</a>
+    </nav>
+
+    <div class="not-found-container" style="text-align: center; padding: 50px 10px 40px 10px;">
+        <h1 style="font-size: 3.5rem; margin: 0 0 10px 0; color: var(--accent);">404</h1>
+        <p style="font-size: 1.25rem; font-weight: bold; margin: 0 0 20px 0; color: var(--heading);">[ Page Not Found ]</p>
+        <p style="font-size: 1rem; color: var(--accent); max-width: 480px; margin: 0 auto 30px auto;">
+            The page or article you are looking for does not exist or has been moved.
+        </p>
+        <div style="margin-top: 25px;">
+            <a href="{{ "/" | relURL }}" class="see-all-btn">&lt;- Back to Home</a>
+            <span style="display: inline-block; width: 15px;"></span>
+            <a href="{{ "search/" | relURL }}" class="see-all-btn">Search Articles -&gt;</a>
+        </div>
+    </div>
+{{ end }}
