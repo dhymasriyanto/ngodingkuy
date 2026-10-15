@@ -199,9 +199,36 @@ if (document.readyState === 'loading') {
 <p>So, basically there are two ways javascript control ur browser: BOM and DOM.</p>
 <h2 id="bom">BOM</h2>
 <p>BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &lsquo;window&rsquo; we can make the browser show pop-up message with running <code>alert()</code> method in browser console.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Pop-up dialog
+</span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Hello from BOM!&#34;</span>);
+
+<span style="color:#75715e">// Check screen width
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">innerWidth</span>);
+
+<span style="color:#75715e">// Check current URL
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span>);
+</code></pre></div><p>Since <code>window</code> is the global object in browser environments, you can call these directly without typing <code>window.</code> (e.g. <code>alert()</code> or <code>location.href</code>).</p>
 <h2 id="dom">DOM</h2>
-<p>DOM stands for Document Object Model, it is just like BOM, but we access it using global object called <code>documents</code>.</p>
-<p>So..</p>
+<p>DOM stands for Document Object Model, it is just like BOM, but we access it using global object called <code>document</code> (which lives inside <code>window.document</code>).</p>
+<p>So, what is the difference?</p>
+<p>While BOM controls the browser shell (window, tabs, history, screen size), DOM controls the actual HTML document rendered inside that window.</p>
+<p>When the browser loads your HTML, it parses every tag into a hierarchical tree of objects. Through <code>document</code>, JavaScript can read, create, modify, and style elements on the fly.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Grab element by ID
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">heading</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;main-title&#34;</span>);
+
+<span style="color:#75715e">// Change text dynamically
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">heading</span>.<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;JavaScript is running!&#34;</span>;
+
+<span style="color:#75715e">// Change style directly
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">heading</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;seagreen&#34;</span>;
+</code></pre></div><p>We can also listen to user interactions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">btn</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#submit-btn&#34;</span>);
+
+<span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, () =&gt; {
+    <span style="color:#a6e22e">heading</span>.<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Button clicked!&#34;</span>;
+});
+</code></pre></div><p>See you in next page.</p>
 
         </div>
 

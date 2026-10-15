@@ -1,0 +1,370 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Modular JavaScript with ES Modules - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/javascript-modules/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Remember when a complex JavaScript project was just one massive 4,000-line script.js file, or ten <script> tags dumped in your HTML hoping the global variables …">
+<meta name=keywords content="javascript,modules,architecture,es6">
+<meta name=author content="Dhymas Julyan Riyanto">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Modular JavaScript with ES Modules">
+<meta property="og:description" content="Remember when a complex JavaScript project was just one massive 4,000-line script.js file, or ten <script> tags dumped in your HTML hoping the global variables wouldn’t clash? :')
+Those days are …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/javascript-modules/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/javascript-modules/javascript-modules.56b8e0b33825d5d25a5fb777ab239ae58bc2a020f9408c170c2e46e5a638de8b.png">
+<meta property="article:published_time" content="2026-07-22T16:20:00Z">
+<meta property="article:modified_time" content="2026-07-22T16:20:00Z">
+<meta property="article:tag" content="javascript"><meta property="article:tag" content="modules"><meta property="article:tag" content="architecture"><meta property="article:tag" content="es6">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Modular JavaScript with ES Modules">
+<meta name=twitter:description content="Remember when a complex JavaScript project was just one massive 4,000-line script.js file, or ten <script> tags dumped in your HTML hoping the global variables wouldn’t clash? :')
+Those days are …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/javascript-modules/javascript-modules.56b8e0b33825d5d25a5fb777ab239ae58bc2a020f9408c170c2e46e5a638de8b.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Modular JavaScript with ES Modules","description":"Remember when a complex JavaScript project was just one massive 4,000-line script.js file, or ten \u0026lt;script\u0026gt; tags dumped in your HTML hoping the global variables wouldn’t clash? :\u0026#39;)\nThose days are thankfully behind us.\nWith ES Modules (ESM), native …","url":"https://ngodingkuy.site/posts/javascript-modules/","datePublished":"2026-07-22T16:20:00Z","dateModified":"2026-07-22T16:20:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/javascript-modules/"},"author":{"@type":"Person","name":"Dhymas Julyan Riyanto"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/javascript-modules/javascript-modules.56b8e0b33825d5d25a5fb777ab239ae58bc2a020f9408c170c2e46e5a638de8b.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
+</head>
+<body>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Modular JavaScript with ES Modules</h1>
+<div class=post-meta>
+<span class=author>By Dhymas Julyan Riyanto</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2026-07-22>July 22, 2026</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/javascript/>[Javascript]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/javascript-modules/javascript-modules.56b8e0b33825d5d25a5fb777ab239ae58bc2a020f9408c170c2e46e5a638de8b.png alt="Modular JavaScript with ES Modules" loading=lazy>
+</div>
+<div class=post-content>
+<p>Remember when a complex JavaScript project was just one massive 4,000-line <code>script.js</code> file, or ten <code>&lt;script></code> tags dumped in your HTML hoping the global variables wouldn&rsquo;t clash? :')</p>
+<p>Those days are thankfully behind us.</p>
+<p>With <strong>ES Modules (ESM)</strong>, native modularity is supported directly by both modern browsers and runtime engines. You can split your logic into dedicated files, export only what&rsquo;s necessary, and keep global scope spotless.</p>
+<hr>
+<h2 id=1-exporting-code-named-vs-default>1. Exporting Code: Named vs Default</h2>
+<p>There are two primary ways to share code from a file:</p>
+<h3 id=named-exports-multiple-per-file>Named Exports (Multiple per file)</h3>
+<p>Best for utility libraries where you export specific helper functions:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// mathUtils.js
+</span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>) {
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>a</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>b</span>;
+}
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>PI</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>3.14159</span>;
+</code></pre></div><h3 id=default-export-one-per-file>Default Export (One per file)</h3>
+<p>Best for a file whose main purpose is providing a single class, component, or config:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// Logger.js
+</span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Logger</span> {
+    <span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>msg</span>) {
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`[APP LOG]: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>msg</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+    }
+}
+</code></pre></div><hr>
+<h2 id=2-importing-code>2. Importing Code</h2>
+<p>When importing, named exports require curly brackets <code>{ }</code> with matching names, while default exports can be imported directly with any name you choose:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// main.js
+</span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>Logger</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;./Logger.js&#34;</span>;
+<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>add</span>, <span style=color:#a6e22e>PI</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;./mathUtils.js&#34;</span>;
+
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>logger</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Logger</span>();
+<span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Result: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>add</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>5</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+<span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`PI value: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>PI</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+</code></pre></div><p>You can also alias names if you have naming conflicts:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>add</span> <span style=color:#a6e22e>as</span> <span style=color:#a6e22e>sumNumbers</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;./mathUtils.js&#34;</span>;
+</code></pre></div><hr>
+<h2 id=3-using-modules-in-html>3. Using Modules in HTML</h2>
+<p>To use native ES modules in the browser, simply add <code>type="module"</code> to your script tag:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;module&#34;</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;./main.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+</code></pre></div><p>When you add <code>type="module"</code>:</p>
+<ul>
+<li>The script automatically executes in <strong>strict mode</strong> (<code>"use strict"</code>).</li>
+<li>Top-level variables do <strong>not</strong> leak into global <code>window</code> scope.</li>
+<li>Scripts are deferred by default, waiting until the HTML document is parsed.</li>
+</ul>
+<hr>
+<h2 id=why-modular-architecture-matters>Why Modular Architecture Matters</h2>
+<ol>
+<li><strong>Maintainability</strong>: When a bug occurs in authentication, you look inside <code>auth.js</code>, not scrolling through a monolith.</li>
+<li><strong>Reusability</strong>: Utility modules can be shared across multiple pages or projects without copy-pasting.</li>
+<li><strong>Encapsulation</strong>: Internal helper variables stay private inside their module file unless explicitly exported.</li>
+</ol>
+<hr>
+<p>That wraps up our 10-part dive into practical modern JavaScript! From DOM basics and event listeners all the way to modular architecture and async flows, you now have a solid toolkit to build real-world web apps with confidence.</p>
+<p>Which topic was your favorite, or what would you like me to archive next? The comments section is always open!</p>
+<p>Thanks for reading along, and see you on the next journey! :')</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/javascript/>#javascript</a>
+<a class=tag-badge href=/tags/modules/>#modules</a>
+<a class=tag-badge href=/tags/architecture/>#architecture</a>
+<a class=tag-badge href=/tags/es6/>#es6</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/javascript-destructuring-and-spread/>Destructuring & the Spread Operator</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/javascript-closures-and-scope/>Understanding Closures & Scope</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-10-09>2026-10-09</time>
+<a href=https://ngodingkuy.site/posts/javascript-web-workers/>Multi-Threading with Web Workers</a>
+</li>
+<li>
+<time datetime=2026-10-02>2026-10-02</time>
+<a href=https://ngodingkuy.site/posts/javascript-canvas-basics/>Drawing in the Browser with HTML5 Canvas</a>
+</li>
+<li>
+<time datetime=2026-09-23>2026-09-23</time>
+<a href=https://ngodingkuy.site/posts/javascript-indexeddb-basics/>Beyond LocalStorage: Storing Data with IndexedDB</a>
+</li>
+<li>
+<time datetime=2026-09-14>2026-09-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-intersection-observer/>Modern Lazy Loading with Intersection Observer</a>
+</li>
+<li>
+<time datetime=2026-09-05>2026-09-05</time>
+<a href=https://ngodingkuy.site/posts/javascript-debounce-and-throttle/>Event Optimization: Debounce vs Throttle</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/javascript-modules/",this.page.identifier="/posts/javascript-modules/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ Javascript Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/javascript/>[Javascript]</a></span> &bull;
+<span>21 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/javascript-101/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Javascript in Action</div>
+<div class=tree-item-date>2026-04-14 &bull; javascript-101</div>
+</div>
+</a>
+<a href=/posts/javascript-events/ class=tree-item>
+<span class=tree-item-num>02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Event Listeners in Action</div>
+<div class=tree-item-date>2026-04-21 &bull; javascript-events</div>
+</div>
+</a>
+<a href=/posts/javascript-dom-manipulation/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>DOM Manipulation & Creating Elements</div>
+<div class=tree-item-date>2026-04-29 &bull; javascript-dom-manipulation</div>
+</div>
+</a>
+<a href=/posts/javascript-event-delegation/ class=tree-item>
+<span class=tree-item-num>04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Delegation & Bubbling</div>
+<div class=tree-item-date>2026-05-08 &bull; javascript-event-delegation</div>
+</div>
+</a>
+<a href=/posts/javascript-localstorage/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Saving Client Data with LocalStorage</div>
+<div class=tree-item-date>2026-05-17 &bull; javascript-localstorage</div>
+</div>
+</a>
+<a href=/posts/javascript-timers/ class=tree-item>
+<span class=tree-item-num>06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Timers: setTimeout & setInterval</div>
+<div class=tree-item-date>2026-05-26 &bull; javascript-timers</div>
+</div>
+</a>
+<a href=/posts/javascript-callbacks-and-promises/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Escaping Callback Hell with Promises</div>
+<div class=tree-item-date>2026-06-05 &bull; javascript-callbacks-and-promises</div>
+</div>
+</a>
+<a href=/posts/javascript-async-await/ class=tree-item>
+<span class=tree-item-num>08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Cleaner Code with Async and Await</div>
+<div class=tree-item-date>2026-06-14 &bull; javascript-async-await</div>
+</div>
+</a>
+<a href=/posts/javascript-fetch-api/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Talking to External APIs with Fetch</div>
+<div class=tree-item-date>2026-06-24 &bull; javascript-fetch-api</div>
+</div>
+</a>
+<a href=/posts/javascript-es6-arrays/ class=tree-item>
+<span class=tree-item-num>10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Essential Modern Array Methods</div>
+<div class=tree-item-date>2026-07-03 &bull; javascript-es6-arrays</div>
+</div>
+</a>
+<a href=/posts/javascript-destructuring-and-spread/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Destructuring & the Spread Operator</div>
+<div class=tree-item-date>2026-07-13 &bull; javascript-destructuring-and-spread</div>
+</div>
+</a>
+<a href=/posts/javascript-modules/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modular JavaScript with ES Modules</div>
+<div class=tree-item-date>2026-07-22 &bull; javascript-modules</div>
+</div>
+</a>
+<a href=/posts/javascript-closures-and-scope/ class=tree-item>
+<span class=tree-item-num>13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Understanding Closures & Scope</div>
+<div class=tree-item-date>2026-07-31 &bull; javascript-closures-and-scope</div>
+</div>
+</a>
+<a href=/posts/javascript-this-keyword/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Demystifying the 'this' Keyword</div>
+<div class=tree-item-date>2026-08-09 &bull; javascript-this-keyword</div>
+</div>
+</a>
+<a href=/posts/javascript-classes-and-prototypes/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Classes & Prototypes in JavaScript</div>
+<div class=tree-item-date>2026-08-18 &bull; javascript-classes-and-prototypes</div>
+</div>
+</a>
+<a href=/posts/javascript-custom-error-handling/ class=tree-item>
+<span class=tree-item-num>16.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Robust Error Handling & Custom Errors</div>
+<div class=tree-item-date>2026-08-27 &bull; javascript-custom-error-handling</div>
+</div>
+</a>
+<a href=/posts/javascript-debounce-and-throttle/ class=tree-item>
+<span class=tree-item-num>17.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Optimization: Debounce vs Throttle</div>
+<div class=tree-item-date>2026-09-05 &bull; javascript-debounce-and-throttle</div>
+</div>
+</a>
+<a href=/posts/javascript-intersection-observer/ class=tree-item>
+<span class=tree-item-num>18.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modern Lazy Loading with Intersection Observer</div>
+<div class=tree-item-date>2026-09-14 &bull; javascript-intersection-observer</div>
+</div>
+</a>
+<a href=/posts/javascript-indexeddb-basics/ class=tree-item>
+<span class=tree-item-num>19.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Beyond LocalStorage: Storing Data with IndexedDB</div>
+<div class=tree-item-date>2026-09-23 &bull; javascript-indexeddb-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-canvas-basics/ class=tree-item>
+<span class=tree-item-num>20.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Drawing in the Browser with HTML5 Canvas</div>
+<div class=tree-item-date>2026-10-02 &bull; javascript-canvas-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-web-workers/ class=tree-item>
+<span class=tree-item-num>21.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Multi-Threading with Web Workers</div>
+<div class=tree-item-date>2026-10-09 &bull; javascript-web-workers</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
+</footer>
+</body>
+</html>

@@ -1,204 +1,71 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html><html lang=en-us>
 <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
 <title>Cara Menginstall JDK Dan Menampilkan Hello World - ngodingkuy</title>
-
-
-<link rel="canonical" href="https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-
-
-
-    
-
-<meta name="description" content="JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE …">
-
-
-<meta name="keywords" content="install JDK, JAVA">
-
-<meta name="author" content="dhymas">
-
-
-<link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+<link rel=canonical href=https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE …">
+<meta name=keywords content="install JDK,JAVA">
+<meta name=author content="dhymas">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
 <link rel="shortcut icon" href="/favicon.ico?v=4">
-
-
-<link rel="alternate" type="application/rss+xml" href="https://ngodingkuy.site/index.xml" title="ngodingkuy">
-
-
-
-
-
-    
-
-
-
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="ngodingkuy">
 <meta property="og:title" content="Cara Menginstall JDK Dan Menampilkan Hello World">
 <meta property="og:description" content="JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE (JAVA Runtime Environment). Berikut …">
 <meta property="og:url" content="https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.png">
-
-
-    <meta property="article:published_time" content="2019-08-01T10:35:21&#43;07:00">
-    <meta property="article:modified_time" content="2019-08-01T10:35:21&#43;07:00">
-    <meta property="article:tag" content="install JDK"><meta property="article:tag" content="JAVA">
-
-
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cara Menginstall JDK Dan Menampilkan Hello World">
-<meta name="twitter:description" content="JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE (JAVA Runtime Environment). Berikut …">
-<meta name="twitter:image" content="https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.png">
-
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Cara Menginstall JDK Dan Menampilkan Hello World",
-  "description": "JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE (JAVA Runtime Environment). Berikut perbedaan ketiganya:\n  JVM adalah komponen dari platform …",
-  "url": "https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/",
-  "datePublished": "2019-08-01T10:35:21+07:00",
-  "dateModified": "2019-08-01T10:35:21+07:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "dhymas"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "ngodingkuy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://ngodingkuy.site/img/favicon.png"
-    }
-  },
-  "image": "https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.png"
-}
-</script>
-
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin="anonymous"></script>
-
-
-<script>
-(function() {
-    var saved = localStorage.getItem('theme');
-    if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark-theme');
-    }
-})();
-function toggleTheme() {
-    var html = document.documentElement;
-    var isDark = html.classList.toggle('dark-theme');
-    try {
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    } catch (e) {}
-    updateThemeToggleUI();
-
-    var dt = document.getElementById('disqus_thread');
-    if (dt) {
-        dt.style.backgroundColor = isDark ? '#15260f' : '#dff5df';
-        dt.style.color = isDark ? '#dff5df' : '#000000';
-        dt.style.colorScheme = isDark ? 'dark' : 'light';
-    }
-
-    if (typeof DISQUS !== 'undefined') {
-        setTimeout(function() {
-            DISQUS.reset({
-                reload: true,
-                config: function() {
-                    this.page.url = window.location.href;
-                    this.page.identifier = window.location.pathname;
-                    this.language = "en";
-                }
-            });
-        }, 50);
-    }
-}
-function updateThemeToggleUI() {
-    var btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    var isDark = document.documentElement.classList.contains('dark-theme');
-    btn.textContent = isDark ? '[ Light ]' : '[ Dark ]';
-    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-}
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateThemeToggleUI);
-} else {
-    updateThemeToggleUI();
-}
-</script>
-
-
-<link rel="stylesheet" href="/css/style.css?v=9">
-
+<meta property="og:image" content="https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.c90ac52d722ef95cc8e506298477c0f723bf466cc68e6c86686b2c74c4c66e03.png">
+<meta property="article:published_time" content="2019-08-01T10:35:21+07:00">
+<meta property="article:modified_time" content="2019-08-01T10:35:21+07:00">
+<meta property="article:tag" content="install JDK"><meta property="article:tag" content="JAVA">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Cara Menginstall JDK Dan Menampilkan Hello World">
+<meta name=twitter:description content="JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE (JAVA Runtime Environment). Berikut …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.c90ac52d722ef95cc8e506298477c0f723bf466cc68e6c86686b2c74c4c66e03.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cara Menginstall JDK Dan Menampilkan Hello World","description":"JDK atau JAVA Development Kit adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah JVM (JAVA Virtual Machine) dan JRE (JAVA Runtime Environment). Berikut perbedaan ketiganya:\n  JVM adalah komponen dari platform …","url":"https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/","datePublished":"2019-08-01T10:35:21+07:00","dateModified":"2019-08-01T10:35:21+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/"},"author":{"@type":"Person","name":"dhymas"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.c90ac52d722ef95cc8e506298477c0f723bf466cc68e6c86686b2c74c4c66e03.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
 </head>
 <body>
-    <header class="site-header" id="top">
-    <div class="container">
-        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn it, write it, re-learn it.</p>
-        <nav class="site-nav">
-            <a href="/">[ Home ]</a>
-            <a href="/posts/">[ Posts ]</a>
-            <a href="/categories/">[ Categories ]</a>
-            <a href="/search/">[ Search ]</a>
-            <a href="/about/">[ About ]</a>
-            <button type="button" id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle theme">[ Dark ]</button>
-        </nav>
-    </div>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
 </header>
-
-
-    <main class="container">
-        
-    <nav class="breadcrumb-nav">
-        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
-    </nav>
-
-    <article class="post">
-        <h1>Cara Menginstall JDK Dan Menampilkan Hello World</h1>
-        <div class="post-meta">
-            <span class="author">By dhymas</span>
-            <span class="meta-sep">&bull;</span>
-            <time datetime="2019-08-01">August 1, 2019</time>
-            
-                <span class="meta-sep">&bull;</span>
-                <span class="post-categories">
-                    Categories: 
-                    
-                        
-                        <a href="/categories/java/">[JAVA]</a>
-                    
-                </span>
-            
-        </div>
-
-        
-        
-            <div class="post-banner">
-                <img src="/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.png" alt="Cara Menginstall JDK Dan Menampilkan Hello World" loading="lazy">
-            </div>
-        
-
-        <div class="post-content">
-            <p><strong>JDK</strong> atau JAVA <em>Development Kit</em> adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah <strong>JVM</strong> (JAVA <em>Virtual Machine</em>) dan <strong>JRE</strong> (JAVA <em>Runtime Environment</em>).
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Cara Menginstall JDK Dan Menampilkan Hello World</h1>
+<div class=post-meta>
+<span class=author>By dhymas</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2019-08-01>August 1, 2019</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/java/>[JAVA]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/java.c90ac52d722ef95cc8e506298477c0f723bf466cc68e6c86686b2c74c4c66e03.png alt="Cara Menginstall JDK Dan Menampilkan Hello World" loading=lazy>
+</div>
+<div class=post-content>
+<p><strong>JDK</strong> atau JAVA <em>Development Kit</em> adalah salah satu dari tiga paket inti yang dibutuhkan pada bahasa JAVA. Dua lainnya ialah <strong>JVM</strong> (JAVA <em>Virtual Machine</em>) dan <strong>JRE</strong> (JAVA <em>Runtime Environment</em>).
 Berikut perbedaan ketiganya:</p>
 <ul>
 <li>
@@ -212,376 +79,287 @@ Berikut perbedaan ketiganya:</p>
 </li>
 </ul>
 <p>Bagi yang baru memulai mempelajari JAVA pasti masih bingung dengan pembagian-pembagian dan istilah-istilah tersebut. Perbedaan mendasarnya ialah, <strong>JDK</strong> adalah <em>package</em> untuk men-<em>develop</em> program berbasis JAVA, yang mana membutuhkan JRE sebagai <em>package</em> untuk menjalankan kode JAVA tersebut.</p>
-<p>Berikut bagan bagaimana peranan <strong>JDK</strong>  pada JAVA:</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/jdk-01.png"/>
+<p>Berikut bagan bagaimana peranan <strong>JDK</strong> pada JAVA:</p>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/jdk-01.png>
 </figure>
-
 <hr>
-<h1 id="centermenginstall-jdkcenter"><center>Menginstall JDK</center></h1>
-<h2 id="versi-jdk-apa-yang-harus-di-_install_-_thor_">Versi JDK apa yang harus di-<em>install</em>, <em>Thor</em>?</h2>
+<h1 id=centermenginstall-jdkcenter><center>Menginstall JDK</center></h1>
+<h2 id=versi-jdk-apa-yang-harus-di-_install_-_thor_>Versi JDK apa yang harus di-<em>install</em>, <em>Thor</em>?</h2>
 <p>Bebas! Silahkan <em>download</em> sesuai kebutuhan. Tapi, untuk kali ini kita akan menginstall JDK versi 8 saja untuk pertama kali belajar.</p>
-<p>Langkah awal, silahkan kunjungi <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">website oracle</a> terlebih dahulu untuk men-<em>download</em> JDK 8.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/web-oracle.png"/>
+<p>Langkah awal, silahkan kunjungi <a href=https://www.oracle.com/technetwork/java/javase/downloads/index.html>website oracle</a> terlebih dahulu untuk men-<em>download</em> JDK 8.</p>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/web-oracle.png>
 </figure>
-
 <p>JAVA saat ini sudah mengeluarkan versi JDK terbaru. Namun tidak apa-apa, JDK 8 masih <em>powerfull</em> kok untuk belajar di awal-awal. Maka abaikan saja JDK versi terbaru tersebut, langsung saja pilih yang sudah <em>Author</em> tandai.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/halaman-download.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/halaman-download.png>
 </figure>
-
 <p>Langkah selanjutnya, untuk dapat men-<em>download</em> JDK tersebut, anda harus menyetujui terlebih dahulu kebijakan yang di buat. Maka klik <em>Accept License Agreement</em> untuk melanjutkan.</p>
 <p>Setelah itu silahkan pilih file sesuai dengan sistem operasi anda. Jika menggunakan <em>Windows</em>, silahkan pilih antara kedua yang sudah <em>Author</em> tandai sesuai dengan versi <em>Windows</em> anda.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/halaman2.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/halaman2.png>
 </figure>
-
 <p>Selanjutnya, anda akan dibawa ke menu login untuk akun Oracle. Jika belum punya anda sebaiknya membuat akun terlebih dahulu. Ketika sudah selesai membuat akun, silahkan masuk untuk dapat men-<em>download</em> JDK 8 tadi.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/oracle.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/oracle.png>
 </figure>
-
 <p>Simpan ditempat yang di inginkan.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/simpan.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/simpan.png>
 </figure>
-
 <p>Setelah selesai men-<em>download</em>, silahkan jalankan file <em>jdk-8u221-windows-x64.exe</em> tadi.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/aplikasi.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/aplikasi.png>
 </figure>
-
 <p>Klik <em>next</em>. Anda dapat mengganti lokasi penyimpanan JDK ini, namun untuk kali ini biarkan saja JDK tersimpan secara <em>default</em> di Local Disk (C:). Klik <em>next</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/aplikasi2.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/aplikasi2.png>
 </figure>
-
 <p>Tunggu sebentar.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/tunggu.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/tunggu.png>
 </figure>
-
 <p>Selanjutnya anda dapat juga mengganti lokasi penyimpanan JRE ini, namun untuk kali ini biarkan saja JRE tersimpan secara <em>default</em> di Local Disk (C:). Klik <em>next</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/jre.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/jre.png>
 </figure>
-
 <p>Tunggu sampai selesai meng-<em>install</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/installing.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/installing.png>
 </figure>
-
 <p>Jika sudah selesai, silahkan <em>close</em> program.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/close.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/close.png>
 </figure>
-
 <p>Nais!! Kita sudah berhasil meng-<em>install</em> JDK pada Windows.</p>
-<h2 id="lah-terus-sekarang-ngapain">Lah, terus sekarang ngapain?</h2>
+<h2 id=lah-terus-sekarang-ngapain>Lah, terus sekarang ngapain?</h2>
 <p>Langkah selanjutnya, kita harus menyetting PATH untuk <em>Environment Variable</em> pada Windows.</p>
-<h2 id="apa-itu-path">Apa itu PATH?</h2>
+<h2 id=apa-itu-path>Apa itu PATH?</h2>
 <p>PATH itu ialah istilah yang digunakan untuk menunjukkan alamat suatu file.</p>
 <p>Sebenarnya, JAVA sudah berhasil terinstall pada OS kita, tapi tidak secara otomatis ter-<em>setting</em> PATH-nya. Untuk mengetahui hal tersebut tekan <code>Windows + R</code> untuk membuka kotak dialog &ldquo;Run&rdquo; seperti berikut :</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/run.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/run.png>
 </figure>
-
 <p>Lalu ketik <code>cmd</code> dan tekan Enter. Maka program <em>Command Prompt</em> akan terbuka seperti ini :</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/cmd.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/cmd.png>
 </figure>
-
 <p>Lalu ketik <code>javac</code> pada <em>Command Prompt</em> dan tekan Enter.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/javac.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/javac.png>
 </figure>
-
 <p>Hal diatas terjadi karena kita belum mengatur PATH pada <em>environment variable</em>. Untuk melakukan hal tersebut, kita harus pergi ke <em>system properties</em>.</p>
-<p>Sebelum ke <em>system properties</em> kita harus dapatkan terlebih dahulu alamat yang ingin kita tuju. Alamat ini  merupakan alamat menuju ke dalam folder JDK yang telah kita <em>install</em>.</p>
+<p>Sebelum ke <em>system properties</em> kita harus dapatkan terlebih dahulu alamat yang ingin kita tuju. Alamat ini merupakan alamat menuju ke dalam folder JDK yang telah kita <em>install</em>.</p>
 <p>Buka <em>File Explorer</em>. Lalu pergi ke Local Disk (C:) dan masuk ke folder <em>Program Files</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/c.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/c.png>
 </figure>
-
 <p>Pada folder <em>Program Files</em> masuk lagi ke dalam folder <em>Java</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/files.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/files.png>
 </figure>
-
 <p>Di dalam folder <em>Java</em> inilah JDK terinstall. Setelah itu masuklah ke dalam folder <em>jdk1.8.0_221</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/java.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/java.png>
 </figure>
-
 <p>Masuk ke dalam folder <em>bin</em></p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/jdk8.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/jdk8.png>
 </figure>
-
 <p>Di dalam folder <em>bin</em> tersebut, klik pada <em>address bar</em> lalu <em>copy</em> alamat tersebut.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/bin.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/bin.png>
 </figure>
-
 <p>Untuk ke <em>system properties</em>, kita cukup lakukan hal yang hampir sama dengan sebelumnya.</p>
 <p>Tekan <code>Windows + R</code> pada <em>keyboard</em> lalu ketikkan <code>sysdm.cpl</code> dan tekan <em>Enter</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/sysdm.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/sysdm.png>
 </figure>
-
 <p>Lalu silahkan pilih tab <em>Advanced</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/system-properties.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/system-properties.png>
 </figure>
-
 <p>Lalu pilih <em>Environment Variables</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/advanced.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/advanced.png>
 </figure>
-
 <p>Pilih PATH seperti pada gambar dibawah, lalu pilih <em>Edit</em> untuk mengedit isi PATH.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/environment.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/environment.png>
 </figure>
-
 <p>Di sini silahkan pilih <em>New</em> untuk membuat PATH baru.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/edit.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/edit.png>
 </figure>
-
 <p>Kemudian <em>paste</em> alamat yang telah kita <em>copy</em> tadi.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/new.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/new.png>
 </figure>
-
 <p>Setelah itu klik <em>OK</em> di semua menu sampai anda keluar.</p>
 <p>Diatas merupakan cara mengatur PATH pada <em>Windows</em> 10. Untuk <em>Windows</em> 7 caranya sama, hanya berbeda pada saat masuk menu <em>Edit</em> PATH.</p>
 <p>Setelah anda masuk ke dalam <em>Edit</em> PATH, maka tampilannya akan seperti ini :</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/path-windows-7.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/path-windows-7.png>
 </figure>
-
 <p>Jika sudah, sama seperti pada sebelumnya, kita harus <em>paste</em> alamat yang telah kita <em>copy</em>.</p>
 <p>Namun yang harus diperhatikan ialah sebelum kita <em>copy</em>, kita harus memberikan <em>separator</em> untuk PATH baru. <em>Separator</em> tersebut ialah tanda titik koma (';').</p>
 <p>Untuk itu, letakkan titik koma (';') di ujung tulisan pada <em>field Edit</em> PATH tersebut. Lalu silahkan <em>paste</em> alamat yang telah tersimpan, lalu tekan OK di semua <em>dialog box</em>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/path-separate.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/path-separate.png>
 </figure>
-
-<p>Naaahhh&hellip; Akhirnya kita telah berhasil mengatur agar JDK terdapat di dalam PATH.</p>
+<p>Naaahhh&mldr; Akhirnya kita telah berhasil mengatur agar JDK terdapat di dalam PATH.</p>
 <p>Tapi, untuk membuktikan hal itu, mari kita coba di <em>Command Prompt</em>. Oh iya, kita harus <em>close</em> dulu <em>Command Prompt</em> sebelumnya, agar reload data baru.</p>
 <p>Kemudian buka lagi <em>Command Prompt</em> dan coba ketikkan kembali <code>javac</code>, jika berhasil maka tampilannya akan seperti ini :</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/success.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/success.png>
 </figure>
-
 <p>Selanjutnya untuk memastikan bahwa versi JDK sudah sesuai, yakni JDK versi 8, maka ketikkan perintah <code>javac -version</code>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/java-version.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/java-version.png>
 </figure>
-
 <p>Selamat, kita telah berhasil mengatur PATH pada OS kita.</p>
 <hr>
-<h1 id="centermembuat-hello-world--pada-javacenter"><center>Membuat Hello World  Pada JAVA</center></h1>
+<h1 id=centermembuat-hello-world--pada-javacenter><center>Membuat Hello World Pada JAVA</center></h1>
 <p>Akhirnya, setelah PATH untuk JDK kita telah selesai diatur, mari kita coba untuk melakukan <em>compile</em> pada bahasa pemrograman JAVA. Seperti yang <em>Author</em> katakan sebelumnya, bahwa JDK berfungsi untuk meng-<em>compile</em> kode JAVA kita.</p>
 <p>Kita akan melakukan <em>compile</em> dengan menggunakan perintah <code>javac</code> tadi.</p>
-<p>Pertama buka editor favorit kalian, bisa <a href="https://notepad-plus-plus.org/download/v7.7.1.html">Notepad++</a>, <a href="https://atom.io">Atom</a>, <a href="https://code.visualstudio.com/">Visual Studio Code</a> atau bahkan Notepad biasa (yang ini untuk <strong>PRO</strong> :v). Disini <em>Author</em> menggunakan Visual Studio Code.</p>
+<p>Pertama buka editor favorit kalian, bisa <a href=https://notepad-plus-plus.org/download/v7.7.1.html>Notepad++</a>, <a href=https://atom.io>Atom</a>, <a href=https://code.visualstudio.com/>Visual Studio Code</a> atau bahkan Notepad biasa (yang ini untuk <strong>PRO</strong> :v). Disini <em>Author</em> menggunakan Visual Studio Code.</p>
 <p>Setelah dibuka, silahkan ketikkan <em>syntax</em> berikut :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span><span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">(</span>String <span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Kemudian simpan dengan nama file &ldquo;HelloWorld.java&rdquo; pada direktori yang anda inginkan. Pada kali ini <em>Author</em> menyimpan file &ldquo;HelloWorld.java&rdquo; tersebut pada  direktori <code>C:\User\Gamers\Documents</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloWorld</span><span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span> <span style=color:#f92672>(</span>String <span style=color:#f92672>[]</span> args<span style=color:#f92672>){</span>
+        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Hello World!&#34;</span><span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>Kemudian simpan dengan nama file &ldquo;HelloWorld.java&rdquo; pada direktori yang anda inginkan. Pada kali ini <em>Author</em> menyimpan file &ldquo;HelloWorld.java&rdquo; tersebut pada direktori <code>C:\User\Gamers\Documents</code>.</p>
 <p>Nah, sekarang kita akan menampilkan hal tersebut pada <em>Command Prompt</em>.</p>
 <p>Pertama buka <em>Command Prompt</em> terlebih dahulu.</p>
-<p>Perlu diketahui, bahwa secara <em>default</em>, <em>Command Prompt</em> akan mengarahkan kita ke direktori <code>C:\User\namauser</code>. Nah, disini kita perlu untuk mengubah direktori tersebut. Untuk melakukan hal itu, kita akan menggunakan salah satu perintah pada <em>Command Prompt</em>,  yaitu <code>cd</code> yang merupakan perintah untuk menuju ke direktori tertentu.</p>
+<p>Perlu diketahui, bahwa secara <em>default</em>, <em>Command Prompt</em> akan mengarahkan kita ke direktori <code>C:\User\namauser</code>. Nah, disini kita perlu untuk mengubah direktori tersebut. Untuk melakukan hal itu, kita akan menggunakan salah satu perintah pada <em>Command Prompt</em>, yaitu <code>cd</code> yang merupakan perintah untuk menuju ke direktori tertentu.</p>
 <p>Jika kita ketikkan command <code>help</code> pada <em>Command Prompt</em>, maka akan tampil penjelasan semua perintah di <em>Command Prompt</em>, namun untuk saat ini yang perlu kita ketahui hanya perintah <code>cd</code> saja.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/help.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/help.png>
 </figure>
-
 <p>Ada beberapa hal yang harus diketahui pada perintah <code>cd</code> ini. Yakni :</p>
 <ul>
 <li>Jika kita ingin pergi ke <em>Disk</em> selain <em>Local Disk (C:)</em>, maka cukup ketikkan nama <em>Disk</em>-nya. Seperti jika kita ingin ke <em>Disk</em> D:, maka ketikkan <code>D:</code>.</li>
 </ul>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/d.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/d.png>
 </figure>
-
 <ul>
 <li>Jika kita ketik : <code>cd /</code>. maka akan mengarahkan kita ke direktori inti pada <em>Disk</em> tersebut.</li>
 </ul>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/root.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/root.png>
 </figure>
-
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/root2.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/root2.png>
 </figure>
-
 <ul>
 <li>Jika kita ketik : <code>cd ..</code>, maka akan mengarahkan kita ke direktori sebelumnya.</li>
 </ul>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/back.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/back.png>
 </figure>
-
 <ul>
 <li>Jika kita ketik : <code>cd namadirektori</code>, maka akan mengarahkan kita ke direktori yang kita inginkan (tetapi direktori harus ada).</li>
 </ul>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/go-to.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/go-to.png>
 </figure>
-
 <ul>
 <li>Kita bisa menulis langsung direktori lengkap dengan mengetik : <code>cd nama/direktori/yang/dituju</code>.</li>
 </ul>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/langsung.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/langsung.png>
 </figure>
-
 <ul>
 <li>Jika kita ketik : <code>cd</code>, maka <em>Command Prompt</em> akan menampilkan direktori kita saat ini.</li>
 </ul>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/cd.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/cd.png>
 </figure>
-
 <p>Oke, karena sudah tau cara penggunaan perintah <code>cd</code> ini, maka langsung saja kita coba untuk melakukan <em>compile</em> pada file &ldquo;HelloWorld.java&rdquo; kita tadi.</p>
 <p>Karena <em>Author</em> menyimpan file-nya di <code>C:\User\GAMERS\Documents</code>, maka langsung saja kita arahkan <em>Command Prompt</em> kita kesana.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/docu.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/docu.png>
 </figure>
-
 <p>Jika kita sudah pada direktori yang sesuai, mari kita lakukan <em>compile</em> pada file &ldquo;HelloWorld.java&rdquo; kita dengan menggunakan perintah <code>javac</code>.</p>
 <p>Untuk melakukannya kita ketikkan : <code>javac HelloWorld.java</code>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/compile.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/compile.png>
 </figure>
-
 <p>Jika berhasil, dia tidak akan menampilkan apa-apa. Jika tidak berhasil, itu dikarenakan ada <em>error</em> pada kode kita. Misalnya seperti ini :</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/error.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/error.png>
 </figure>
-
 <p>Jangan khawatir! Kita hanya perlu memperbaiki <em>error</em> nya. Lagipula, semakin sering <em>error</em>, semakin pusing juga kita. Eh, maksudnya kita akan semakin paham dan mengerti dengan kode kita. :v</p>
 <p>Selanjutnya, mari kita tampilkan kode kita pada <em>Command Prompt</em> dengan menggunakan perintah <code>java</code>.</p>
 <p>Untuk melakukannya kita ketikkan : <code>java HelloWorld</code>.</p>
-<figure class="img-fluid"><img src="/img/cara-menginstall-jdk-dan-menampilkan-hello-world/hello.png"/>
+<figure class=img-fluid><img src=/img/cara-menginstall-jdk-dan-menampilkan-hello-world/hello.png>
 </figure>
-
 <p>Selamat!! Akhirnya anda berhasil menjadi <em>hekel</em>!! :v (bercanda)</p>
 <p>Mungkin sekian saja postingan untuk kali ini. Maaf kalo kepanjangan. Semoga dapat dipahami, dan silahkan bertanya ataupun memberikan saran.</p>
 <p>Terima kasih!! :)</p>
-
-        </div>
-
-        
-        <div class="post-tags-section">
-            <span class="tags-label">Tags:</span>
-            
-                <a class="tag-badge" href="/tags/install-jdk/">#install JDK</a>
-            
-                <a class="tag-badge" href="/tags/java/">#JAVA</a>
-            
-        </div>
-        
-    </article>
-
-    
-    <nav class="post-pagination">
-        <div class="prev-post">
-            
-                <span class="nav-label">&lt;- Previous:</span><br>
-                <a href="https://ngodingkuy.site/posts/hai/">Hai!</a>
-            
-        </div>
-        <div class="next-post">
-            
-                <span class="nav-label">Next -&gt;</span><br>
-                <a href="https://ngodingkuy.site/posts/nodejs/">NodeJS</a>
-            
-        </div>
-    </nav>
-    
-
-    <section class="other-posts">
-        <h2>Other Posts</h2>
-        <ul class="other-posts-list">
-            
-                <li>
-                    <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
-                </li>
-            
-                <li>
-                    <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-17">2022-01-17</time>
-                    <a href="https://ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.site/posts/os/">Standard Library - OS</a>
-                </li>
-            
-        </ul>
-    </section>
-
-    
-<div class="disqus-section">
-    <h3 class="disqus-title">Comments</h3>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.site\/posts\/cara-menginstall-jdk-dan-menampilkan-hello-world\/";
-            this.page.identifier = "\/posts\/cara-menginstall-jdk-dan-menampilkan-hello-world\/";
-            this.language = "en";
-        };
-        (function () {
-            var dt = document.getElementById('disqus_thread');
-            if (dt) {
-                var isDark = document.documentElement.classList.contains('dark-theme');
-                dt.style.backgroundColor = isDark ? '#15260f' : '#dff5df';
-                dt.style.color = isDark ? '#dff5df' : '#000000';
-                dt.style.colorScheme = isDark ? 'dark' : 'light';
-            }
-            var d = document, s = d.createElement('script');
-            s.src = 'https://ngodingkuy.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
 </div>
-
-
-
-    </main>
-    
-    <footer class="site-footer">
-    <div class="container">
-        <p class="footer-nav">
-            <a href="/">[ Home ]</a>
-            <span class="sep">|</span>
-            <a href="/posts/">[ Posts ]</a>
-            <span class="sep">|</span>
-            <a href="/categories/">[ Categories ]</a>
-            <span class="sep">|</span>
-            <a href="/search/">[ Search ]</a>
-            <span class="sep">|</span>
-            <a href="/about/">[ About ]</a>
-            <span class="sep">|</span>
-            <a href="#top">[ Back to Top ]</a>
-        </p>
-
-        
-        <p class="footer-social">
-            <span class="social-label">Connect:</span>
-            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
-            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
-            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
-        </p>
-        
-
-        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
-    </div>
-
-    <script>
-    (function () {
-        const emailLink = document.getElementById('email-contact-link');
-        if (emailLink) {
-            emailLink.addEventListener('click', function (e) {
-                const mail = 'gojin003@gmail.com';
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(mail).then(function () {
-                        const orig = emailLink.textContent;
-                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
-                        setTimeout(function () {
-                            emailLink.textContent = orig;
-                        }, 2500);
-                    }).catch(function () {});
-                }
-            });
-        }
-
-        if (typeof updateThemeToggleUI === 'function') {
-            updateThemeToggleUI();
-        }
-    })();
-    </script>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/install-jdk/>#install JDK</a>
+<a class=tag-badge href=/tags/java/>#JAVA</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/hai/>Hai!</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/nodejs/>NodeJS</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-04-14>2026-04-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-101/>Javascript in Action</a>
+</li>
+<li>
+<time datetime=2026-03-30>2026-03-30</time>
+<a href=https://ngodingkuy.site/posts/welcome-back/>Welcome to ngodingkuy</a>
+</li>
+<li>
+<time datetime=2022-01-21>2022-01-21</time>
+<a href=https://ngodingkuy.site/posts/debugger/>Standard Library - Debugger</a>
+</li>
+<li>
+<time datetime=2022-01-17>2022-01-17</time>
+<a href=https://ngodingkuy.site/posts/file-system/>Standard Library - File System</a>
+</li>
+<li>
+<time datetime=2022-01-16>2022-01-16</time>
+<a href=https://ngodingkuy.site/posts/path/>Standard Library - Path</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/",this.page.identifier="/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ JAVA Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/java/>[JAVA]</a></span> &bull;
+<span>1 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Cara Menginstall JDK Dan Menampilkan Hello World</div>
+<div class=tree-item-date>2019-08-01 &bull; cara-menginstall-jdk-dan-menampilkan-hello-world</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
 </footer>
-
 </body>
 </html>

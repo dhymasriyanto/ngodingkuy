@@ -1,0 +1,373 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Cleaner Code with Async and Await - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/javascript-async-await/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Just when we thought Promises with .then() and .catch() were peak elegance, ES2017 dropped a game changer: async and await.
+If you’ve ever looked at long …">
+<meta name=keywords content="javascript,async,es8,clean-code">
+<meta name=author content="Dhymas Julyan Riyanto">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Cleaner Code with Async and Await">
+<meta property="og:description" content="Just when we thought Promises with .then() and .catch() were peak elegance, ES2017 dropped a game changer: async and await.
+If you’ve ever looked at long Promise chains and wished you could just write …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/javascript-async-await/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/javascript-async-await/javascript-async-await.25b621b3c04b8713a37180ec36504ca77ca2ead1a5dc369774f875ffb53d4d19.png">
+<meta property="article:published_time" content="2026-06-14T08:45:00Z">
+<meta property="article:modified_time" content="2026-06-14T08:45:00Z">
+<meta property="article:tag" content="javascript"><meta property="article:tag" content="async"><meta property="article:tag" content="es8"><meta property="article:tag" content="clean-code">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Cleaner Code with Async and Await">
+<meta name=twitter:description content="Just when we thought Promises with .then() and .catch() were peak elegance, ES2017 dropped a game changer: async and await.
+If you’ve ever looked at long Promise chains and wished you could just write …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/javascript-async-await/javascript-async-await.25b621b3c04b8713a37180ec36504ca77ca2ead1a5dc369774f875ffb53d4d19.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cleaner Code with Async and Await","description":"Just when we thought Promises with .then() and .catch() were peak elegance, ES2017 dropped a game changer: async and await.\nIf you’ve ever looked at long Promise chains and wished you could just write asynchronous code that reads like everyday …","url":"https://ngodingkuy.site/posts/javascript-async-await/","datePublished":"2026-06-14T08:45:00Z","dateModified":"2026-06-14T08:45:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/javascript-async-await/"},"author":{"@type":"Person","name":"Dhymas Julyan Riyanto"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/javascript-async-await/javascript-async-await.25b621b3c04b8713a37180ec36504ca77ca2ead1a5dc369774f875ffb53d4d19.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
+</head>
+<body>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Cleaner Code with Async and Await</h1>
+<div class=post-meta>
+<span class=author>By Dhymas Julyan Riyanto</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2026-06-14>June 14, 2026</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/javascript/>[Javascript]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/javascript-async-await/javascript-async-await.25b621b3c04b8713a37180ec36504ca77ca2ead1a5dc369774f875ffb53d4d19.png alt="Cleaner Code with Async and Await" loading=lazy>
+</div>
+<div class=post-content>
+<p>Just when we thought Promises with <code>.then()</code> and <code>.catch()</code> were peak elegance, ES2017 dropped a game changer: <strong><code>async</code> and <code>await</code></strong>.</p>
+<p>If you&rsquo;ve ever looked at long Promise chains and wished you could just write asynchronous code that reads like everyday synchronous code&mldr; well, your wish was granted. :D</p>
+<hr>
+<h2 id=the-magic-formula>The Magic Formula</h2>
+<p>Under the hood, <code>async / await</code> is just comfortable syntactic sugar built right on top of Promises.</p>
+<p>Two simple rules to remember:</p>
+<ol>
+<li>Put <code>async</code> before a function declaration. That function will now automatically return a Promise.</li>
+<li>Inside an <code>async</code> function, you can pause execution with <code>await</code> until a Promise settles!</li>
+</ol>
+<p>Look at the contrast:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// Old Promise style
+</span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>fetchProfile</span>() {
+    <span style=color:#a6e22e>getUser</span>()
+        .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>user</span> =&gt; <span style=color:#a6e22e>getOrders</span>(<span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>id</span>))
+        .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>orders</span> =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>orders</span>));
+}
+
+<span style=color:#75715e>// Modern async/await style
+</span><span style=color:#75715e></span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>fetchProfile</span>() {
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>user</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getUser</span>();
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>orders</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getOrders</span>(<span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>id</span>);
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>orders</span>);
+}
+</code></pre></div><p>Notice how clean that is? No nested callbacks, no chaining brackets. It reads straight down line by line.</p>
+<hr>
+<h2 id=error-handling-good-old-trycatch>Error Handling: Good Old <code>try...catch</code></h2>
+<p>How do we handle rejections? Instead of chaining <code>.catch()</code>, we just wrap our operations in standard JavaScript <code>try...catch</code> blocks:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>loadUserData</span>(<span style=color:#a6e22e>userId</span>) {
+    <span style=color:#66d9ef>try</span> {
+        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>`/api/users/</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>userId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>data</span>;
+    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>err</span>) {
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Failed to load user data:&#34;</span>, <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>message</span>);
+        <span style=color:#75715e>// Handle fallback UI here
+</span><span style=color:#75715e></span>    }
+}
+</code></pre></div><p>Familiar, robust, and matches how you handle errors across the rest of the language.</p>
+<hr>
+<h2 id=the-common-trap-accidental-sequential-delays>The Common Trap: Accidental Sequential Delays!</h2>
+<p>Here&rsquo;s an easy mistake to make when you get too excited with <code>await</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// BAD: These two requests do not depend on each other!
+</span><span style=color:#75715e>// They will run one after the other, doubling your wait time!
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>posts</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetchPosts</span>();
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>comments</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetchComments</span>();
+</code></pre></div><p>If both requests are independent, don&rsquo;t make the second wait for the first! Run them in parallel using <code>Promise.all()</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// GOOD: Fire both simultaneously!
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>posts</span>, <span style=color:#a6e22e>comments</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> Promise.<span style=color:#a6e22e>all</span>([
+    <span style=color:#a6e22e>fetchPosts</span>(),
+    <span style=color:#a6e22e>fetchComments</span>()
+]);
+</code></pre></div><p>This cuts your waiting time in half. Always ask yourself: <em>&ldquo;Does B actually need data from A before starting?"</em></p>
+<hr>
+<p>Mastering <code>async/await</code> was the turning point where asynchronous JavaScript truly became enjoyable for me.</p>
+<p>Are you still using <code>.then()</code> chains or have you gone full <code>async/await</code>? Let me know in the comments!</p>
+<p>Stay tuned for the next note, cheers! :)</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/javascript/>#javascript</a>
+<a class=tag-badge href=/tags/async/>#async</a>
+<a class=tag-badge href=/tags/es8/>#es8</a>
+<a class=tag-badge href=/tags/clean-code/>#clean-code</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/javascript-callbacks-and-promises/>Escaping Callback Hell with Promises</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/javascript-fetch-api/>Talking to External APIs with Fetch</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-10-09>2026-10-09</time>
+<a href=https://ngodingkuy.site/posts/javascript-web-workers/>Multi-Threading with Web Workers</a>
+</li>
+<li>
+<time datetime=2026-10-02>2026-10-02</time>
+<a href=https://ngodingkuy.site/posts/javascript-canvas-basics/>Drawing in the Browser with HTML5 Canvas</a>
+</li>
+<li>
+<time datetime=2026-09-23>2026-09-23</time>
+<a href=https://ngodingkuy.site/posts/javascript-indexeddb-basics/>Beyond LocalStorage: Storing Data with IndexedDB</a>
+</li>
+<li>
+<time datetime=2026-09-14>2026-09-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-intersection-observer/>Modern Lazy Loading with Intersection Observer</a>
+</li>
+<li>
+<time datetime=2026-09-05>2026-09-05</time>
+<a href=https://ngodingkuy.site/posts/javascript-debounce-and-throttle/>Event Optimization: Debounce vs Throttle</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/javascript-async-await/",this.page.identifier="/posts/javascript-async-await/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ Javascript Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/javascript/>[Javascript]</a></span> &bull;
+<span>21 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/javascript-101/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Javascript in Action</div>
+<div class=tree-item-date>2026-04-14 &bull; javascript-101</div>
+</div>
+</a>
+<a href=/posts/javascript-events/ class=tree-item>
+<span class=tree-item-num>02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Event Listeners in Action</div>
+<div class=tree-item-date>2026-04-21 &bull; javascript-events</div>
+</div>
+</a>
+<a href=/posts/javascript-dom-manipulation/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>DOM Manipulation & Creating Elements</div>
+<div class=tree-item-date>2026-04-29 &bull; javascript-dom-manipulation</div>
+</div>
+</a>
+<a href=/posts/javascript-event-delegation/ class=tree-item>
+<span class=tree-item-num>04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Delegation & Bubbling</div>
+<div class=tree-item-date>2026-05-08 &bull; javascript-event-delegation</div>
+</div>
+</a>
+<a href=/posts/javascript-localstorage/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Saving Client Data with LocalStorage</div>
+<div class=tree-item-date>2026-05-17 &bull; javascript-localstorage</div>
+</div>
+</a>
+<a href=/posts/javascript-timers/ class=tree-item>
+<span class=tree-item-num>06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Timers: setTimeout & setInterval</div>
+<div class=tree-item-date>2026-05-26 &bull; javascript-timers</div>
+</div>
+</a>
+<a href=/posts/javascript-callbacks-and-promises/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Escaping Callback Hell with Promises</div>
+<div class=tree-item-date>2026-06-05 &bull; javascript-callbacks-and-promises</div>
+</div>
+</a>
+<a href=/posts/javascript-async-await/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Cleaner Code with Async and Await</div>
+<div class=tree-item-date>2026-06-14 &bull; javascript-async-await</div>
+</div>
+</a>
+<a href=/posts/javascript-fetch-api/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Talking to External APIs with Fetch</div>
+<div class=tree-item-date>2026-06-24 &bull; javascript-fetch-api</div>
+</div>
+</a>
+<a href=/posts/javascript-es6-arrays/ class=tree-item>
+<span class=tree-item-num>10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Essential Modern Array Methods</div>
+<div class=tree-item-date>2026-07-03 &bull; javascript-es6-arrays</div>
+</div>
+</a>
+<a href=/posts/javascript-destructuring-and-spread/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Destructuring & the Spread Operator</div>
+<div class=tree-item-date>2026-07-13 &bull; javascript-destructuring-and-spread</div>
+</div>
+</a>
+<a href=/posts/javascript-modules/ class=tree-item>
+<span class=tree-item-num>12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modular JavaScript with ES Modules</div>
+<div class=tree-item-date>2026-07-22 &bull; javascript-modules</div>
+</div>
+</a>
+<a href=/posts/javascript-closures-and-scope/ class=tree-item>
+<span class=tree-item-num>13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Understanding Closures & Scope</div>
+<div class=tree-item-date>2026-07-31 &bull; javascript-closures-and-scope</div>
+</div>
+</a>
+<a href=/posts/javascript-this-keyword/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Demystifying the 'this' Keyword</div>
+<div class=tree-item-date>2026-08-09 &bull; javascript-this-keyword</div>
+</div>
+</a>
+<a href=/posts/javascript-classes-and-prototypes/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Classes & Prototypes in JavaScript</div>
+<div class=tree-item-date>2026-08-18 &bull; javascript-classes-and-prototypes</div>
+</div>
+</a>
+<a href=/posts/javascript-custom-error-handling/ class=tree-item>
+<span class=tree-item-num>16.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Robust Error Handling & Custom Errors</div>
+<div class=tree-item-date>2026-08-27 &bull; javascript-custom-error-handling</div>
+</div>
+</a>
+<a href=/posts/javascript-debounce-and-throttle/ class=tree-item>
+<span class=tree-item-num>17.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Optimization: Debounce vs Throttle</div>
+<div class=tree-item-date>2026-09-05 &bull; javascript-debounce-and-throttle</div>
+</div>
+</a>
+<a href=/posts/javascript-intersection-observer/ class=tree-item>
+<span class=tree-item-num>18.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modern Lazy Loading with Intersection Observer</div>
+<div class=tree-item-date>2026-09-14 &bull; javascript-intersection-observer</div>
+</div>
+</a>
+<a href=/posts/javascript-indexeddb-basics/ class=tree-item>
+<span class=tree-item-num>19.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Beyond LocalStorage: Storing Data with IndexedDB</div>
+<div class=tree-item-date>2026-09-23 &bull; javascript-indexeddb-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-canvas-basics/ class=tree-item>
+<span class=tree-item-num>20.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Drawing in the Browser with HTML5 Canvas</div>
+<div class=tree-item-date>2026-10-02 &bull; javascript-canvas-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-web-workers/ class=tree-item>
+<span class=tree-item-num>21.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Multi-Threading with Web Workers</div>
+<div class=tree-item-date>2026-10-09 &bull; javascript-web-workers</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
+</footer>
+</body>
+</html>

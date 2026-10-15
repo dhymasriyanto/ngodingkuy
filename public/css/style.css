@@ -881,3 +881,176 @@ a:hover {
         font-size: 0.85rem;
     }
 }
+
+/* ==========================================================================
+   Post Curriculum Tree View Drawer (Left Sidebar)
+   ========================================================================== */
+.tree-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 290px;
+    max-width: 85vw;
+    background-color: var(--bg);
+    border-right: 1px solid var(--border);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.tree-drawer.open {
+    transform: translateX(0);
+}
+
+.tree-drawer-toggle {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    background-color: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-left: none;
+    padding: 14px 7px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: left 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, color 0.15s ease;
+    user-select: none;
+    line-height: 1;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.tree-drawer-toggle:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
+.tree-drawer.open + .tree-drawer-toggle,
+.tree-drawer.open ~ .tree-drawer-toggle {
+    left: 290px;
+}
+
+.tree-drawer-header {
+    border-bottom: 1px dashed var(--border-dotted);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.tree-drawer-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.tree-drawer-title {
+    font-size: 0.92rem;
+    color: var(--heading);
+}
+
+.tree-drawer-meta {
+    font-size: 0.78rem;
+    color: var(--accent-dim);
+    margin-bottom: 2px;
+}
+
+.tree-drawer-order {
+    font-size: 0.72rem;
+    color: var(--accent-dim);
+}
+
+.tree-items-list {
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 2px;
+}
+
+.tree-item {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 7px 8px;
+    border: 1px solid transparent;
+    border-bottom: 1px dashed var(--border-dotted);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.8rem;
+    line-height: 1.35;
+    transition: all 0.15s ease;
+}
+
+.tree-item:hover {
+    background-color: var(--input-bg);
+    border-color: var(--border-dotted);
+    color: var(--link-hover);
+}
+
+.tree-item.active {
+    background-color: var(--input-bg);
+    border-left: 3px solid var(--accent);
+    color: var(--heading);
+    font-weight: bold;
+}
+
+.tree-item-num {
+    font-family: inherit;
+    color: var(--accent-dim);
+    flex-shrink: 0;
+    font-size: 0.78rem;
+}
+
+.tree-item.active .tree-item-num {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.tree-item-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.tree-item-title {
+    word-break: break-word;
+}
+
+.tree-item-date {
+    font-size: 0.7rem;
+    color: var(--accent-dim);
+    margin-top: 2px;
+}
+
+.tree-drawer-footer {
+    border-top: 1px dashed var(--border-dotted);
+    padding-top: 8px;
+    margin-top: 8px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.tree-all-series-btn {
+    font-size: 0.78rem;
+    color: var(--link);
+    text-decoration: none;
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--border-dotted);
+}
+
+.tree-all-series-btn:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+}

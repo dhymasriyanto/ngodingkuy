@@ -1,130 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>NodeJS on ngodingkuy</title>
-    <link>https://ngodingkuy.site/categories/nodejs/</link>
-    <description>Recent content in NodeJS on ngodingkuy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 17 Jan 2022 17:13:29 +0700</lastBuildDate><atom:link href="https://ngodingkuy.site/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Standard Library - File System</title>
-      <link>https://ngodingkuy.site/posts/file-system/</link>
-      <pubDate>Mon, 17 Jan 2022 17:13:29 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/file-system/</guid>
-      <description>File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeJS on ngodingkuy</title><link>https://ngodingkuy.site/categories/nodejs/</link><description>Recent content in NodeJS on ngodingkuy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 21 Jan 2022 14:35:10 +0700</lastBuildDate><atom:link href="https://ngodingkuy.site/categories/nodejs/index.xml" rel="self" type="application/rss+xml"/><item><title>Standard Library - Debugger</title><link>https://ngodingkuy.site/posts/debugger/</link><pubDate>Fri, 21 Jan 2022 14:35:10 +0700</pubDate><guid>https://ngodingkuy.site/posts/debugger/</guid><description>Halo semua, kembali lagi bersama Author :')
+Postingan kali ini melanjutkan catatan tentang standard library bawaan NodeJS. Silahkan dibaca jika berkenan, semoga bermanfaat!
+Mengenal Debugger di NodeJS Jangan Cuma Andalkan console.log() Mulu, Thor&amp;hellip; :v Siapa di sini yang kalau ada bug di aplikasinya, langsung nebar puluhan baris console.log(&amp;quot;sampe sini 1&amp;quot;), console.log(&amp;quot;sampe sini 2&amp;quot;)? Wkwk&amp;hellip;
+Ngga salah sih, Author dulu juga sering banget begitu. Tapi kalau kodenya udah mulai kompleks dan bercabang banyak, cara itu malah bikin layar terminal penuh sampah dan pusing sendiri.</description></item><item><title>Standard Library - File System</title><link>https://ngodingkuy.site/posts/file-system/</link><pubDate>Mon, 17 Jan 2022 17:13:29 +0700</pubDate><guid>https://ngodingkuy.site/posts/file-system/</guid><description>File system merupakan standard library yang bisa digunakan untuk memanipulasi file system.
 Terdapat 3 jenis library dalam File System, yakni:
- Library yang bersifat blocking atau synchronous Library yang bersifat non-blocking atau asynchronous menggunakan callback Library yang bersifat non-blocking atau asynchronous tapi menggunakan promise  Untuk dokumentasi lebih lanjut dapat di lihat disini
+Library yang bersifat blocking atau synchronous Library yang bersifat non-blocking atau asynchronous menggunakan callback Library yang bersifat non-blocking atau asynchronous tapi menggunakan promise Untuk dokumentasi lebih lanjut dapat di lihat disini
 Author sendiri menyarankan menggunakan promise, karena lebih mudah, dan juga bisa menggunakan async await.
-Jika menggunakan callback, kita harus menggunakan callback terus menerus, dan malah menyebabkan callback hell.</description>
-    </item>
-    
-    <item>
-      <title>Standard Library - Path</title>
-      <link>https://ngodingkuy.site/posts/path/</link>
-      <pubDate>Sun, 16 Jan 2022 17:53:30 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/path/</guid>
-      <description>Setelah OS, ada lagi standard library yang dapat kita gunakan untuk keperluan kita.
+Jika menggunakan callback, kita harus menggunakan callback terus menerus, dan malah menyebabkan callback hell.</description></item><item><title>Standard Library - Path</title><link>https://ngodingkuy.site/posts/path/</link><pubDate>Sun, 16 Jan 2022 17:53:30 +0700</pubDate><guid>https://ngodingkuy.site/posts/path/</guid><description>Setelah OS, ada lagi standard library yang dapat kita gunakan untuk keperluan kita.
 Kali ini kita akan membahas mengenai Path.
 Path merupakan sebuah standard library nodejs yang bisa digunakan untuk bekerja dengan lokasi file dan direktori/folder.
 Perlu digarisbawahi bahwa kita library ini bekerja dengan lokasi file, bukan file nya.
 Beberapa contoh penggunaan function sebagai berikut:
- path.basename(path([, ext])) : digunakan ketika ingin mengetahui basename dari lokasi file kita. path.delimiter() : dikarenakan delimiter tiap OS berbeda beda, sehingga memungkinkan untuk menetukan nya dengan fungsi ini.</description>
-    </item>
-    
-    <item>
-      <title>Standard Library - OS</title>
-      <link>https://ngodingkuy.site/posts/os/</link>
-      <pubDate>Sun, 16 Jan 2022 15:31:27 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/os/</guid>
-      <description>Apa itu Standard Library?
+path.basename(path([, ext])) : digunakan ketika ingin mengetahui basename dari lokasi file kita. path.delimiter() : dikarenakan delimiter tiap OS berbeda beda, sehingga memungkinkan untuk menetukan nya dengan fungsi ini.</description></item><item><title>Standard Library - OS</title><link>https://ngodingkuy.site/posts/os/</link><pubDate>Sun, 16 Jan 2022 15:31:27 +0700</pubDate><guid>https://ngodingkuy.site/posts/os/</guid><description>Apa itu Standard Library?
 Seperti namanya, standard library merupakan library yang secara default disediakan oleh nodejs.
 Kali ini, kita akan membahas sebuah standard library dari nodejs yaitu OS.
 OS dapat digunakan untuk membantu kita mendapatkan informasi mengenai sistem operasi yang digunakan.
 Beberapa contohnya sebagai berikut:
- os.arch() : digunakan untuk melihat arsitektur dari sistem operasi yang digunakan. os.cpus() : digunakan untuk mengetahui detail CPU yang kita gunakan. os.freemem() : atau juga free memory, untuk mengetahui berapa besar memori yang tidak terpakai saat ini.</description>
-    </item>
-    
-    <item>
-      <title>Global Async</title>
-      <link>https://ngodingkuy.site/posts/global-async/</link>
-      <pubDate>Tue, 04 Jan 2022 20:01:06 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/global-async/</guid>
-      <description>Pada JavaSript biasanya kita menggunakan async await kita perlu membuat function yang ditandai sebagai async.
+os.arch() : digunakan untuk melihat arsitektur dari sistem operasi yang digunakan. os.cpus() : digunakan untuk mengetahui detail CPU yang kita gunakan. os.freemem() : atau juga free memory, untuk mengetahui berapa besar memori yang tidak terpakai saat ini.</description></item><item><title>Global Async</title><link>https://ngodingkuy.site/posts/global-async/</link><pubDate>Tue, 04 Jan 2022 20:01:06 +0700</pubDate><guid>https://ngodingkuy.site/posts/global-async/</guid><description>Pada JavaSript biasanya kita menggunakan async await kita perlu membuat function yang ditandai sebagai async.
 Nah, pada saat menggunakan module secara default kita sudah menggunakan async, untuk itu kita sudah bisa menggunakan async tanpa harus menggunakan keyword async.
 Mari kita coba dengan contoh berikut:
 Buatlah sebuah file async.js
 function contohPromise(){ return Promise.resolve(&amp;#39;hello&amp;#39;) } Karena kode di atas merupakan promise, jadi kita bisa menggunakan await di baris selanjutnya;
-const hallo = await contohPromise() console.</description>
-    </item>
-    
-    <item>
-      <title>Modules Nodejs - ECMAScript Module</title>
-      <link>https://ngodingkuy.site/posts/modules-nodejs-part-two/</link>
-      <pubDate>Mon, 03 Jan 2022 00:00:44 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/modules-nodejs-part-two/</guid>
-      <description>Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
+const hallo = await contohPromise() console.</description></item><item><title>Modules Nodejs - ECMAScript Module</title><link>https://ngodingkuy.site/posts/modules-nodejs-part-two/</link><pubDate>Mon, 03 Jan 2022 00:00:44 +0700</pubDate><guid>https://ngodingkuy.site/posts/modules-nodejs-part-two/</guid><description>Untuk penggunaan module pada postingan sebelumnya, sebenarnya tidak disarankan, karena merupakan default syntax untuk NodeJS yang sudah jarang dipakai dan termasuk cara dasar.
 Agar JavaScript benar-benar universal di segala environment, untuk itu diperlukan cara yang lebih futuristik.
 Untuk itu, hadirlah ES module atau ECMAScript module.
 Nah, pada postingan kali ini kita akan membahas tentang ES module tersebut.
-Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang digunakan untuk aplikasi NodeJS.</description>
-    </item>
-    
-    <item>
-      <title>Modules NodeJS - Common Module</title>
-      <link>https://ngodingkuy.site/posts/modules-nodejs-part-one/</link>
-      <pubDate>Sat, 07 Aug 2021 14:32:50 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/modules-nodejs-part-one/</guid>
-      <description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
+Ekstensi .mjs .mjs atau juga module JS merupakan sebuah ekstensi khusus yang digunakan untuk aplikasi NodeJS.</description></item><item><title>Modules NodeJS - Common Module</title><link>https://ngodingkuy.site/posts/modules-nodejs-part-one/</link><pubDate>Sat, 07 Aug 2021 14:32:50 +0700</pubDate><guid>https://ngodingkuy.site/posts/modules-nodejs-part-one/</guid><description>Karena tidak ada nya GUI, HTML, maupun CSS pada NodeJS, mengakibatkan tidak adanya script tag (&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;) untuk memasukkan file JavaScript kita pada aplikasi kita.
 Nah, untuk itu lah kita memerlukan modules untuk saling berbagi satu JS ke JS lainnya.
- Apa itu Module?  Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
-Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</description>
-    </item>
-    
-    <item>
-      <title>Global NodeJS</title>
-      <link>https://ngodingkuy.site/posts/global-nodejs/</link>
-      <pubDate>Sat, 07 Aug 2021 12:11:46 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/global-nodejs/</guid>
-      <description>Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
+Apa itu Module? Module merupakan sebuah fungsi baik simpel maupun kompleks yang bisa dipakai ulang.
+Module ini diibaratkan seperti potongan Lego, yang mana bisa dibuat, diimpor juga dibagikan. Sehingga module ini tidak akan mengganggu global scope.</description></item><item><title>Global NodeJS</title><link>https://ngodingkuy.site/posts/global-nodejs/</link><pubDate>Sat, 07 Aug 2021 12:11:46 +0700</pubDate><guid>https://ngodingkuy.site/posts/global-nodejs/</guid><description>Apa itu Global pada NodeJS? Global merupakan object yang terdapat pada NodeJS.
 Global object dapat digunakan secara global pada aplikasi dan pada semua module.
 Tidak perlu melakukan include pada aplikasi lagi, kalian tinggal pakai saja global object ini.
 Umum
 Berikut list umum yang diberikan oleh objek global pada NodeJS:
-  global : Dimana dapat digunakan sama halnya seperti window pada console browser. Coba kembali pada file index.js yang telah kita buat kemarin&amp;hellip; Lalu buat console.</description>
-    </item>
-    
-    <item>
-      <title>Mengeksekusi NodeJS</title>
-      <link>https://ngodingkuy.site/posts/executing-nodejs/</link>
-      <pubDate>Sat, 07 Aug 2021 10:54:07 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/executing-nodejs/</guid>
-      <description>Bagaimana cara mengeksekusi NodeJS?  Nah, setelah kita berhasil menginstall NodeJS berdasarkan postingan sebelumnya, kali ini kita akan mencoba mengeksekusi NodeJS, agar dapat digunakan.
+global : Dimana dapat digunakan sama halnya seperti window pada console browser. Coba kembali pada file index.js yang telah kita buat kemarin&amp;hellip; Lalu buat console.</description></item><item><title>Mengeksekusi NodeJS</title><link>https://ngodingkuy.site/posts/executing-nodejs/</link><pubDate>Sat, 07 Aug 2021 10:54:07 +0700</pubDate><guid>https://ngodingkuy.site/posts/executing-nodejs/</guid><description>Bagaimana cara mengeksekusi NodeJS? Nah, setelah kita berhasil menginstall NodeJS berdasarkan postingan sebelumnya, kali ini kita akan mencoba mengeksekusi NodeJS, agar dapat digunakan.
 Node REPL Apa itu REPL?
 REPL merupakan singkatan dari Read, Evaluate, Print, Loop.
 Mangsudnya?
-Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, mengeksekusi, mengeprint, dan loop sesuai dengan konteks runtime yang kita pilih. Ya dalam kasus kita ini contohnya Node. Yang menjadikan kita juga punya console yang sama kayak di browser.</description>
-    </item>
-    
-    <item>
-      <title>NodeJS</title>
-      <link>https://ngodingkuy.site/posts/nodejs/</link>
-      <pubDate>Sat, 07 Aug 2021 09:56:26 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/nodejs/</guid>
-      <description>Halo semua, kembali lagi bersama Author :&#39;)
+Pada umumnya REPL itu merupakan shell interaktif, yang berguna untuk membaca, mengeksekusi, mengeprint, dan loop sesuai dengan konteks runtime yang kita pilih. Ya dalam kasus kita ini contohnya Node. Yang menjadikan kita juga punya console yang sama kayak di browser.</description></item><item><title>NodeJS</title><link>https://ngodingkuy.site/posts/nodejs/</link><pubDate>Sat, 07 Aug 2021 09:56:26 +0700</pubDate><guid>https://ngodingkuy.site/posts/nodejs/</guid><description>Halo semua, kembali lagi bersama Author :')
 Postingan kali ini cuma untuk catatan saya aja kok.. Silahkan dibaca jika berkenan. Terima kasih!
- Apa itu NodeJS?  NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
-JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</description>
-    </item>
-    
-  </channel>
-</rss>
+Apa itu NodeJS? NodeJS itu JavaSript kok. Iya dari kata JS yang berada setelah kata node saja kita sudah tau kalau NodeJS itu merupakan Javascript.
+JavaScript yang dari dulu kita tau hanya dapat dijalankan di browser saja, kan? Nah, intinya NodeJS ini merupakan sebuah runtime yang dibangun untuk Chrome V8, yang memungkinkan kita untuk menjalankan JavaScript diluar browser.</description></item></channel></rss>

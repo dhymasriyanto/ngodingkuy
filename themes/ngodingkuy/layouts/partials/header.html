@@ -1,7 +1,7 @@
 <header class="site-header" id="top">
     <div class="container">
         <h1 class="site-title"><a href="{{ "/" | relURL }}">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn it, write it, re-learn it.</p>
+        <p class="site-subtitle">{{ .Site.Params.description }}</p>
         <nav class="site-nav">
             <a href="{{ "/" | relURL }}">[ Home ]</a>
             <a href="{{ "posts/" | relURL }}">[ Posts ]</a>

@@ -1,44 +1,17 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html><html lang=en-us>
 <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
 <title>Global NodeJS - ngodingkuy</title>
-
-
-<link rel="canonical" href="https://ngodingkuy.site/posts/global-nodejs/">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-
-
-
-    
-
-<meta name="description" content="Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
+<link rel=canonical href=https://ngodingkuy.site/posts/global-nodejs/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
 Global object dapat digunakan secara global pada aplikasi dan pada semua module. …">
-
-
-<meta name="keywords" content="nodejs, javascript, global, object">
-
-<meta name="author" content="dhymas">
-
-
-<link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+<meta name=keywords content="nodejs,javascript,global,object">
+<meta name=author content="dhymas">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
 <link rel="shortcut icon" href="/favicon.ico?v=4">
-
-
-<link rel="alternate" type="application/rss+xml" href="https://ngodingkuy.site/index.xml" title="ngodingkuy">
-
-
-
-
-
-    
-
-
-
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="ngodingkuy">
 <meta property="og:title" content="Global NodeJS">
@@ -47,163 +20,57 @@ Global object dapat digunakan secara global pada aplikasi dan pada semua module.
 Tidak perlu melakukan include pada …">
 <meta property="og:url" content="https://ngodingkuy.site/posts/global-nodejs/">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://ngodingkuy.site/posts/global-nodejs/global.png">
-
-
-    <meta property="article:published_time" content="2021-08-07T12:11:46&#43;07:00">
-    <meta property="article:modified_time" content="2021-08-07T12:11:46&#43;07:00">
-    <meta property="article:tag" content="nodejs"><meta property="article:tag" content="javascript"><meta property="article:tag" content="global"><meta property="article:tag" content="object">
-
-
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Global NodeJS">
-<meta name="twitter:description" content="Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
+<meta property="og:image" content="https://ngodingkuy.site/posts/global-nodejs/global.bcf783b03cf555a4bd2e020c329c535ece753c506cc29ec2fefbf09aaa16d682.png">
+<meta property="article:published_time" content="2021-08-07T12:11:46+07:00">
+<meta property="article:modified_time" content="2021-08-07T12:11:46+07:00">
+<meta property="article:tag" content="nodejs"><meta property="article:tag" content="javascript"><meta property="article:tag" content="global"><meta property="article:tag" content="object">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Global NodeJS">
+<meta name=twitter:description content="Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
 Global object dapat digunakan secara global pada aplikasi dan pada semua module.
 Tidak perlu melakukan include pada …">
-<meta name="twitter:image" content="https://ngodingkuy.site/posts/global-nodejs/global.png">
-
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Global NodeJS",
-  "description": "Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.\nGlobal object dapat digunakan secara global pada aplikasi dan pada semua module.\nTidak perlu melakukan include pada aplikasi lagi, kalian tinggal pakai saja global object …",
-  "url": "https://ngodingkuy.site/posts/global-nodejs/",
-  "datePublished": "2021-08-07T12:11:46+07:00",
-  "dateModified": "2021-08-07T12:11:46+07:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://ngodingkuy.site/posts/global-nodejs/"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "dhymas"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "ngodingkuy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://ngodingkuy.site/img/favicon.png"
-    }
-  },
-  "image": "https://ngodingkuy.site/posts/global-nodejs/global.png"
-}
-</script>
-
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin="anonymous"></script>
-
-
-<script>
-(function() {
-    var saved = localStorage.getItem('theme');
-    if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark-theme');
-    }
-})();
-function toggleTheme() {
-    var html = document.documentElement;
-    var isDark = html.classList.toggle('dark-theme');
-    try {
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    } catch (e) {}
-    updateThemeToggleUI();
-
-    var dt = document.getElementById('disqus_thread');
-    if (dt) {
-        dt.style.backgroundColor = isDark ? '#15260f' : '#dff5df';
-        dt.style.color = isDark ? '#dff5df' : '#000000';
-        dt.style.colorScheme = isDark ? 'dark' : 'light';
-    }
-
-    if (typeof DISQUS !== 'undefined') {
-        setTimeout(function() {
-            DISQUS.reset({
-                reload: true,
-                config: function() {
-                    this.page.url = window.location.href;
-                    this.page.identifier = window.location.pathname;
-                    this.language = "en";
-                }
-            });
-        }, 50);
-    }
-}
-function updateThemeToggleUI() {
-    var btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    var isDark = document.documentElement.classList.contains('dark-theme');
-    btn.textContent = isDark ? '[ Light ]' : '[ Dark ]';
-    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-}
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateThemeToggleUI);
-} else {
-    updateThemeToggleUI();
-}
-</script>
-
-
-<link rel="stylesheet" href="/css/style.css?v=9">
-
+<meta name=twitter:image content="https://ngodingkuy.site/posts/global-nodejs/global.bcf783b03cf555a4bd2e020c329c535ece753c506cc29ec2fefbf09aaa16d682.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Global NodeJS","description":"Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.\nGlobal object dapat digunakan secara global pada aplikasi dan pada semua module.\nTidak perlu melakukan include pada aplikasi lagi, kalian tinggal pakai saja global object …","url":"https://ngodingkuy.site/posts/global-nodejs/","datePublished":"2021-08-07T12:11:46+07:00","dateModified":"2021-08-07T12:11:46+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/global-nodejs/"},"author":{"@type":"Person","name":"dhymas"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/global-nodejs/global.bcf783b03cf555a4bd2e020c329c535ece753c506cc29ec2fefbf09aaa16d682.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
 </head>
 <body>
-    <header class="site-header" id="top">
-    <div class="container">
-        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn it, write it, re-learn it.</p>
-        <nav class="site-nav">
-            <a href="/">[ Home ]</a>
-            <a href="/posts/">[ Posts ]</a>
-            <a href="/categories/">[ Categories ]</a>
-            <a href="/search/">[ Search ]</a>
-            <a href="/about/">[ About ]</a>
-            <button type="button" id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle theme">[ Dark ]</button>
-        </nav>
-    </div>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
 </header>
-
-
-    <main class="container">
-        
-    <nav class="breadcrumb-nav">
-        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
-    </nav>
-
-    <article class="post">
-        <h1>Global NodeJS</h1>
-        <div class="post-meta">
-            <span class="author">By dhymas</span>
-            <span class="meta-sep">&bull;</span>
-            <time datetime="2021-08-07">August 7, 2021</time>
-            
-                <span class="meta-sep">&bull;</span>
-                <span class="post-categories">
-                    Categories: 
-                    
-                        
-                        <a href="/categories/nodejs/">[nodeJS]</a>
-                    
-                </span>
-            
-        </div>
-
-        
-        
-            <div class="post-banner">
-                <img src="/posts/global-nodejs/global.png" alt="Global NodeJS" loading="lazy">
-            </div>
-        
-
-        <div class="post-content">
-            <h1 id="center-apa-itu-global-pada-nodejs-center"><center> Apa itu Global pada NodeJS? <center></h1>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Global NodeJS</h1>
+<div class=post-meta>
+<span class=author>By dhymas</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2021-08-07>August 7, 2021</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/nodejs/>[nodeJS]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/global-nodejs/global.bcf783b03cf555a4bd2e020c329c535ece753c506cc29ec2fefbf09aaa16d682.png alt="Global NodeJS" loading=lazy>
+</div>
+<div class=post-content>
+<h1 id=center-apa-itu-global-pada-nodejs-center><center> Apa itu Global pada NodeJS? <center></h1>
 <p>Global merupakan <em>object</em> yang terdapat pada NodeJS.</p>
 <p><em>Global object</em> dapat digunakan secara global pada aplikasi dan pada semua <em>module</em>.</p>
 <p>Tidak perlu melakukan <em>include</em> pada aplikasi lagi, kalian tinggal pakai saja <em>global object</em> ini.</p>
@@ -212,11 +79,11 @@ if (document.readyState === 'loading') {
 <ol>
 <li>
 <p><code>global</code> : Dimana dapat digunakan sama halnya seperti <code>window</code> pada <em>console</em> browser.
-Coba kembali pada file <code>index.js</code> yang telah kita buat kemarin&hellip;
+Coba kembali pada file <code>index.js</code> yang telah kita buat kemarin&mldr;
 Lalu buat <code>console.log(global)</code>.
 Kemudian buka terminal pada lokasi anda menyimpan file <code>index.js</code> tersebut, dan ketikkan <code>node index.js</code>.
 Maka kalian akan mendapatkan <em>output</em> seperti ini:
-<figure class="img-fluid"><img src="/img/global-nodejs/global.png"/>
+<figure class=img-fluid><img src=/img/global-nodejs/global.png>
 </figure>
 </p>
 </li>
@@ -226,7 +93,7 @@ Jika kalian ingin mengetahui nya coba kembali pada file <code>index.js</code>.
 Lalu buat <code>console.log(__dirname)</code>.
 Kemudian buka terminal pada lokasi anda menyimpan file <code>index.js</code> tersebut, dan ketikkan <code>node index.js</code>.
 Maka kalian akan mendapatkan <em>output</em> seperti ini:
-<figure class="img-fluid"><img src="/img/global-nodejs/__dirname.png"/>
+<figure class=img-fluid><img src=/img/global-nodejs/__dirname.png>
 </figure>
 </p>
 </li>
@@ -236,7 +103,7 @@ Jika kalian ingin mengetahui nya coba kembali pada file <code>index.js</code>.
 Lalu buat <code>console.log(__filename)</code>.
 Kemudian buka terminal pada lokasi anda menyimpan file <code>index.js</code> tersebut, dan ketikkan <code>node index.js</code>.
 Maka kalian akan mendapatkan <em>output</em> seperti ini:
-<figure class="img-fluid"><img src="/img/global-nodejs/__filename.png"/>
+<figure class=img-fluid><img src=/img/global-nodejs/__filename.png>
 </figure>
 </p>
 </li>
@@ -246,7 +113,7 @@ Jika kalian ingin mengetahui nya coba kembali pada file <code>index.js</code>.
 Lalu buat <code>console.log(process)</code>.
 Kemudian buka terminal pada lokasi anda menyimpan file <code>index.js</code> tersebut, dan ketikkan <code>node index.js</code>.
 Maka kalian akan mendapatkan <em>output</em> seperti ini:
-<figure class="img-fluid"><img src="/img/global-nodejs/process.png"/>
+<figure class=img-fluid><img src=/img/global-nodejs/process.png>
 </figure>
 </p>
 </li>
@@ -255,161 +122,112 @@ Maka kalian akan mendapatkan <em>output</em> seperti ini:
 </li>
 </ol>
 <p><strong>Tidak umum (Namun perlu diketahui)</strong></p>
-<p>Penggunaan <em>global object</em> bergantung pada aplikasi yang akan kita buat. Dan macam-macam <em>global</em> berbeda-beda tergantung versi dari NodeJS kita. Kalian bisa cek dokumentasi lengkapnya <a href="https://nodejs.org/api/globals.html">disini</a>.</p>
-<p>&hellip;</p>
-<p>Oke segitu dulu, hehe.. Lanjut lagi next&hellip;</p>
-
-        </div>
-
-        
-        <div class="post-tags-section">
-            <span class="tags-label">Tags:</span>
-            
-                <a class="tag-badge" href="/tags/nodejs/">#nodejs</a>
-            
-                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
-            
-                <a class="tag-badge" href="/tags/global/">#global</a>
-            
-                <a class="tag-badge" href="/tags/object/">#object</a>
-            
-        </div>
-        
-    </article>
-
-    
-    <nav class="post-pagination">
-        <div class="prev-post">
-            
-                <span class="nav-label">&lt;- Previous:</span><br>
-                <a href="https://ngodingkuy.site/posts/executing-nodejs/">Mengeksekusi NodeJS</a>
-            
-        </div>
-        <div class="next-post">
-            
-                <span class="nav-label">Next -&gt;</span><br>
-                <a href="https://ngodingkuy.site/posts/modules-nodejs-part-one/">Modules NodeJS - Common Module</a>
-            
-        </div>
-    </nav>
-    
-
-    <section class="other-posts">
-        <h2>Other Posts</h2>
-        <ul class="other-posts-list">
-            
-                <li>
-                    <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
-                </li>
-            
-                <li>
-                    <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-17">2022-01-17</time>
-                    <a href="https://ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.site/posts/os/">Standard Library - OS</a>
-                </li>
-            
-        </ul>
-    </section>
-
-    
-<div class="disqus-section">
-    <h3 class="disqus-title">Comments</h3>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.site\/posts\/global-nodejs\/";
-            this.page.identifier = "\/posts\/global-nodejs\/";
-            this.language = "en";
-        };
-        (function () {
-            var dt = document.getElementById('disqus_thread');
-            if (dt) {
-                var isDark = document.documentElement.classList.contains('dark-theme');
-                dt.style.backgroundColor = isDark ? '#15260f' : '#dff5df';
-                dt.style.color = isDark ? '#dff5df' : '#000000';
-                dt.style.colorScheme = isDark ? 'dark' : 'light';
-            }
-            var d = document, s = d.createElement('script');
-            s.src = 'https://ngodingkuy.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+<p>Penggunaan <em>global object</em> bergantung pada aplikasi yang akan kita buat. Dan macam-macam <em>global</em> berbeda-beda tergantung versi dari NodeJS kita. Kalian bisa cek dokumentasi lengkapnya <a href=https://nodejs.org/api/globals.html>disini</a>.</p>
+<p>&mldr;</p>
+<p>Oke segitu dulu, hehe.. Lanjut lagi next&mldr;</p>
 </div>
-
-
-
-    </main>
-    
-    <footer class="site-footer">
-    <div class="container">
-        <p class="footer-nav">
-            <a href="/">[ Home ]</a>
-            <span class="sep">|</span>
-            <a href="/posts/">[ Posts ]</a>
-            <span class="sep">|</span>
-            <a href="/categories/">[ Categories ]</a>
-            <span class="sep">|</span>
-            <a href="/search/">[ Search ]</a>
-            <span class="sep">|</span>
-            <a href="/about/">[ About ]</a>
-            <span class="sep">|</span>
-            <a href="#top">[ Back to Top ]</a>
-        </p>
-
-        
-        <p class="footer-social">
-            <span class="social-label">Connect:</span>
-            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
-            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
-            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
-        </p>
-        
-
-        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
-    </div>
-
-    <script>
-    (function () {
-        const emailLink = document.getElementById('email-contact-link');
-        if (emailLink) {
-            emailLink.addEventListener('click', function (e) {
-                const mail = 'gojin003@gmail.com';
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(mail).then(function () {
-                        const orig = emailLink.textContent;
-                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
-                        setTimeout(function () {
-                            emailLink.textContent = orig;
-                        }, 2500);
-                    }).catch(function () {});
-                }
-            });
-        }
-
-        if (typeof updateThemeToggleUI === 'function') {
-            updateThemeToggleUI();
-        }
-    })();
-    </script>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/nodejs/>#nodejs</a>
+<a class=tag-badge href=/tags/javascript/>#javascript</a>
+<a class=tag-badge href=/tags/global/>#global</a>
+<a class=tag-badge href=/tags/object/>#object</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/executing-nodejs/>Mengeksekusi NodeJS</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/modules-nodejs-part-one/>Modules NodeJS - Common Module</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-04-14>2026-04-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-101/>Javascript in Action</a>
+</li>
+<li>
+<time datetime=2026-03-30>2026-03-30</time>
+<a href=https://ngodingkuy.site/posts/welcome-back/>Welcome to ngodingkuy</a>
+</li>
+<li>
+<time datetime=2022-01-21>2022-01-21</time>
+<a href=https://ngodingkuy.site/posts/debugger/>Standard Library - Debugger</a>
+</li>
+<li>
+<time datetime=2022-01-17>2022-01-17</time>
+<a href=https://ngodingkuy.site/posts/file-system/>Standard Library - File System</a>
+</li>
+<li>
+<time datetime=2022-01-16>2022-01-16</time>
+<a href=https://ngodingkuy.site/posts/path/>Standard Library - Path</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/global-nodejs/",this.page.identifier="/posts/global-nodejs/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ nodeJS Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/nodejs/>[nodeJS]</a></span> &bull;
+<span>1 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/global-nodejs/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Global NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; global-nodejs</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
 </footer>
-
 </body>
 </html>

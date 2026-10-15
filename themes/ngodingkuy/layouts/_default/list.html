@@ -31,8 +31,9 @@
 
                 {{ $images := .Resources.ByType "image" }}
                 {{ with index $images 0 }}
+                    {{ $fp := . | fingerprint }}
                     <div class="post-preview-thumb">
-                        <a href="{{ $page.Permalink }}"><img src="{{ .RelPermalink }}" alt="{{ $page.Title }}" loading="lazy"></a>
+                        <a href="{{ $page.Permalink }}"><img src="{{ $fp.RelPermalink }}" alt="{{ $page.Title }}" loading="lazy"></a>
                     </div>
                 {{ end }}
 

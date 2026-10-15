@@ -23,8 +23,9 @@
 
         {{ $images := .Resources.ByType "image" }}
         {{ with index $images 0 }}
+            {{ $fp := . | fingerprint }}
             <div class="post-banner">
-                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+                <img src="{{ $fp.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
             </div>
         {{ end }}
 
@@ -74,4 +75,5 @@
     </section>
 
     {{ partial "disqus.html" . }}
+    {{ partial "sidebar.html" . }}
 {{ end }}

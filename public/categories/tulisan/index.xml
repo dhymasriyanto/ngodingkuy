@@ -1,48 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tulisan on ngodingkuy</title>
-    <link>https://ngodingkuy.site/categories/tulisan/</link>
-    <description>Recent content in Tulisan on ngodingkuy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2026 10:00:00 +0700</lastBuildDate><atom:link href="https://ngodingkuy.site/categories/tulisan/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Welcome to ngodingkuy</title>
-      <link>https://ngodingkuy.site/posts/welcome-back/welcome/</link>
-      <pubDate>Mon, 30 Mar 2026 10:00:00 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/welcome-back/welcome/</guid>
-      <description>After all this time, I am trying to actively write again, with something fresh.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tulisan on ngodingkuy</title><link>https://ngodingkuy.site/categories/tulisan/</link><description>Recent content in Tulisan on ngodingkuy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 30 Mar 2026 10:00:00 +0700</lastBuildDate><atom:link href="https://ngodingkuy.site/categories/tulisan/index.xml" rel="self" type="application/rss+xml"/><item><title>Welcome to ngodingkuy</title><link>https://ngodingkuy.site/posts/welcome-back/</link><pubDate>Mon, 30 Mar 2026 10:00:00 +0700</pubDate><guid>https://ngodingkuy.site/posts/welcome-back/</guid><description>After all this time, I am trying to actively write again, with something fresh.
 In this simple blog, I will try to write everything I have learned as an archive.
-Better late than never.</description>
-    </item>
-    
-    <item>
-      <title>Hello, I&#39;m Back :&#39;v</title>
-      <link>https://ngodingkuy.site/posts/i-am-back/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/i-am-back/</guid>
-      <description>&amp;lt;?php echo &amp;#34;Assalamualaikum!&amp;#34;; ?&amp;gt;Hai, teman teman&amp;hellip;
-Sekian lama, akhirnya Author nulis lagi.. :&#39;)
+Better late than never.</description></item><item><title>Hello, I'm Back :'v</title><link>https://ngodingkuy.site/posts/i-am-back/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0700</pubDate><guid>https://ngodingkuy.site/posts/i-am-back/</guid><description>&amp;lt;?php echo &amp;#34;Assalamualaikum!&amp;#34;; ?&amp;gt;Hai, teman teman&amp;hellip;
+Sekian lama, akhirnya Author nulis lagi.. :')
 Maaf kan saya, mungkin penanganan website ini kurang maksimal&amp;hellip; Dan terlebih lagi, Author cuma punya beberapa konten&amp;hellip; :V
 Sekali lagi saya mohon maaf, dikarenakan beberapa kesibukan, membuat saya benar-benar lupa untuk ngisi waktu luang dengan menulis di blog ini&amp;hellip; Wkwk&amp;hellip;
 Ya, di awal tahun 2022 ini, Author memutuskan untuk mencoba rajin nulis di blog ini.
-Kali ini, saya bakalan nulis apapun yang pengen ditulis&amp;hellip; Tapi mungkin jangan terlalu berharap juga sama saya.</description>
-    </item>
-    
-    <item>
-      <title>Hai!</title>
-      <link>https://ngodingkuy.site/posts/hai/</link>
-      <pubDate>Thu, 01 Aug 2019 05:44:09 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/hai/</guid>
-      <description>&amp;lt;?php echo &amp;#34;Assalamualaikum!&amp;#34;; ?&amp;gt;Selamat datang di blog Ngoding Kuy!!
+Kali ini, saya bakalan nulis apapun yang pengen ditulis&amp;hellip; Tapi mungkin jangan terlalu berharap juga sama saya.</description></item><item><title>Hai!</title><link>https://ngodingkuy.site/posts/hai/</link><pubDate>Thu, 01 Aug 2019 05:44:09 +0700</pubDate><guid>https://ngodingkuy.site/posts/hai/</guid><description>&amp;lt;?php echo &amp;#34;Assalamualaikum!&amp;#34;; ?&amp;gt;Selamat datang di blog Ngoding Kuy!!
 Ini merupakan tulisan pertama Author (yang Author upload). Untuk ke depannya, mohon bantuannya ya! Semoga Author rajin untuk upload terus informasi-informasi menarik ataupun ilmu-ilmu yang Author ketahui.
 Blog ini ngga cuma dunia IT aja, kok. Tapi bakalan ada info menarik lainnya yang bakal Author upload, termasuk cerita-cerita pengalaman Author. Nanti postingan-postingannya akan di bagi menjadi kategori-kategori tertentu.
-By the way&amp;hellip; Blog ini juga masih dalam tahap pengembangan, jadi mohon kritik dan saran yang membangun demi perkembangan blog ini.</description>
-    </item>
-    
-  </channel>
-</rss>
+By the way&amp;hellip; Blog ini juga masih dalam tahap pengembangan, jadi mohon kritik dan saran yang membangun demi perkembangan blog ini.</description></item></channel></rss>

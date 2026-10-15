@@ -1,0 +1,372 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>JavaScript Timers: setTimeout & setInterval - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/javascript-timers/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Time in programming can be a sneaky beast.
+Sometimes you want a toast notification to fade out after 3 seconds, or maybe you want a live clock widget ticking …">
+<meta name=keywords content="javascript,async,timers,learn">
+<meta name=author content="Dhymas Julyan Riyanto">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="JavaScript Timers: setTimeout & setInterval">
+<meta property="og:description" content="Time in programming can be a sneaky beast.
+Sometimes you want a toast notification to fade out after 3 seconds, or maybe you want a live clock widget ticking every second.
+JavaScript gives us two …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/javascript-timers/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/javascript-timers/javascript-timers.e914f2899388f798797c07660e0ae18ba5eef4a381c412ee882a76a12f4dca15.png">
+<meta property="article:published_time" content="2026-05-26T14:30:00Z">
+<meta property="article:modified_time" content="2026-05-26T14:30:00Z">
+<meta property="article:tag" content="javascript"><meta property="article:tag" content="async"><meta property="article:tag" content="timers"><meta property="article:tag" content="learn">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="JavaScript Timers: setTimeout & setInterval">
+<meta name=twitter:description content="Time in programming can be a sneaky beast.
+Sometimes you want a toast notification to fade out after 3 seconds, or maybe you want a live clock widget ticking every second.
+JavaScript gives us two …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/javascript-timers/javascript-timers.e914f2899388f798797c07660e0ae18ba5eef4a381c412ee882a76a12f4dca15.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"JavaScript Timers: setTimeout \u0026 setInterval","description":"Time in programming can be a sneaky beast.\nSometimes you want a toast notification to fade out after 3 seconds, or maybe you want a live clock widget ticking every second.\nJavaScript gives us two built-in timer functions for this: setTimeout and …","url":"https://ngodingkuy.site/posts/javascript-timers/","datePublished":"2026-05-26T14:30:00Z","dateModified":"2026-05-26T14:30:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/javascript-timers/"},"author":{"@type":"Person","name":"Dhymas Julyan Riyanto"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/javascript-timers/javascript-timers.e914f2899388f798797c07660e0ae18ba5eef4a381c412ee882a76a12f4dca15.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
+</head>
+<body>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>JavaScript Timers: setTimeout & setInterval</h1>
+<div class=post-meta>
+<span class=author>By Dhymas Julyan Riyanto</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2026-05-26>May 26, 2026</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/javascript/>[Javascript]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/javascript-timers/javascript-timers.e914f2899388f798797c07660e0ae18ba5eef4a381c412ee882a76a12f4dca15.png alt="JavaScript Timers: setTimeout & setInterval" loading=lazy>
+</div>
+<div class=post-content>
+<p>Time in programming can be a sneaky beast.</p>
+<p>Sometimes you want a toast notification to fade out after 3 seconds, or maybe you want a live clock widget ticking every second.</p>
+<p>JavaScript gives us two built-in timer functions for this: <code>setTimeout</code> and <code>setInterval</code>.</p>
+<p>Let&rsquo;s look at how they work and the common traps to watch out for.</p>
+<hr>
+<h2 id=1-run-once-later-settimeout>1. Run Once Later: <code>setTimeout</code></h2>
+<p><code>setTimeout</code> schedules a function to run <strong>once</strong> after a specified number of milliseconds (1 second = 1000 ms).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Timer started...&#34;</span>);
+
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>timerId</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>setTimeout</span>(() =&gt; {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;3 seconds passed! Action triggered.&#34;</span>);
+}, <span style=color:#ae81ff>3000</span>);
+</code></pre></div><p>If the user clicks away or navigates before the 3 seconds finish, you can cancel it with <code>clearTimeout</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// Cancel the scheduled execution!
+</span><span style=color:#75715e></span><span style=color:#a6e22e>clearTimeout</span>(<span style=color:#a6e22e>timerId</span>);
+</code></pre></div><hr>
+<h2 id=2-repeat-forever-setinterval>2. Repeat Forever: <code>setInterval</code></h2>
+<p>When you want an action to repeat continuously at fixed intervals, reach for <code>setInterval</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>counter</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>intervalId</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>setInterval</span>(() =&gt; {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Tick </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>counter</span><span style=color:#f92672>++</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>counter</span> <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>5</span>) {
+        <span style=color:#a6e22e>clearInterval</span>(<span style=color:#a6e22e>intervalId</span>); <span style=color:#75715e>// Always clean up when done!
+</span><span style=color:#75715e></span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Countdown finished!&#34;</span>);
+    }
+}, <span style=color:#ae81ff>1000</span>);
+</code></pre></div><p><strong>Crucial rule</strong>: Always hold onto your <code>intervalId</code> and call <code>clearInterval()</code>. If you lose the ID, that timer will run in the background until the tab is closed, quietly eating CPU cycles! :v</p>
+<hr>
+<h2 id=the-big-myth-timers-are-not-guaranteed-exact>The Big Myth: Timers Are NOT Guaranteed Exact</h2>
+<p>Here&rsquo;s something that surprises many developers: <code>setTimeout(fn, 1000)</code> does <strong>not</strong> guarantee your function executes at exactly 1000.00 milliseconds.</p>
+<p>Why?</p>
+<p>Because JavaScript is single-threaded. Your timer only registers a callback into the <strong>Event Loop task queue</strong>.</p>
+<p>If the main thread is busy doing heavy calculations or rendering a complex canvas when 1000ms strikes, your timer callback has to politely wait its turn in line.</p>
+<p>So think of the millisecond parameter as the <strong>minimum delay</strong>, not an exact atomic countdown.</p>
+<hr>
+<h2 id=recursive-settimeout-vs-setinterval>Recursive <code>setTimeout</code> vs <code>setInterval</code></h2>
+<p>If you are fetching data periodically over the network, <code>setInterval</code> has a nasty habit of piling up requests if a server response takes longer than your interval time.</p>
+<p>A much safer pattern is <strong>recursive setTimeout</strong>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>pollServer</span>() {
+    <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;/api/status&#34;</span>)
+        .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>res</span> =&gt; <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>json</span>())
+        .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>data</span> =&gt; {
+            <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Server status:&#34;</span>, <span style=color:#a6e22e>data</span>);
+            <span style=color:#75715e>// Only schedule the NEXT poll once the current one finishes!
+</span><span style=color:#75715e></span>            <span style=color:#a6e22e>setTimeout</span>(<span style=color:#a6e22e>pollServer</span>, <span style=color:#ae81ff>5000</span>);
+        });
+}
+</code></pre></div><p>This guarantees at least 5 seconds of breathing room between responses.</p>
+<hr>
+<p>Keep those timer handles saved, cancel your intervals, and your apps will run butter-smooth.</p>
+<p>Got any wild bugs caused by runaway intervals? Share your horror stories below! Hehe&mldr;</p>
+<p>Until next time, keep coding! :)</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/javascript/>#javascript</a>
+<a class=tag-badge href=/tags/async/>#async</a>
+<a class=tag-badge href=/tags/timers/>#timers</a>
+<a class=tag-badge href=/tags/learn/>#learn</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/javascript-localstorage/>Saving Client Data with LocalStorage</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/javascript-callbacks-and-promises/>Escaping Callback Hell with Promises</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-10-09>2026-10-09</time>
+<a href=https://ngodingkuy.site/posts/javascript-web-workers/>Multi-Threading with Web Workers</a>
+</li>
+<li>
+<time datetime=2026-10-02>2026-10-02</time>
+<a href=https://ngodingkuy.site/posts/javascript-canvas-basics/>Drawing in the Browser with HTML5 Canvas</a>
+</li>
+<li>
+<time datetime=2026-09-23>2026-09-23</time>
+<a href=https://ngodingkuy.site/posts/javascript-indexeddb-basics/>Beyond LocalStorage: Storing Data with IndexedDB</a>
+</li>
+<li>
+<time datetime=2026-09-14>2026-09-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-intersection-observer/>Modern Lazy Loading with Intersection Observer</a>
+</li>
+<li>
+<time datetime=2026-09-05>2026-09-05</time>
+<a href=https://ngodingkuy.site/posts/javascript-debounce-and-throttle/>Event Optimization: Debounce vs Throttle</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/javascript-timers/",this.page.identifier="/posts/javascript-timers/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ Javascript Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/javascript/>[Javascript]</a></span> &bull;
+<span>21 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/javascript-101/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Javascript in Action</div>
+<div class=tree-item-date>2026-04-14 &bull; javascript-101</div>
+</div>
+</a>
+<a href=/posts/javascript-events/ class=tree-item>
+<span class=tree-item-num>02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Event Listeners in Action</div>
+<div class=tree-item-date>2026-04-21 &bull; javascript-events</div>
+</div>
+</a>
+<a href=/posts/javascript-dom-manipulation/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>DOM Manipulation & Creating Elements</div>
+<div class=tree-item-date>2026-04-29 &bull; javascript-dom-manipulation</div>
+</div>
+</a>
+<a href=/posts/javascript-event-delegation/ class=tree-item>
+<span class=tree-item-num>04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Delegation & Bubbling</div>
+<div class=tree-item-date>2026-05-08 &bull; javascript-event-delegation</div>
+</div>
+</a>
+<a href=/posts/javascript-localstorage/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Saving Client Data with LocalStorage</div>
+<div class=tree-item-date>2026-05-17 &bull; javascript-localstorage</div>
+</div>
+</a>
+<a href=/posts/javascript-timers/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Timers: setTimeout & setInterval</div>
+<div class=tree-item-date>2026-05-26 &bull; javascript-timers</div>
+</div>
+</a>
+<a href=/posts/javascript-callbacks-and-promises/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Escaping Callback Hell with Promises</div>
+<div class=tree-item-date>2026-06-05 &bull; javascript-callbacks-and-promises</div>
+</div>
+</a>
+<a href=/posts/javascript-async-await/ class=tree-item>
+<span class=tree-item-num>08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Cleaner Code with Async and Await</div>
+<div class=tree-item-date>2026-06-14 &bull; javascript-async-await</div>
+</div>
+</a>
+<a href=/posts/javascript-fetch-api/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Talking to External APIs with Fetch</div>
+<div class=tree-item-date>2026-06-24 &bull; javascript-fetch-api</div>
+</div>
+</a>
+<a href=/posts/javascript-es6-arrays/ class=tree-item>
+<span class=tree-item-num>10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Essential Modern Array Methods</div>
+<div class=tree-item-date>2026-07-03 &bull; javascript-es6-arrays</div>
+</div>
+</a>
+<a href=/posts/javascript-destructuring-and-spread/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Destructuring & the Spread Operator</div>
+<div class=tree-item-date>2026-07-13 &bull; javascript-destructuring-and-spread</div>
+</div>
+</a>
+<a href=/posts/javascript-modules/ class=tree-item>
+<span class=tree-item-num>12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modular JavaScript with ES Modules</div>
+<div class=tree-item-date>2026-07-22 &bull; javascript-modules</div>
+</div>
+</a>
+<a href=/posts/javascript-closures-and-scope/ class=tree-item>
+<span class=tree-item-num>13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Understanding Closures & Scope</div>
+<div class=tree-item-date>2026-07-31 &bull; javascript-closures-and-scope</div>
+</div>
+</a>
+<a href=/posts/javascript-this-keyword/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Demystifying the 'this' Keyword</div>
+<div class=tree-item-date>2026-08-09 &bull; javascript-this-keyword</div>
+</div>
+</a>
+<a href=/posts/javascript-classes-and-prototypes/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Classes & Prototypes in JavaScript</div>
+<div class=tree-item-date>2026-08-18 &bull; javascript-classes-and-prototypes</div>
+</div>
+</a>
+<a href=/posts/javascript-custom-error-handling/ class=tree-item>
+<span class=tree-item-num>16.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Robust Error Handling & Custom Errors</div>
+<div class=tree-item-date>2026-08-27 &bull; javascript-custom-error-handling</div>
+</div>
+</a>
+<a href=/posts/javascript-debounce-and-throttle/ class=tree-item>
+<span class=tree-item-num>17.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Optimization: Debounce vs Throttle</div>
+<div class=tree-item-date>2026-09-05 &bull; javascript-debounce-and-throttle</div>
+</div>
+</a>
+<a href=/posts/javascript-intersection-observer/ class=tree-item>
+<span class=tree-item-num>18.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modern Lazy Loading with Intersection Observer</div>
+<div class=tree-item-date>2026-09-14 &bull; javascript-intersection-observer</div>
+</div>
+</a>
+<a href=/posts/javascript-indexeddb-basics/ class=tree-item>
+<span class=tree-item-num>19.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Beyond LocalStorage: Storing Data with IndexedDB</div>
+<div class=tree-item-date>2026-09-23 &bull; javascript-indexeddb-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-canvas-basics/ class=tree-item>
+<span class=tree-item-num>20.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Drawing in the Browser with HTML5 Canvas</div>
+<div class=tree-item-date>2026-10-02 &bull; javascript-canvas-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-web-workers/ class=tree-item>
+<span class=tree-item-num>21.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Multi-Threading with Web Workers</div>
+<div class=tree-item-date>2026-10-09 &bull; javascript-web-workers</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
+</footer>
+</body>
+</html>

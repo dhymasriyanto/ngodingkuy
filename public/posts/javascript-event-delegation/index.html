@@ -1,0 +1,363 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Event Delegation & Bubbling - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/javascript-event-delegation/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Here’s a puzzle for you: what happens if you have a list of 500 items and each needs a delete button?
+Do you run a loop and attach 500 individual …">
+<meta name=keywords content="javascript,events,performance,dom">
+<meta name=author content="Dhymas Julyan Riyanto">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Event Delegation & Bubbling">
+<meta property="og:description" content="Here’s a puzzle for you: what happens if you have a list of 500 items and each needs a delete button?
+Do you run a loop and attach 500 individual addEventListener calls to each button?
+Well… you …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/javascript-event-delegation/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/javascript-event-delegation/javascript-event-delegation.2f3e107bdc383e72a34ee673c6cd50b37f52ce44fe5a4af22b2c856a8921052b.png">
+<meta property="article:published_time" content="2026-05-08T11:20:00Z">
+<meta property="article:modified_time" content="2026-05-08T11:20:00Z">
+<meta property="article:tag" content="javascript"><meta property="article:tag" content="events"><meta property="article:tag" content="performance"><meta property="article:tag" content="dom">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Event Delegation & Bubbling">
+<meta name=twitter:description content="Here’s a puzzle for you: what happens if you have a list of 500 items and each needs a delete button?
+Do you run a loop and attach 500 individual addEventListener calls to each button?
+Well… you …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/javascript-event-delegation/javascript-event-delegation.2f3e107bdc383e72a34ee673c6cd50b37f52ce44fe5a4af22b2c856a8921052b.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Event Delegation \u0026 Bubbling","description":"Here’s a puzzle for you: what happens if you have a list of 500 items and each needs a delete button?\nDo you run a loop and attach 500 individual addEventListener calls to each button?\nWell… you could, but your browser’s memory won’t be too thrilled …","url":"https://ngodingkuy.site/posts/javascript-event-delegation/","datePublished":"2026-05-08T11:20:00Z","dateModified":"2026-05-08T11:20:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/javascript-event-delegation/"},"author":{"@type":"Person","name":"Dhymas Julyan Riyanto"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/javascript-event-delegation/javascript-event-delegation.2f3e107bdc383e72a34ee673c6cd50b37f52ce44fe5a4af22b2c856a8921052b.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
+</head>
+<body>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Event Delegation & Bubbling</h1>
+<div class=post-meta>
+<span class=author>By Dhymas Julyan Riyanto</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2026-05-08>May 8, 2026</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/javascript/>[Javascript]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/javascript-event-delegation/javascript-event-delegation.2f3e107bdc383e72a34ee673c6cd50b37f52ce44fe5a4af22b2c856a8921052b.png alt="Event Delegation & Bubbling" loading=lazy>
+</div>
+<div class=post-content>
+<p>Here&rsquo;s a puzzle for you: what happens if you have a list of 500 items and each needs a delete button?</p>
+<p>Do you run a loop and attach 500 individual <code>addEventListener</code> calls to each button?</p>
+<p>Well&mldr; you <em>could</em>, but your browser&rsquo;s memory won&rsquo;t be too thrilled with you. :v</p>
+<p>There&rsquo;s a smarter, much more elegant trick: <strong>Event Delegation</strong>.</p>
+<hr>
+<h2 id=how-events-travel-bubbling-up>How Events Travel: Bubbling Up</h2>
+<p>When you click an element nested deep inside the DOM, the event doesn&rsquo;t just stop there.</p>
+<p>It triggers on your target first, then travels all the way up through each parent element — up to the <code>&lt;body></code>, <code>&lt;html></code>, and finally <code>window</code>.</p>
+<p>This phenomenon is called <strong>Event Bubbling</strong>.</p>
+<p>Imagine dropping a pebble at the bottom of a pond. The splash happens at the bottom, but the ripples bubble all the way up to the surface.</p>
+<hr>
+<h2 id=the-delegation-pattern>The Delegation Pattern</h2>
+<p>Because clicks bubble upward to their parents, we don&rsquo;t need 500 listeners.</p>
+<p>We only attach <strong>one single listener</strong> to the common parent wrapper, and inspect <code>e.target</code> to see which child actually got clicked!</p>
+<p>Check this out:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>parentList</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#todo-list&#34;</span>);
+
+<span style=color:#a6e22e>parentList</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;click&#34;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+    <span style=color:#75715e>// Check if the clicked child is a delete button
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>matches</span>(<span style=color:#e6db74>&#34;button.btn-delete&#34;</span>)) {
+        <span style=color:#75715e>// Grab the closest &lt;li&gt; ancestor and delete it
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>item</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>closest</span>(<span style=color:#e6db74>&#34;li&#34;</span>);
+        <span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>remove</span>();
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Deleted item via delegation!&#34;</span>);
+    }
+});
+</code></pre></div><p>Look at how clean that is.</p>
+<hr>
+<h2 id=why-you-should-care>Why You Should Care</h2>
+<ol>
+<li><strong>Zero Memory Bloat</strong>: One listener in memory instead of hundreds or thousands.</li>
+<li><strong>Handles Dynamic Elements Automatically</strong>: If you append a new <code>&lt;li></code> with a delete button tomorrow, it already works! You don&rsquo;t have to re-bind any listeners.</li>
+</ol>
+<hr>
+<h2 id=stopping-the-ripple-estoppropagation>Stopping the Ripple: <code>e.stopPropagation()</code></h2>
+<p>Sometimes you have a nested modal or an inner dropdown where you <em>don&rsquo;t</em> want the parent container to hear the click.</p>
+<p>In those rare cases, you can stop the bubble from climbing further:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>modalContent</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;click&#34;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+    <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopPropagation</span>(); <span style=color:#75715e>// Parent backdrop won&#39;t receive this click!
+</span><span style=color:#75715e></span>});
+</code></pre></div><p>Use it sparingly though, because stopping propagation everywhere can mess up analytics and delegation setups.</p>
+<hr>
+<p>Delegation is easily one of my favorite DOM patterns. Saves memory, keeps code tidy, and works seamlessly with dynamic data.</p>
+<p>Hope this clears up bubbling for anyone wrestling with dynamic lists!</p>
+<p>Catch you around for the next chapter! :')</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/javascript/>#javascript</a>
+<a class=tag-badge href=/tags/events/>#events</a>
+<a class=tag-badge href=/tags/performance/>#performance</a>
+<a class=tag-badge href=/tags/dom/>#dom</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/javascript-dom-manipulation/>DOM Manipulation & Creating Elements</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/javascript-localstorage/>Saving Client Data with LocalStorage</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-10-09>2026-10-09</time>
+<a href=https://ngodingkuy.site/posts/javascript-web-workers/>Multi-Threading with Web Workers</a>
+</li>
+<li>
+<time datetime=2026-10-02>2026-10-02</time>
+<a href=https://ngodingkuy.site/posts/javascript-canvas-basics/>Drawing in the Browser with HTML5 Canvas</a>
+</li>
+<li>
+<time datetime=2026-09-23>2026-09-23</time>
+<a href=https://ngodingkuy.site/posts/javascript-indexeddb-basics/>Beyond LocalStorage: Storing Data with IndexedDB</a>
+</li>
+<li>
+<time datetime=2026-09-14>2026-09-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-intersection-observer/>Modern Lazy Loading with Intersection Observer</a>
+</li>
+<li>
+<time datetime=2026-09-05>2026-09-05</time>
+<a href=https://ngodingkuy.site/posts/javascript-debounce-and-throttle/>Event Optimization: Debounce vs Throttle</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/javascript-event-delegation/",this.page.identifier="/posts/javascript-event-delegation/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ Javascript Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/javascript/>[Javascript]</a></span> &bull;
+<span>21 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/javascript-101/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Javascript in Action</div>
+<div class=tree-item-date>2026-04-14 &bull; javascript-101</div>
+</div>
+</a>
+<a href=/posts/javascript-events/ class=tree-item>
+<span class=tree-item-num>02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Event Listeners in Action</div>
+<div class=tree-item-date>2026-04-21 &bull; javascript-events</div>
+</div>
+</a>
+<a href=/posts/javascript-dom-manipulation/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>DOM Manipulation & Creating Elements</div>
+<div class=tree-item-date>2026-04-29 &bull; javascript-dom-manipulation</div>
+</div>
+</a>
+<a href=/posts/javascript-event-delegation/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Delegation & Bubbling</div>
+<div class=tree-item-date>2026-05-08 &bull; javascript-event-delegation</div>
+</div>
+</a>
+<a href=/posts/javascript-localstorage/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Saving Client Data with LocalStorage</div>
+<div class=tree-item-date>2026-05-17 &bull; javascript-localstorage</div>
+</div>
+</a>
+<a href=/posts/javascript-timers/ class=tree-item>
+<span class=tree-item-num>06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Timers: setTimeout & setInterval</div>
+<div class=tree-item-date>2026-05-26 &bull; javascript-timers</div>
+</div>
+</a>
+<a href=/posts/javascript-callbacks-and-promises/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Escaping Callback Hell with Promises</div>
+<div class=tree-item-date>2026-06-05 &bull; javascript-callbacks-and-promises</div>
+</div>
+</a>
+<a href=/posts/javascript-async-await/ class=tree-item>
+<span class=tree-item-num>08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Cleaner Code with Async and Await</div>
+<div class=tree-item-date>2026-06-14 &bull; javascript-async-await</div>
+</div>
+</a>
+<a href=/posts/javascript-fetch-api/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Talking to External APIs with Fetch</div>
+<div class=tree-item-date>2026-06-24 &bull; javascript-fetch-api</div>
+</div>
+</a>
+<a href=/posts/javascript-es6-arrays/ class=tree-item>
+<span class=tree-item-num>10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Essential Modern Array Methods</div>
+<div class=tree-item-date>2026-07-03 &bull; javascript-es6-arrays</div>
+</div>
+</a>
+<a href=/posts/javascript-destructuring-and-spread/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Destructuring & the Spread Operator</div>
+<div class=tree-item-date>2026-07-13 &bull; javascript-destructuring-and-spread</div>
+</div>
+</a>
+<a href=/posts/javascript-modules/ class=tree-item>
+<span class=tree-item-num>12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modular JavaScript with ES Modules</div>
+<div class=tree-item-date>2026-07-22 &bull; javascript-modules</div>
+</div>
+</a>
+<a href=/posts/javascript-closures-and-scope/ class=tree-item>
+<span class=tree-item-num>13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Understanding Closures & Scope</div>
+<div class=tree-item-date>2026-07-31 &bull; javascript-closures-and-scope</div>
+</div>
+</a>
+<a href=/posts/javascript-this-keyword/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Demystifying the 'this' Keyword</div>
+<div class=tree-item-date>2026-08-09 &bull; javascript-this-keyword</div>
+</div>
+</a>
+<a href=/posts/javascript-classes-and-prototypes/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Classes & Prototypes in JavaScript</div>
+<div class=tree-item-date>2026-08-18 &bull; javascript-classes-and-prototypes</div>
+</div>
+</a>
+<a href=/posts/javascript-custom-error-handling/ class=tree-item>
+<span class=tree-item-num>16.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Robust Error Handling & Custom Errors</div>
+<div class=tree-item-date>2026-08-27 &bull; javascript-custom-error-handling</div>
+</div>
+</a>
+<a href=/posts/javascript-debounce-and-throttle/ class=tree-item>
+<span class=tree-item-num>17.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Optimization: Debounce vs Throttle</div>
+<div class=tree-item-date>2026-09-05 &bull; javascript-debounce-and-throttle</div>
+</div>
+</a>
+<a href=/posts/javascript-intersection-observer/ class=tree-item>
+<span class=tree-item-num>18.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modern Lazy Loading with Intersection Observer</div>
+<div class=tree-item-date>2026-09-14 &bull; javascript-intersection-observer</div>
+</div>
+</a>
+<a href=/posts/javascript-indexeddb-basics/ class=tree-item>
+<span class=tree-item-num>19.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Beyond LocalStorage: Storing Data with IndexedDB</div>
+<div class=tree-item-date>2026-09-23 &bull; javascript-indexeddb-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-canvas-basics/ class=tree-item>
+<span class=tree-item-num>20.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Drawing in the Browser with HTML5 Canvas</div>
+<div class=tree-item-date>2026-10-02 &bull; javascript-canvas-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-web-workers/ class=tree-item>
+<span class=tree-item-num>21.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Multi-Threading with Web Workers</div>
+<div class=tree-item-date>2026-10-09 &bull; javascript-web-workers</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
+</footer>
+</body>
+</html>

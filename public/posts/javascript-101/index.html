@@ -1,202 +1,219 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html><html lang=en-us>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Javascript in Action - ngodingkuy</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png?v=4">
-    <link rel="shortcut icon" href="/favicon.ico?v=4">
-    <link rel="stylesheet" href="/css/style.css?v=4">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Javascript in Action - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/javascript-101/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Ever wondered what actually happens when JavaScript runs in a browser?
+I used to think JavaScript just magically changed things on the screen, but it turns out… …">
+<meta name=keywords content="javascript,learn,dom,bom">
+<meta name=author content="Dhymas Julyan Riyanto">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Javascript in Action">
+<meta property="og:description" content="Ever wondered what actually happens when JavaScript runs in a browser?
+I used to think JavaScript just magically changed things on the screen, but it turns out… the browser gives us two distinct …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/javascript-101/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/javascript-101/javascript-101.d56569e64e8c8578aa1d9e6b35cb493dd192d29b1ac8b4edcbb85cb43e26aae4.png">
+<meta property="article:published_time" content="2026-04-14T09:11:28Z">
+<meta property="article:modified_time" content="2026-04-14T09:11:28Z">
+<meta property="article:tag" content="javascript"><meta property="article:tag" content="learn"><meta property="article:tag" content="dom"><meta property="article:tag" content="bom">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Javascript in Action">
+<meta name=twitter:description content="Ever wondered what actually happens when JavaScript runs in a browser?
+I used to think JavaScript just magically changed things on the screen, but it turns out… the browser gives us two distinct …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/javascript-101/javascript-101.d56569e64e8c8578aa1d9e6b35cb493dd192d29b1ac8b4edcbb85cb43e26aae4.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Javascript in Action","description":"Ever wondered what actually happens when JavaScript runs in a browser?\nI used to think JavaScript just magically changed things on the screen, but it turns out… the browser gives us two distinct bridges to control everything: BOM and DOM.\nJust …","url":"https://ngodingkuy.site/posts/javascript-101/","datePublished":"2026-04-14T09:11:28Z","dateModified":"2026-04-14T09:11:28Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/javascript-101/"},"author":{"@type":"Person","name":"Dhymas Julyan Riyanto"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/javascript-101/javascript-101.d56569e64e8c8578aa1d9e6b35cb493dd192d29b1ac8b4edcbb85cb43e26aae4.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
 </head>
 <body>
-    <header class="site-header" id="top">
-    <div class="container">
-        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn. write. remember.</p>
-        <nav class="site-nav">
-            <a href="/">[ Home ]</a>
-            <a href="/posts/">[ Posts ]</a>
-            <a href="/categories/">[ Categories ]</a>
-            <a href="/search/">[ Search ]</a>
-            <a href="/about/">[ About ]</a>
-        </nav>
-    </div>
-</header>
-
-
-    <main class="container">
-        
-    <nav class="breadcrumb-nav">
-        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
-    </nav>
-
-    <article class="post">
-        <h1>Javascript in Action</h1>
-        <div class="post-meta">
-            <span class="author">By Dhymas Julyan Riyanto</span>
-            <span class="meta-sep">&bull;</span>
-            <time datetime="2026-04-14">April 14, 2026</time>
-            
-                <span class="meta-sep">&bull;</span>
-                <span class="post-categories">
-                    Categories: 
-                    
-                        
-                        <a href="/categories/javascript/">[Javascript]</a>
-                    
-                </span>
-            
-        </div>
-
-        
-        
-
-        <div class="post-content">
-            <h1 id="how-does-javascript-control-web-and-ur-browser">How does javascript control web and ur browser?</h1>
-<p>So, basically there are two ways javascript control ur browser: BOM and DOM.</p>
-<h2 id="bom">BOM</h2>
-<p>BOM stands for Browser Object Model, with it we can give special instructions over browser. In example: an attribute called &lsquo;window&rsquo; we can make the browser show pop-up message with running <code>alert()</code> method in browser console.</p>
-<h2 id="dom">DOM</h2>
-<p>DOM stands for Document Object Model, it is just like BOM, but we access it using global object called <code>documents</code>.</p>
-<p>So..</p>
-
-        </div>
-
-        
-        <div class="post-tags-section">
-            <span class="tags-label">Tags:</span>
-            
-                <a class="tag-badge" href="/tags/javascript/">#javascript</a>
-            
-                <a class="tag-badge" href="/tags/learn/">#learn</a>
-            
-                <a class="tag-badge" href="/tags/dom/">#dom</a>
-            
-                <a class="tag-badge" href="/tags/bom/">#bom</a>
-            
-        </div>
-        
-    </article>
-
-    
-    <nav class="post-pagination">
-        <div class="prev-post">
-            
-                <span class="nav-label">&lt;- Previous:</span><br>
-                <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
-            
-        </div>
-        <div class="next-post">
-            
-        </div>
-    </nav>
-    
-
-    <section class="other-posts">
-        <h2>Other Posts</h2>
-        <ul class="other-posts-list">
-            
-                <li>
-                    <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/welcome/">Welcome to ngodingkuy</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-17">2022-01-17</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/path/">Standard Library - Path</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/os/">Standard Library - OS</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-04">2022-01-04</time>
-                    <a href="https://ngodingkuy.ngodingkuy.site/posts/global-async/">Global Async</a>
-                </li>
-            
-        </ul>
-    </section>
-
-    
-<div class="disqus-section">
-    <h3 class="disqus-title">Comments</h3>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.ngodingkuy.site\/posts\/javascript-101\/";
-            this.page.identifier = "\/posts\/javascript-101\/";
-            this.language = "en";
-        };
-        (function () {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://ngodingkuy.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
 </div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Javascript in Action</h1>
+<div class=post-meta>
+<span class=author>By Dhymas Julyan Riyanto</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2026-04-14>April 14, 2026</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/javascript/>[Javascript]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/javascript-101/javascript-101.d56569e64e8c8578aa1d9e6b35cb493dd192d29b1ac8b4edcbb85cb43e26aae4.png alt="Javascript in Action" loading=lazy>
+</div>
+<div class=post-content>
+<p>Ever wondered what actually happens when JavaScript runs in a browser?</p>
+<p>I used to think JavaScript just magically changed things on the screen, but it turns out&mldr; the browser gives us two distinct bridges to control everything: <strong>BOM</strong> and <strong>DOM</strong>.</p>
+<p>Just dumping this down as a study archive before I forget how they work. Feel free to follow along if you&rsquo;re exploring the basics too! :)</p>
+<p>Let&rsquo;s break them down one by one, nice and simple.</p>
+<hr>
+<h2 id=bom-controlling-the-browser-shell>BOM: Controlling the Browser Shell</h2>
+<p>BOM stands for <strong>Browser Object Model</strong>.</p>
+<p>Basically, this is the tool that lets JavaScript give instructions to the <em>browser itself</em> — not the HTML content, but the actual window frame, tabs, screen size, and URL bar.</p>
+<p>The king of BOM is the global <code>window</code> object.</p>
+<p>For instance, we can pop up a quick alert dialog right in the user&rsquo;s face:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// Pop-up dialog box
+</span><span style=color:#75715e></span>window.<span style=color:#a6e22e>alert</span>(<span style=color:#e6db74>&#34;Hello from BOM!&#34;</span>);
 
+<span style=color:#75715e>// Check the user&#39;s current screen width
+</span><span style=color:#75715e></span><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(window.<span style=color:#a6e22e>innerWidth</span>);
 
+<span style=color:#75715e>// Check or grab the current page URL
+</span><span style=color:#75715e></span><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(window.<span style=color:#a6e22e>location</span>.<span style=color:#a6e22e>href</span>);
+</code></pre></div><p>And since <code>window</code> is the default global object in any browser environment, you don&rsquo;t even have to type <code>window.</code> every single time. Calling <code>alert()</code> or <code>location.href</code> directly works just fine. Handy, right? :v</p>
+<hr>
+<h2 id=dom-playing-with-the-actual-webpage>DOM: Playing with the Actual Webpage</h2>
+<p>Now, what about the actual page content? That&rsquo;s where <strong>DOM</strong> comes into play.</p>
+<p>DOM stands for <strong>Document Object Model</strong>.</p>
+<p>Instead of controlling the browser window, DOM lets us touch and manipulate the actual HTML document rendered inside that window. We access it through <code>document</code> (which technically lives inside <code>window.document</code>).</p>
+<p>When your browser loads an HTML file, it reads every tag and turns it into a tree of objects. Through <code>document</code>, JavaScript can find elements, change text, swap styles, or even create brand new elements out of thin air.</p>
+<p>Here&rsquo;s a quick taste:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// 1. Grab an element by its ID
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>heading</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#34;main-title&#34;</span>);
 
-    </main>
-    
-    <footer class="site-footer">
-    <div class="container">
-        <p class="footer-nav">
-            <a href="/">[ Home ]</a>
-            <span class="sep">|</span>
-            <a href="/posts/">[ Posts ]</a>
-            <span class="sep">|</span>
-            <a href="/categories/">[ Categories ]</a>
-            <span class="sep">|</span>
-            <a href="/search/">[ Search ]</a>
-            <span class="sep">|</span>
-            <a href="/about/">[ About ]</a>
-            <span class="sep">|</span>
-            <a href="#top">[ Back to Top ]</a>
-        </p>
+<span style=color:#75715e>// 2. Change the text dynamically on the fly
+</span><span style=color:#75715e></span><span style=color:#a6e22e>heading</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;JavaScript is running!&#34;</span>;
 
-        
-        <p class="footer-social">
-            <span class="social-label">Connect:</span>
-            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
-            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
-            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
-        </p>
-        
-
-        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
-    </div>
-
-    <script>
-    (function () {
-        const emailLink = document.getElementById('email-contact-link');
-        if (emailLink) {
-            emailLink.addEventListener('click', function (e) {
-                const mail = 'gojin003@gmail.com';
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(mail).then(function () {
-                        const orig = emailLink.textContent;
-                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
-                        setTimeout(function () {
-                            emailLink.textContent = orig;
-                        }, 2500);
-                    }).catch(function () {});
-                }
-            });
-        }
-    })();
-    </script>
+<span style=color:#75715e>// 3. Tweak the styles directly
+</span><span style=color:#75715e></span><span style=color:#a6e22e>heading</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;seagreen&#34;</span>;
+</code></pre></div><p>Pretty neat, right? The page changes instantly without needing a full reload.</p>
+<hr>
+<h2 id=so-whats-the-real-difference>So&mldr; What&rsquo;s the Real Difference?</h2>
+<p>To keep it super simple in your head:</p>
+<ul>
+<li><strong>BOM</strong> (<code>window</code>) = The outer frame. The browser window, history, screen dimensions, and location bar.</li>
+<li><strong>DOM</strong> (<code>document</code>) = The painting inside the frame. The HTML tags, text, buttons, images, and styling.</li>
+</ul>
+<p>Once you grasp how BOM and DOM split the work, browser scripting starts making a whole lot more sense.</p>
+<p>Next up, we&rsquo;ll probably look into making elements actually react when someone clicks them.</p>
+<p>Until then&mldr; happy tinkering! :D</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/javascript/>#javascript</a>
+<a class=tag-badge href=/tags/learn/>#learn</a>
+<a class=tag-badge href=/tags/dom/>#dom</a>
+<a class=tag-badge href=/tags/bom/>#bom</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/welcome-back/>Welcome to ngodingkuy</a>
+</div>
+<div class=next-post>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-03-30>2026-03-30</time>
+<a href=https://ngodingkuy.site/posts/welcome-back/>Welcome to ngodingkuy</a>
+</li>
+<li>
+<time datetime=2022-01-21>2022-01-21</time>
+<a href=https://ngodingkuy.site/posts/debugger/>Standard Library - Debugger</a>
+</li>
+<li>
+<time datetime=2022-01-17>2022-01-17</time>
+<a href=https://ngodingkuy.site/posts/file-system/>Standard Library - File System</a>
+</li>
+<li>
+<time datetime=2022-01-16>2022-01-16</time>
+<a href=https://ngodingkuy.site/posts/path/>Standard Library - Path</a>
+</li>
+<li>
+<time datetime=2022-01-16>2022-01-16</time>
+<a href=https://ngodingkuy.site/posts/os/>Standard Library - OS</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/javascript-101/",this.page.identifier="/posts/javascript-101/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ Javascript Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/javascript/>[Javascript]</a></span> &bull;
+<span>1 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/javascript-101/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Javascript in Action</div>
+<div class=tree-item-date>2026-04-14 &bull; javascript-101</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
 </footer>
-
 </body>
 </html>

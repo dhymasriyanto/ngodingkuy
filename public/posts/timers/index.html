@@ -1,0 +1,361 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Standard Library - Timers - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/timers/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Halo semua, kembali lagi bersama Author :')
+Di JavaScript browser, kita sudah terbiasa dengan setTimeout dan setInterval.
+Tapi di NodeJS, ada dua fungsi …">
+<meta name=keywords content="timers,nodejs,eventloop,async">
+<meta name=author content="dhymas">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Standard Library - Timers">
+<meta property="og:description" content="Halo semua, kembali lagi bersama Author :')
+Di JavaScript browser, kita sudah terbiasa dengan setTimeout dan setInterval.
+Tapi di NodeJS, ada dua fungsi penjadwalan antrean yang sangat unik dan sering …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/timers/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/timers/timers.5586561b97c4ca5a5a2a8c97150b3ccdaa3af4cb02f5d874b9bf28c1ec324f6e.png">
+<meta property="article:published_time" content="2022-02-14T20:10:00Z">
+<meta property="article:modified_time" content="2022-02-14T20:10:00Z">
+<meta property="article:tag" content="timers"><meta property="article:tag" content="nodejs"><meta property="article:tag" content="eventloop"><meta property="article:tag" content="async">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Standard Library - Timers">
+<meta name=twitter:description content="Halo semua, kembali lagi bersama Author :')
+Di JavaScript browser, kita sudah terbiasa dengan setTimeout dan setInterval.
+Tapi di NodeJS, ada dua fungsi penjadwalan antrean yang sangat unik dan sering …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/timers/timers.5586561b97c4ca5a5a2a8c97150b3ccdaa3af4cb02f5d874b9bf28c1ec324f6e.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Standard Library - Timers","description":"Halo semua, kembali lagi bersama Author :\u0026#39;)\nDi JavaScript browser, kita sudah terbiasa dengan setTimeout dan setInterval.\nTapi di NodeJS, ada dua fungsi penjadwalan antrean yang sangat unik dan sering ditanyakan saat interview: setImmediate dan …","url":"https://ngodingkuy.site/posts/timers/","datePublished":"2022-02-14T20:10:00Z","dateModified":"2022-02-14T20:10:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/timers/"},"author":{"@type":"Person","name":"dhymas"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/timers/timers.5586561b97c4ca5a5a2a8c97150b3ccdaa3af4cb02f5d874b9bf28c1ec324f6e.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
+</head>
+<body>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Standard Library - Timers</h1>
+<div class=post-meta>
+<span class=author>By dhymas</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2022-02-14>February 14, 2022</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/nodejs/>[NodeJS]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/timers/timers.5586561b97c4ca5a5a2a8c97150b3ccdaa3af4cb02f5d874b9bf28c1ec324f6e.png alt="Standard Library - Timers" loading=lazy>
+</div>
+<div class=post-content>
+<p>Halo semua, kembali lagi bersama <em>Author</em> :')</p>
+<p>Di JavaScript browser, kita sudah terbiasa dengan <code>setTimeout</code> dan <code>setInterval</code>.</p>
+<p>Tapi di NodeJS, ada dua fungsi penjadwalan antrean yang sangat unik dan sering ditanyakan saat interview: <strong><code>setImmediate</code></strong> dan <strong><code>process.nextTick</code></strong>.</p>
+<p><em>Mangsudnya</em> apa sih bedanya? Yuk kita bedah!</p>
+<hr>
+<h2 id=1-setimmediate-vs-settimeout-0>1. <code>setImmediate()</code> vs <code>setTimeout(..., 0)</code></h2>
+<p><code>setImmediate</code> dirancang khusus di NodeJS untuk mengeksekusi kode pada fase <strong>Check</strong> di putaran <em>Event Loop</em> berikutnya, tepat setelah fase I/O polling selesai.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>setImmediate</span>(() =&gt; {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;Dieksekusi lewat setImmediate!&#34;</span>);
+});
+
+<span style=color:#a6e22e>setTimeout</span>(() =&gt; {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;Dieksekusi lewat setTimeout!&#34;</span>);
+}, <span style=color:#ae81ff>0</span>);
+</code></pre></div><p>Jika dijalankan di root script biasa, urutan keduanya bisa berubah-ubah tergantung performa CPU saat itu. Tapi jika dipanggil di dalam proses I/O (seperti di dalam callback <code>fs.readFile</code>), maka <code>setImmediate</code> <strong>selalu menang</strong> dan dieksekusi lebih dulu daripada <code>setTimeout(fn, 0)</code>.</p>
+<hr>
+<h2 id=2-sang-juara-antrean-processnexttick>2. Sang Juara Antrean: <code>process.nextTick()</code></h2>
+<p>Meskipun secara teknis <code>process.nextTick</code> bukan bagian dari modul <code>timers</code>, perilakunya sangat erat kaitannya.</p>
+<p><code>process.nextTick</code> <strong>bukan bagian dari fase Event Loop</strong>. Dia memiliki antrean mikro khusus yang disebut <em>Microtask Queue</em>.</p>
+<p>Artinya: apapun fungsi yang kalian daftarkan di <code>process.nextTick</code>, fungsi tersebut akan dieksekusi <strong>secepat mungkin</strong> tepat setelah operasi sinkron saat ini selesai, mendahului semua timer dan I/O event lainnya!</p>
+<p>Mari kita buktikan dengan tes urutan ini:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>setTimeout</span>(() =&gt; {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;3. setTimeout dipanggil&#34;</span>);
+}, <span style=color:#ae81ff>0</span>);
+
+<span style=color:#a6e22e>setImmediate</span>(() =&gt; {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;4. setImmediate dipanggil&#34;</span>);
+});
+
+<span style=color:#a6e22e>process</span>.<span style=color:#a6e22e>nextTick</span>(() =&gt; {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;2. process.nextTick dipanggil mendahului timer!&#34;</span>);
+});
+
+<span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#e6db74>&#34;1. Kode sinkron utama selesai.&#34;</span>);
+</code></pre></div><p>Jika dijalankan dengan <code>node test.mjs</code>, outputnya:</p>
+<ol>
+<li><code>1. Kode sinkron utama selesai.</code></li>
+<li><code>2. process.nextTick dipanggil mendahului timer!</code></li>
+<li><code>3. setTimeout dipanggil</code></li>
+<li><code>4. setImmediate dipanggil</code></li>
+</ol>
+<hr>
+<h2 id=peringatan-bahaya-processnexttick>Peringatan Bahaya <code>process.nextTick</code></h2>
+<p>Jangan pernah melakukan pemanggilan rekursif tanpa henti di dalam <code>process.nextTick</code>.</p>
+<p>Karena dia selalu memotong antrean, Event Loop NodeJS kalian akan kelaparan (<em>starvation</em>) dan semua proses I/O seperti koneksi database atau request HTTP akan terhenti total! :v</p>
+<p>Gunakan <code>process.nextTick</code> hanya saat kalian benar-benar perlu mengeksekusi callback setelah fungsi sinkron kembali namun sebelum ada I/O baru yang berjalan.</p>
+<hr>
+<p>Sekian catatan singkat mengenai antrean waktu di NodeJS. Semoga ngga bingung lagi ya membedakan kapan memakai <code>nextTick</code> dan <code>setImmediate</code>!</p>
+<p>Sampai ketemu di catatan berikutnya! :)</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/timers/>#timers</a>
+<a class=tag-badge href=/tags/nodejs/>#nodejs</a>
+<a class=tag-badge href=/tags/eventloop/>#eventloop</a>
+<a class=tag-badge href=/tags/async/>#async</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/stream/>Standard Library - Stream</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/process/>Standard Library - Process</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-10-09>2026-10-09</time>
+<a href=https://ngodingkuy.site/posts/javascript-web-workers/>Multi-Threading with Web Workers</a>
+</li>
+<li>
+<time datetime=2026-10-02>2026-10-02</time>
+<a href=https://ngodingkuy.site/posts/javascript-canvas-basics/>Drawing in the Browser with HTML5 Canvas</a>
+</li>
+<li>
+<time datetime=2026-09-23>2026-09-23</time>
+<a href=https://ngodingkuy.site/posts/javascript-indexeddb-basics/>Beyond LocalStorage: Storing Data with IndexedDB</a>
+</li>
+<li>
+<time datetime=2026-09-14>2026-09-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-intersection-observer/>Modern Lazy Loading with Intersection Observer</a>
+</li>
+<li>
+<time datetime=2026-09-05>2026-09-05</time>
+<a href=https://ngodingkuy.site/posts/javascript-debounce-and-throttle/>Event Optimization: Debounce vs Throttle</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/timers/",this.page.identifier="/posts/timers/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ NodeJS Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/nodejs/>[NodeJS]</a></span> &bull;
+<span>20 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/nodejs/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; nodejs</div>
+</div>
+</a>
+<a href=/posts/executing-nodejs/ class=tree-item>
+<span class=tree-item-num>02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Mengeksekusi NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; executing-nodejs</div>
+</div>
+</a>
+<a href=/posts/modules-nodejs-part-one/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modules NodeJS - Common Module</div>
+<div class=tree-item-date>2021-08-07 &bull; modules-nodejs-part-one</div>
+</div>
+</a>
+<a href=/posts/modules-nodejs-part-two/ class=tree-item>
+<span class=tree-item-num>04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modules Nodejs - ECMAScript Module</div>
+<div class=tree-item-date>2022-01-03 &bull; modules-nodejs-part-two</div>
+</div>
+</a>
+<a href=/posts/global-async/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Global Async</div>
+<div class=tree-item-date>2022-01-04 &bull; global-async</div>
+</div>
+</a>
+<a href=/posts/os/ class=tree-item>
+<span class=tree-item-num>06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - OS</div>
+<div class=tree-item-date>2022-01-16 &bull; os</div>
+</div>
+</a>
+<a href=/posts/path/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Path</div>
+<div class=tree-item-date>2022-01-16 &bull; path</div>
+</div>
+</a>
+<a href=/posts/file-system/ class=tree-item>
+<span class=tree-item-num>08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - File System</div>
+<div class=tree-item-date>2022-01-17 &bull; file-system</div>
+</div>
+</a>
+<a href=/posts/debugger/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Debugger</div>
+<div class=tree-item-date>2022-01-21 &bull; debugger</div>
+</div>
+</a>
+<a href=/posts/buffer/ class=tree-item>
+<span class=tree-item-num>10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Buffer</div>
+<div class=tree-item-date>2022-01-26 &bull; buffer</div>
+</div>
+</a>
+<a href=/posts/events/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Events</div>
+<div class=tree-item-date>2022-02-02 &bull; events</div>
+</div>
+</a>
+<a href=/posts/stream/ class=tree-item>
+<span class=tree-item-num>12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Stream</div>
+<div class=tree-item-date>2022-02-09 &bull; stream</div>
+</div>
+</a>
+<a href=/posts/timers/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Timers</div>
+<div class=tree-item-date>2022-02-14 &bull; timers</div>
+</div>
+</a>
+<a href=/posts/process/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Process</div>
+<div class=tree-item-date>2022-02-22 &bull; process</div>
+</div>
+</a>
+<a href=/posts/url/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - URL</div>
+<div class=tree-item-date>2022-03-01 &bull; url</div>
+</div>
+</a>
+<a href=/posts/crypto/ class=tree-item>
+<span class=tree-item-num>16.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Crypto</div>
+<div class=tree-item-date>2022-03-09 &bull; crypto</div>
+</div>
+</a>
+<a href=/posts/zlib/ class=tree-item>
+<span class=tree-item-num>17.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Zlib</div>
+<div class=tree-item-date>2022-03-16 &bull; zlib</div>
+</div>
+</a>
+<a href=/posts/http/ class=tree-item>
+<span class=tree-item-num>18.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - HTTP</div>
+<div class=tree-item-date>2022-03-24 &bull; http</div>
+</div>
+</a>
+<a href=/posts/child-process/ class=tree-item>
+<span class=tree-item-num>19.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Child Process</div>
+<div class=tree-item-date>2022-04-02 &bull; child-process</div>
+</div>
+</a>
+<a href=/posts/worker-threads/ class=tree-item>
+<span class=tree-item-num>20.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Worker Threads</div>
+<div class=tree-item-date>2022-04-11 &bull; worker-threads</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
+</footer>
+</body>
+</html>

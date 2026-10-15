@@ -1,0 +1,360 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Standard Library - Buffer - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/buffer/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Halo semua, kembali lagi bersama Author :')
+Seperti yang sempat Author janjikan di postingan File System, kali ini kita bakal membedah apa itu Buffer di NodeJS. …">
+<meta name=keywords content="buffer,nodejs,binary,library">
+<meta name=author content="dhymas">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="Standard Library - Buffer">
+<meta property="og:description" content="Halo semua, kembali lagi bersama Author :')
+Seperti yang sempat Author janjikan di postingan File System, kali ini kita bakal membedah apa itu Buffer di NodeJS.
+Catatan ini dibuat untuk arsip belajar …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/buffer/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/buffer/buffer.df0f8ebefabdc2cd84b98cc6591f81db495a40b51e7c24ee9b4e03f064632909.png">
+<meta property="article:published_time" content="2022-01-26T16:20:00Z">
+<meta property="article:modified_time" content="2022-01-26T16:20:00Z">
+<meta property="article:tag" content="buffer"><meta property="article:tag" content="nodejs"><meta property="article:tag" content="binary"><meta property="article:tag" content="library">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="Standard Library - Buffer">
+<meta name=twitter:description content="Halo semua, kembali lagi bersama Author :')
+Seperti yang sempat Author janjikan di postingan File System, kali ini kita bakal membedah apa itu Buffer di NodeJS.
+Catatan ini dibuat untuk arsip belajar …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/buffer/buffer.df0f8ebefabdc2cd84b98cc6591f81db495a40b51e7c24ee9b4e03f064632909.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Standard Library - Buffer","description":"Halo semua, kembali lagi bersama Author :\u0026#39;)\nSeperti yang sempat Author janjikan di postingan File System, kali ini kita bakal membedah apa itu Buffer di NodeJS.\nCatatan ini dibuat untuk arsip belajar saya pribadi… Silahkan disimak jika berkenan!\n Apa …","url":"https://ngodingkuy.site/posts/buffer/","datePublished":"2022-01-26T16:20:00Z","dateModified":"2022-01-26T16:20:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/buffer/"},"author":{"@type":"Person","name":"dhymas"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/buffer/buffer.df0f8ebefabdc2cd84b98cc6591f81db495a40b51e7c24ee9b4e03f064632909.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
+</head>
+<body>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>Standard Library - Buffer</h1>
+<div class=post-meta>
+<span class=author>By dhymas</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2022-01-26>January 26, 2022</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/nodejs/>[NodeJS]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/buffer/buffer.df0f8ebefabdc2cd84b98cc6591f81db495a40b51e7c24ee9b4e03f064632909.png alt="Standard Library - Buffer" loading=lazy>
+</div>
+<div class=post-content>
+<p>Halo semua, kembali lagi bersama <em>Author</em> :')</p>
+<p>Seperti yang sempat <em>Author</em> janjikan di postingan <a href=/posts/file-system/>File System</a>, kali ini kita bakal membedah apa itu <strong>Buffer</strong> di NodeJS.</p>
+<p>Catatan ini dibuat untuk arsip belajar saya pribadi&mldr; Silahkan disimak jika berkenan!</p>
+<h1 id=center-apa-itu-buffer-center><center> Apa itu Buffer? <center></h1>
+<h2 id=mangsudnya-buffer-itu-apa-sih-_thor_-v>Mangsudnya Buffer itu apa sih, <em>Thor</em>? :v</h2>
+<p>Secara sederhana, <strong>Buffer</strong> adalah wadah di memori komputer (RAM) yang digunakan untuk menampung sekumpulan data mentah dalam bentuk <strong>biner (bita / bytes)</strong>.</p>
+<p>Di JavaScript browser jadul, kita ngga punya akses langsung ke data biner murni karena JavaScript awalnya cuma dirancang untuk manipulasi teks dan angka di web.</p>
+<p>Tapi karena NodeJS berjalan di server, NodeJS wajib bisa berurusan dengan file gambar, video, file zip, kompresi, dan paket jaringan TCP. Nah, semua hal itu wujud aslinya adalah deretan biner hexadecimal! Itulah alasan NodeJS membuat objek <code>Buffer</code> secara global.</p>
+<p>Uniknya, <code>Buffer</code> merupakan objek global, jadi kita bahkan ngga perlu menulis <code>import buffer from 'buffer'</code> untuk menggunakannya!</p>
+<hr>
+<h2 id=1-membuat-buffer-dari-string>1. Membuat Buffer dari String</h2>
+<p>Kita bisa mengubah teks biasa menjadi sekumpulan bita menggunakan <code>Buffer.from()</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// Mengubah teks string menjadi Buffer biner
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>buf</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Buffer</span>.<span style=color:#a6e22e>from</span>(<span style=color:#e6db74>&#34;Halo NgodingKuy!&#34;</span>);
+
+<span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#a6e22e>buf</span>);
+<span style=color:#75715e>// Output berupa deretan hexadecimal:
+</span><span style=color:#75715e>// &lt;Buffer 48 61 6c 6f 20 4e 67 6f 64 69 6e 67 4b 75 79 21&gt;
+</span></code></pre></div><p>Setiap dua digit heksadesimal di atas mewakili 1 bita (8 bit) kode ASCII karakter teks kita.</p>
+<p>Untuk mengembalikannya lagi menjadi teks yang bisa dibaca manusia, kita cukup panggil fungsi <code>.toString()</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#a6e22e>buf</span>.<span style=color:#a6e22e>toString</span>()); <span style=color:#75715e>// &#34;Halo NgodingKuy!&#34;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#a6e22e>buf</span>.<span style=color:#a6e22e>toString</span>(<span style=color:#e6db74>&#34;hex&#34;</span>)); <span style=color:#75715e>// Ditampilkan dalam format heksa murni
+</span><span style=color:#75715e></span><span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#a6e22e>buf</span>.<span style=color:#a6e22e>toString</span>(<span style=color:#e6db74>&#34;base64&#34;</span>)); <span style=color:#75715e>// Di-encode ke Base64!
+</span></code></pre></div><p>Gampang banget kan kalau mau encode/decode ke Base64? Ngga perlu install library pihak ketiga lagi!</p>
+<hr>
+<h2 id=2-mengalokasikan-buffer-kosong-dengan-bufferalloc>2. Mengalokasikan Buffer Kosong dengan <code>Buffer.alloc()</code></h2>
+<p>Kalau kita butuh memori kosong berukuran tertentu untuk menampung aliran data (misal untuk transfer paket), kita gunakan <code>Buffer.alloc(ukuranBita)</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// Alokasikan memori kosong sebesar 10 byte
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>kosong</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Buffer</span>.<span style=color:#a6e22e>alloc</span>(<span style=color:#ae81ff>10</span>);
+
+<span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#a6e22e>kosong</span>);
+<span style=color:#75715e>// &lt;Buffer 00 00 00 00 00 00 00 00 00 00&gt;
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// Kita bisa isi byte demi byte atau tulis teks:
+</span><span style=color:#75715e></span><span style=color:#a6e22e>kosong</span>.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#34;Kuy&#34;</span>);
+<span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#a6e22e>kosong</span>);
+<span style=color:#75715e>// &lt;Buffer 4b 75 79 00 00 00 00 00 00 00&gt;
+</span></code></pre></div><hr>
+<h2 id=3-menggabungkan-banyak-buffer-bufferconcat>3. Menggabungkan Banyak Buffer: <code>Buffer.concat()</code></h2>
+<p>Jika kita menerima potongan data (chunks) yang terpecah-pecah dari proses unduh file, kita bisa menyatukannya kembali menjadi satu buffer utuh:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>part1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Buffer</span>.<span style=color:#a6e22e>from</span>(<span style=color:#e6db74>&#34;Ngoding &#34;</span>);
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>part2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Buffer</span>.<span style=color:#a6e22e>from</span>(<span style=color:#e6db74>&#34;Kuy!&#34;</span>);
+
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gabungan</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Buffer</span>.<span style=color:#a6e22e>concat</span>([<span style=color:#a6e22e>part1</span>, <span style=color:#a6e22e>part2</span>]);
+<span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>info</span>(<span style=color:#a6e22e>gabungan</span>.<span style=color:#a6e22e>toString</span>()); <span style=color:#75715e>// &#34;Ngoding Kuy!&#34;
+</span></code></pre></div><hr>
+<p>Sekian dulu catatan mengenai <em>Buffer</em> di NodeJS kali ini. Sekarang teman-teman jadi paham kan kenapa kemarin saat membaca file dengan <code>fs.readFile()</code> tanpa encoding, yang keluar adalah objek <code>&lt;Buffer ...></code>.</p>
+<p>Jika ada penjelasan yang kurang tepat, kolom komentar di bawah selalu terbuka ya!</p>
+<p>Sampai jumpa di catatan berikutnya! :)</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/buffer/>#buffer</a>
+<a class=tag-badge href=/tags/nodejs/>#nodejs</a>
+<a class=tag-badge href=/tags/binary/>#binary</a>
+<a class=tag-badge href=/tags/library/>#library</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/debugger/>Standard Library - Debugger</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/events/>Standard Library - Events</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-10-09>2026-10-09</time>
+<a href=https://ngodingkuy.site/posts/javascript-web-workers/>Multi-Threading with Web Workers</a>
+</li>
+<li>
+<time datetime=2026-10-02>2026-10-02</time>
+<a href=https://ngodingkuy.site/posts/javascript-canvas-basics/>Drawing in the Browser with HTML5 Canvas</a>
+</li>
+<li>
+<time datetime=2026-09-23>2026-09-23</time>
+<a href=https://ngodingkuy.site/posts/javascript-indexeddb-basics/>Beyond LocalStorage: Storing Data with IndexedDB</a>
+</li>
+<li>
+<time datetime=2026-09-14>2026-09-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-intersection-observer/>Modern Lazy Loading with Intersection Observer</a>
+</li>
+<li>
+<time datetime=2026-09-05>2026-09-05</time>
+<a href=https://ngodingkuy.site/posts/javascript-debounce-and-throttle/>Event Optimization: Debounce vs Throttle</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/buffer/",this.page.identifier="/posts/buffer/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ NodeJS Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/nodejs/>[NodeJS]</a></span> &bull;
+<span>20 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/nodejs/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; nodejs</div>
+</div>
+</a>
+<a href=/posts/executing-nodejs/ class=tree-item>
+<span class=tree-item-num>02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Mengeksekusi NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; executing-nodejs</div>
+</div>
+</a>
+<a href=/posts/modules-nodejs-part-one/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modules NodeJS - Common Module</div>
+<div class=tree-item-date>2021-08-07 &bull; modules-nodejs-part-one</div>
+</div>
+</a>
+<a href=/posts/modules-nodejs-part-two/ class=tree-item>
+<span class=tree-item-num>04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modules Nodejs - ECMAScript Module</div>
+<div class=tree-item-date>2022-01-03 &bull; modules-nodejs-part-two</div>
+</div>
+</a>
+<a href=/posts/global-async/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Global Async</div>
+<div class=tree-item-date>2022-01-04 &bull; global-async</div>
+</div>
+</a>
+<a href=/posts/os/ class=tree-item>
+<span class=tree-item-num>06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - OS</div>
+<div class=tree-item-date>2022-01-16 &bull; os</div>
+</div>
+</a>
+<a href=/posts/path/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Path</div>
+<div class=tree-item-date>2022-01-16 &bull; path</div>
+</div>
+</a>
+<a href=/posts/file-system/ class=tree-item>
+<span class=tree-item-num>08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - File System</div>
+<div class=tree-item-date>2022-01-17 &bull; file-system</div>
+</div>
+</a>
+<a href=/posts/debugger/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Debugger</div>
+<div class=tree-item-date>2022-01-21 &bull; debugger</div>
+</div>
+</a>
+<a href=/posts/buffer/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Buffer</div>
+<div class=tree-item-date>2022-01-26 &bull; buffer</div>
+</div>
+</a>
+<a href=/posts/events/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Events</div>
+<div class=tree-item-date>2022-02-02 &bull; events</div>
+</div>
+</a>
+<a href=/posts/stream/ class=tree-item>
+<span class=tree-item-num>12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Stream</div>
+<div class=tree-item-date>2022-02-09 &bull; stream</div>
+</div>
+</a>
+<a href=/posts/timers/ class=tree-item>
+<span class=tree-item-num>13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Timers</div>
+<div class=tree-item-date>2022-02-14 &bull; timers</div>
+</div>
+</a>
+<a href=/posts/process/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Process</div>
+<div class=tree-item-date>2022-02-22 &bull; process</div>
+</div>
+</a>
+<a href=/posts/url/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - URL</div>
+<div class=tree-item-date>2022-03-01 &bull; url</div>
+</div>
+</a>
+<a href=/posts/crypto/ class=tree-item>
+<span class=tree-item-num>16.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Crypto</div>
+<div class=tree-item-date>2022-03-09 &bull; crypto</div>
+</div>
+</a>
+<a href=/posts/zlib/ class=tree-item>
+<span class=tree-item-num>17.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Zlib</div>
+<div class=tree-item-date>2022-03-16 &bull; zlib</div>
+</div>
+</a>
+<a href=/posts/http/ class=tree-item>
+<span class=tree-item-num>18.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - HTTP</div>
+<div class=tree-item-date>2022-03-24 &bull; http</div>
+</div>
+</a>
+<a href=/posts/child-process/ class=tree-item>
+<span class=tree-item-num>19.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Child Process</div>
+<div class=tree-item-date>2022-04-02 &bull; child-process</div>
+</div>
+</a>
+<a href=/posts/worker-threads/ class=tree-item>
+<span class=tree-item-num>20.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Worker Threads</div>
+<div class=tree-item-date>2022-04-11 &bull; worker-threads</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
+</footer>
+</body>
+</html>

@@ -1,23 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>frontend on ngodingkuy</title>
-    <link>https://ngodingkuy.ngodingkuy.site/tags/frontend/</link>
-    <description>Recent content in frontend on ngodingkuy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 13 Oct 2026 10:00:00 +0700</lastBuildDate><atom:link href="https://ngodingkuy.ngodingkuy.site/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>JavaScript 101: How JS Controls Your Browser (BOM vs DOM)</title>
-      <link>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</link>
-      <pubDate>Tue, 13 Oct 2026 10:00:00 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.ngodingkuy.site/posts/javascript-101/</guid>
-      <description>Welcome back to another note :&#39;)
-Most of us use JavaScript daily to build interactive UI, animate buttons, handle form submissions, or fetch backend APIs. But sometimes we overlook the foundational mechanics: how does JavaScript actually take control of your browser and web document under the hood?
-The whole mechanism boils down to two key concepts: BOM and DOM.
- 1. BOM (Browser Object Model) As the name implies, BOM represents the browser window and environment itself, completely independent of the actual HTML content loaded inside it.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>frontend on ngodingkuy</title><link>https://ngodingkuy.site/tags/frontend/</link><description>Recent content in frontend on ngodingkuy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 29 Apr 2026 10:15:00 +0000</lastBuildDate><atom:link href="https://ngodingkuy.site/tags/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>DOM Manipulation &amp; Creating Elements</title><link>https://ngodingkuy.site/posts/javascript-dom-manipulation/</link><pubDate>Wed, 29 Apr 2026 10:15:00 +0000</pubDate><guid>https://ngodingkuy.site/posts/javascript-dom-manipulation/</guid><description>Back with another late-night desk note from Author&amp;hellip; :')
+So far, we&amp;rsquo;ve grabbed existing HTML elements and attached event listeners to them. But what happens when you need to create brand-new items on the fly? Like appending a new task to a todo list or rendering cards from a database?
+That&amp;rsquo;s where dynamic DOM manipulation comes in.
+1. Creating Elements Out of Nowhere: createElement The browser gives us document.createElement(). You pass the tag name as a string, and JavaScript conjures a fresh node into memory:</description></item><item><title>JavaScript Event Listeners in Action</title><link>https://ngodingkuy.site/posts/javascript-events/</link><pubDate>Tue, 21 Apr 2026 09:11:28 +0000</pubDate><guid>https://ngodingkuy.site/posts/javascript-events/</guid><description>Alright, following up on our previous note about DOM and BOM&amp;hellip;
+So we already know how to select an element and swap its text. Cool. But a webpage where nothing reacts when you click or scroll? Kinda lifeless, isn&amp;rsquo;t it? :v
+To actually make elements respond when users interact with the page, we need Event Listeners.
+Wait, what is an event anyway? An &amp;ldquo;event&amp;rdquo; is basically anything that happens inside the browser.</description></item></channel></rss>

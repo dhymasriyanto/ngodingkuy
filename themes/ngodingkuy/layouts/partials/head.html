@@ -35,7 +35,8 @@
 {{ $featuredImage := "img/favicon.png" | absURL }}
 {{ $images := .Resources.ByType "image" }}
 {{ with index $images 0 }}
-    {{ $featuredImage = .Permalink }}
+    {{ $fp := . | fingerprint }}
+    {{ $featuredImage = $fp.Permalink }}
 {{ end }}
 
 {{/* Open Graph / Facebook */}}
@@ -162,4 +163,4 @@ if (document.readyState === 'loading') {
 </script>
 
 {{/* CSS */}}
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=9">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v=10">

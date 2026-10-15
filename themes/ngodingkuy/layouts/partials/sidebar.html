@@ -1,7 +1,79 @@
-<aside>
-    <ul>
-        <li>
-            Home
-        </li>
-    </ul>
+{{ $currentPermalink := .Permalink }}
+{{ $currentCategories := .Params.categories }}
+{{ $mainCat := "" }}
+{{ with $currentCategories }}
+    {{ $mainCat = index . 0 }}
+{{ end }}
+
+{{/* Find all posts in the same category or fallback to all posts */}}
+{{ $allPosts := where .Site.RegularPages "Section" "posts" }}
+{{ $categoryPosts := $allPosts }}
+{{ if $mainCat }}
+    {{ $categoryPosts = where $allPosts "Params.categories" "intersect" (slice $mainCat) }}
+{{ end }}
+
+{{/* Order chronologically from OLDEST to NEWEST (awal -> recent) */}}
+{{ $sortedPosts := $categoryPosts.ByDate }}
+
+<aside id="tree-drawer" class="tree-drawer" aria-label="Course Curriculum Tree">
+    <div class="tree-drawer-header">
+        <div class="tree-drawer-title-row">
+            <strong class="tree-drawer-title">[ {{ with $mainCat }}{{ . }}{{ else }}Posts{{ end }} Tree ]</strong>
+            <button type="button" class="btn btn-sm" onclick="toggleTreeDrawer(false)" aria-label="Close sidebar">[ X ]</button>
+        </div>
+        <div class="tree-drawer-meta">
+            {{ with $mainCat }}
+                <span>Series: <a href="{{ "categories/" | relURL }}{{ . | urlize }}/">[{{ . }}]</a></span> &bull; 
+            {{ end }}
+            <span>{{ len $sortedPosts }} articles</span>
+        </div>
+        <div class="tree-drawer-order">Order: Earliest &rarr; Recent</div>
+    </div>
+
+    <div class="tree-items-list" id="tree-items-list">
+        {{ range $index, $p := $sortedPosts }}
+            {{ $isCurrent := eq $p.Permalink $currentPermalink }}
+            {{ $num := printf "%02d" (add $index 1) }}
+            <a href="{{ $p.RelPermalink }}" class="tree-item{{ if $isCurrent }} active{{ end }}" {{ if $isCurrent }}id="tree-active-item"{{ end }}>
+                <span class="tree-item-num">{{ if $isCurrent }}▶ {{ $num }}{{ else }}{{ $num }}{{ end }}.</span>
+                <div class="tree-item-body">
+                    <div class="tree-item-title">{{ $p.Title }}</div>
+                    <div class="tree-item-date">{{ $p.Date.Format "2006-01-02" }} &bull; {{ path.Base (strings.TrimRight "/" $p.RelPermalink) }}</div>
+                </div>
+            </a>
+        {{ end }}
+    </div>
+
+    <div class="tree-drawer-footer">
+        <a href="{{ "categories/" | relURL }}" class="tree-all-series-btn">[ All Categories &rarr; ]</a>
+    </div>
 </aside>
+
+<button type="button" id="tree-drawer-toggle" class="tree-drawer-toggle" onclick="toggleTreeDrawer()" title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ &gt; ]</button>
+
+<script>
+function toggleTreeDrawer(forceState) {
+    var drawer = document.getElementById('tree-drawer');
+    var toggleBtn = document.getElementById('tree-drawer-toggle');
+    if (!drawer || !toggleBtn) return;
+    
+    var isOpen = drawer.classList.contains('open');
+    var nextState = forceState !== undefined ? forceState : !isOpen;
+    
+    if (nextState) {
+        drawer.classList.add('open');
+        toggleBtn.classList.add('open');
+        toggleBtn.innerHTML = '&lt;';
+        var activeEl = document.getElementById('tree-active-item');
+        if (activeEl) {
+            setTimeout(function() {
+                activeEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }, 50);
+        }
+    } else {
+        drawer.classList.remove('open');
+        toggleBtn.classList.remove('open');
+        toggleBtn.innerHTML = '&gt;';
+    }
+}
+</script>

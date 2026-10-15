@@ -1,25 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>global on ngodingkuy</title>
-    <link>https://ngodingkuy.site/tags/global/</link>
-    <description>Recent content in global on ngodingkuy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 07 Aug 2021 12:11:46 +0700</lastBuildDate><atom:link href="https://ngodingkuy.site/tags/global/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Global NodeJS</title>
-      <link>https://ngodingkuy.site/posts/global-nodejs/</link>
-      <pubDate>Sat, 07 Aug 2021 12:11:46 +0700</pubDate>
-      
-      <guid>https://ngodingkuy.site/posts/global-nodejs/</guid>
-      <description>Apa itu Global pada NodeJS?  Global merupakan object yang terdapat pada NodeJS.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>global on ngodingkuy</title><link>https://ngodingkuy.site/tags/global/</link><description>Recent content in global on ngodingkuy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Aug 2021 12:11:46 +0700</lastBuildDate><atom:link href="https://ngodingkuy.site/tags/global/index.xml" rel="self" type="application/rss+xml"/><item><title>Global NodeJS</title><link>https://ngodingkuy.site/posts/global-nodejs/</link><pubDate>Sat, 07 Aug 2021 12:11:46 +0700</pubDate><guid>https://ngodingkuy.site/posts/global-nodejs/</guid><description>Apa itu Global pada NodeJS? Global merupakan object yang terdapat pada NodeJS.
 Global object dapat digunakan secara global pada aplikasi dan pada semua module.
 Tidak perlu melakukan include pada aplikasi lagi, kalian tinggal pakai saja global object ini.
 Umum
 Berikut list umum yang diberikan oleh objek global pada NodeJS:
-  global : Dimana dapat digunakan sama halnya seperti window pada console browser. Coba kembali pada file index.js yang telah kita buat kemarin&amp;hellip; Lalu buat console.</description>
-    </item>
-    
-  </channel>
-</rss>
+global : Dimana dapat digunakan sama halnya seperti window pada console browser. Coba kembali pada file index.js yang telah kita buat kemarin&amp;hellip; Lalu buat console.</description></item></channel></rss>

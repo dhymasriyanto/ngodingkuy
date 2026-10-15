@@ -1,39 +1,15 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html><html lang=en-us>
 <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
 <title>About - ngodingkuy</title>
-
-
-<link rel="canonical" href="https://ngodingkuy.site/about/">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-
-
-
-    
-
-<meta name="description" content="What is Ngoding Kuy! ? Ngoding Kuy! is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development …">
-
-
-<meta name="author" content="Dhymas Julyan Riyanto">
-
-
-<link rel="icon" type="image/png" href="/img/favicon.png?v=4">
+<link rel=canonical href=https://ngodingkuy.site/about/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="What is Ngoding Kuy! ? Ngoding Kuy! is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development …">
+<meta name=author content="Dhymas Julyan Riyanto">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
 <link rel="shortcut icon" href="/favicon.ico?v=4">
-
-
-<link rel="alternate" type="application/rss+xml" href="https://ngodingkuy.site/index.xml" title="ngodingkuy">
-
-
-
-
-
-
-
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="ngodingkuy">
 <meta property="og:title" content="About">
@@ -42,283 +18,240 @@ Initially, this blog was …">
 <meta property="og:url" content="https://ngodingkuy.site/about/">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://ngodingkuy.site/img/favicon.png">
-
-
-    <meta property="article:published_time" content="2019-07-30T23:10:26&#43;07:00">
-    <meta property="article:modified_time" content="2019-07-30T23:10:26&#43;07:00">
-    
-
-
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="What is Ngoding Kuy! ? Ngoding Kuy! is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development problems together.
+<meta property="article:published_time" content="2019-07-30T23:10:26+07:00">
+<meta property="article:modified_time" content="2019-07-30T23:10:26+07:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="About">
+<meta name=twitter:description content="What is Ngoding Kuy! ? Ngoding Kuy! is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development problems together.
 Initially, this blog was …">
-<meta name="twitter:image" content="https://ngodingkuy.site/img/favicon.png">
-
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "About",
-  "description": "What is Ngoding Kuy! ? Ngoding Kuy! is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development problems together.\nInitially, this blog was created as a personal archive for what the author …",
-  "url": "https://ngodingkuy.site/about/",
-  "datePublished": "2019-07-30T23:10:26+07:00",
-  "dateModified": "2019-07-30T23:10:26+07:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://ngodingkuy.site/about/"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Dhymas Julyan Riyanto"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "ngodingkuy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://ngodingkuy.site/img/favicon.png"
-    }
-  },
-  "image": "https://ngodingkuy.site/img/favicon.png"
-}
-</script>
-
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin="anonymous"></script>
-
-
-<script>
-(function() {
-    var saved = localStorage.getItem('theme');
-    if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark-theme');
-    }
-})();
-function toggleTheme() {
-    var html = document.documentElement;
-    var isDark = html.classList.toggle('dark-theme');
-    try {
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    } catch (e) {}
-    updateThemeToggleUI();
-
-    var dt = document.getElementById('disqus_thread');
-    if (dt) {
-        dt.style.backgroundColor = isDark ? '#15260f' : '#dff5df';
-        dt.style.color = isDark ? '#dff5df' : '#000000';
-        dt.style.colorScheme = isDark ? 'dark' : 'light';
-    }
-
-    if (typeof DISQUS !== 'undefined') {
-        setTimeout(function() {
-            DISQUS.reset({
-                reload: true,
-                config: function() {
-                    this.page.url = window.location.href;
-                    this.page.identifier = window.location.pathname;
-                    this.language = "en";
-                }
-            });
-        }, 50);
-    }
-}
-function updateThemeToggleUI() {
-    var btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    var isDark = document.documentElement.classList.contains('dark-theme');
-    btn.textContent = isDark ? '[ Light ]' : '[ Dark ]';
-    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-}
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateThemeToggleUI);
-} else {
-    updateThemeToggleUI();
-}
-</script>
-
-
-<link rel="stylesheet" href="/css/style.css?v=9">
-
+<meta name=twitter:image content="https://ngodingkuy.site/img/favicon.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"About","description":"What is Ngoding Kuy! ? Ngoding Kuy! is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development problems together.\nInitially, this blog was created as a personal archive for what the author …","url":"https://ngodingkuy.site/about/","datePublished":"2019-07-30T23:10:26+07:00","dateModified":"2019-07-30T23:10:26+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/about/"},"author":{"@type":"Person","name":"Dhymas Julyan Riyanto"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/img/favicon.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
 </head>
 <body>
-    <header class="site-header" id="top">
-    <div class="container">
-        <h1 class="site-title"><a href="/">&lt;ngodingkuy/&gt;</a></h1>
-        <p class="site-subtitle">learn it, write it, re-learn it.</p>
-        <nav class="site-nav">
-            <a href="/">[ Home ]</a>
-            <a href="/posts/">[ Posts ]</a>
-            <a href="/categories/">[ Categories ]</a>
-            <a href="/search/">[ Search ]</a>
-            <a href="/about/">[ About ]</a>
-            <button type="button" id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle theme">[ Dark ]</button>
-        </nav>
-    </div>
-</header>
-
-
-    <main class="container">
-        
-    <nav class="breadcrumb-nav">
-        <a href="/">&lt;- Back to Home</a> | <a href="/posts/">All Posts</a>
-    </nav>
-
-    <article class="post">
-        <h1>About</h1>
-        <div class="post-meta">
-            <span class="author">By Dhymas Julyan Riyanto</span>
-            <span class="meta-sep">&bull;</span>
-            <time datetime="2019-07-30">July 30, 2019</time>
-            
-        </div>
-
-        
-        
-
-        <div class="post-content">
-            <div class="about-icon-container">
-    <img src="/img/tentang/ngodingkuy-icon.png" alt="ngodingkuy logo" class="about-logo">
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
 </div>
-<h2 id="what-is-_ngoding-kuy_httpsngodingkuyngodingkuysite-">What is <a href="https://ngodingkuy.ngodingkuy.site/"><em>Ngoding Kuy!</em></a> ?</h2>
-<p><a href="https://ngodingkuy.ngodingkuy.site/"><em>Ngoding Kuy!</em></a> is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development problems together.</p>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>About</h1>
+<div class=post-meta>
+<span class=author>By Dhymas Julyan Riyanto</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2019-07-30>July 30, 2019</time>
+</div>
+<div class=post-content>
+<div class=about-icon-container>
+<img src=/img/tentang/ngodingkuy-icon.png alt="ngodingkuy logo" class=about-logo>
+</div>
+<h2 id=what-is-_ngoding-kuy_httpsngodingkuyngodingkuysite->What is <a href=https://ngodingkuy.ngodingkuy.site/><em>Ngoding Kuy!</em></a> ?</h2>
+<p><a href=https://ngodingkuy.ngodingkuy.site/><em>Ngoding Kuy!</em></a> is a simple static tech blog built to share software engineering knowledge, technical experiences, and solve development problems together.</p>
 <p>Initially, this blog was created as a personal archive for what the author is actively exploring and learning. Over time, it continues to evolve into a broader programming repository.</p>
-<h2 id="why-the-name-_ngoding-kuy_httpsngodingkuyngodingkuysite-">Why the name <a href="https://ngodingkuy.ngodingkuy.site/"><em>Ngoding Kuy!</em></a> ?</h2>
+<h2 id=why-the-name-_ngoding-kuy_httpsngodingkuyngodingkuysite->Why the name <a href=https://ngodingkuy.ngodingkuy.site/><em>Ngoding Kuy!</em></a> ?</h2>
 <p>To be completely honest, not entirely sure either.</p>
 <p>It started because saying &ldquo;kuy&rdquo; (Indonesian slang for &ldquo;yuk&rdquo; / &ldquo;let&rsquo;s go&rdquo;) was a frequent habit. Combining it with &ldquo;ngoding&rdquo; (coding) just felt fun, natural, and catchy.</p>
 <p>This blog is always growing. If you spot any mistakes or have suggestions, feel free to reach out to the author.</p>
 <p>Hopefully, this blog brings value to all of us.</p>
 <p>Thank you!</p>
-
-        </div>
-
-        
-    </article>
-
-    
-
-    <section class="other-posts">
-        <h2>Other Posts</h2>
-        <ul class="other-posts-list">
-            
-                <li>
-                    <time datetime="2026-04-14">2026-04-14</time>
-                    <a href="https://ngodingkuy.site/posts/javascript-101/javascript-101/">Javascript in Action</a>
-                </li>
-            
-                <li>
-                    <time datetime="2026-03-30">2026-03-30</time>
-                    <a href="https://ngodingkuy.site/posts/welcome-back/welcome/">Welcome to ngodingkuy</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-17">2022-01-17</time>
-                    <a href="https://ngodingkuy.site/posts/file-system/">Standard Library - File System</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.site/posts/path/">Standard Library - Path</a>
-                </li>
-            
-                <li>
-                    <time datetime="2022-01-16">2022-01-16</time>
-                    <a href="https://ngodingkuy.site/posts/os/">Standard Library - OS</a>
-                </li>
-            
-        </ul>
-    </section>
-
-    
-<div class="disqus-section">
-    <h3 class="disqus-title">Comments</h3>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = "https:\/\/ngodingkuy.site\/about\/";
-            this.page.identifier = "\/about\/";
-            this.language = "en";
-        };
-        (function () {
-            var dt = document.getElementById('disqus_thread');
-            if (dt) {
-                var isDark = document.documentElement.classList.contains('dark-theme');
-                dt.style.backgroundColor = isDark ? '#15260f' : '#dff5df';
-                dt.style.color = isDark ? '#dff5df' : '#000000';
-                dt.style.colorScheme = isDark ? 'dark' : 'light';
-            }
-            var d = document, s = d.createElement('script');
-            s.src = 'https://ngodingkuy.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
 </div>
-
-
-
-    </main>
-    
-    <footer class="site-footer">
-    <div class="container">
-        <p class="footer-nav">
-            <a href="/">[ Home ]</a>
-            <span class="sep">|</span>
-            <a href="/posts/">[ Posts ]</a>
-            <span class="sep">|</span>
-            <a href="/categories/">[ Categories ]</a>
-            <span class="sep">|</span>
-            <a href="/search/">[ Search ]</a>
-            <span class="sep">|</span>
-            <a href="/about/">[ About ]</a>
-            <span class="sep">|</span>
-            <a href="#top">[ Back to Top ]</a>
-        </p>
-
-        
-        <p class="footer-social">
-            <span class="social-label">Connect:</span>
-            <a href="https://github.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ GitHub ]</a><span class="sep">|</span>
-            <a href="https://instagram.com/dhymasriyanto" target="_blank" rel="noopener noreferrer">[ Instagram ]</a><span class="sep">|</span>
-            <a href="https://facebook.com/dhymas.riyanto.3" target="_blank" rel="noopener noreferrer">[ Facebook ]</a><span class="sep">|</span>
-            <a href="mailto:gojin003@gmail.com" id="email-contact-link" title="gojin003@gmail.com">[ Email ]</a>
-        </p>
-        
-
-        <p class="footer-credit">Built with Hugo &bull; ngodingkuy theme</p>
-    </div>
-
-    <script>
-    (function () {
-        const emailLink = document.getElementById('email-contact-link');
-        if (emailLink) {
-            emailLink.addEventListener('click', function (e) {
-                const mail = 'gojin003@gmail.com';
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(mail).then(function () {
-                        const orig = emailLink.textContent;
-                        emailLink.textContent = '[ Copied: ' + mail + ' ]';
-                        setTimeout(function () {
-                            emailLink.textContent = orig;
-                        }, 2500);
-                    }).catch(function () {});
-                }
-            });
-        }
-
-        if (typeof updateThemeToggleUI === 'function') {
-            updateThemeToggleUI();
-        }
-    })();
-    </script>
+</article>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-04-14>2026-04-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-101/>Javascript in Action</a>
+</li>
+<li>
+<time datetime=2026-03-30>2026-03-30</time>
+<a href=https://ngodingkuy.site/posts/welcome-back/>Welcome to ngodingkuy</a>
+</li>
+<li>
+<time datetime=2022-01-21>2022-01-21</time>
+<a href=https://ngodingkuy.site/posts/debugger/>Standard Library - Debugger</a>
+</li>
+<li>
+<time datetime=2022-01-17>2022-01-17</time>
+<a href=https://ngodingkuy.site/posts/file-system/>Standard Library - File System</a>
+</li>
+<li>
+<time datetime=2022-01-16>2022-01-16</time>
+<a href=https://ngodingkuy.site/posts/path/>Standard Library - Path</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/about/",this.page.identifier="/about/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ Posts Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>15 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/hai/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Hai!</div>
+<div class=tree-item-date>2019-08-01 &bull; hai</div>
+</div>
+</a>
+<a href=/posts/cara-menginstall-jdk-dan-menampilkan-hello-world/ class=tree-item>
+<span class=tree-item-num>02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Cara Menginstall JDK Dan Menampilkan Hello World</div>
+<div class=tree-item-date>2019-08-01 &bull; cara-menginstall-jdk-dan-menampilkan-hello-world</div>
+</div>
+</a>
+<a href=/posts/nodejs/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; nodejs</div>
+</div>
+</a>
+<a href=/posts/executing-nodejs/ class=tree-item>
+<span class=tree-item-num>04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Mengeksekusi NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; executing-nodejs</div>
+</div>
+</a>
+<a href=/posts/global-nodejs/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Global NodeJS</div>
+<div class=tree-item-date>2021-08-07 &bull; global-nodejs</div>
+</div>
+</a>
+<a href=/posts/modules-nodejs-part-one/ class=tree-item>
+<span class=tree-item-num>06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modules NodeJS - Common Module</div>
+<div class=tree-item-date>2021-08-07 &bull; modules-nodejs-part-one</div>
+</div>
+</a>
+<a href=/posts/i-am-back/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Hello, I'm Back :'v</div>
+<div class=tree-item-date>2022-01-01 &bull; i-am-back</div>
+</div>
+</a>
+<a href=/posts/modules-nodejs-part-two/ class=tree-item>
+<span class=tree-item-num>08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modules Nodejs - ECMAScript Module</div>
+<div class=tree-item-date>2022-01-03 &bull; modules-nodejs-part-two</div>
+</div>
+</a>
+<a href=/posts/global-async/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Global Async</div>
+<div class=tree-item-date>2022-01-04 &bull; global-async</div>
+</div>
+</a>
+<a href=/posts/os/ class=tree-item>
+<span class=tree-item-num>10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - OS</div>
+<div class=tree-item-date>2022-01-16 &bull; os</div>
+</div>
+</a>
+<a href=/posts/path/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Path</div>
+<div class=tree-item-date>2022-01-16 &bull; path</div>
+</div>
+</a>
+<a href=/posts/file-system/ class=tree-item>
+<span class=tree-item-num>12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - File System</div>
+<div class=tree-item-date>2022-01-17 &bull; file-system</div>
+</div>
+</a>
+<a href=/posts/debugger/ class=tree-item>
+<span class=tree-item-num>13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Standard Library - Debugger</div>
+<div class=tree-item-date>2022-01-21 &bull; debugger</div>
+</div>
+</a>
+<a href=/posts/welcome-back/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Welcome to ngodingkuy</div>
+<div class=tree-item-date>2026-03-30 &bull; welcome-back</div>
+</div>
+</a>
+<a href=/posts/javascript-101/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Javascript in Action</div>
+<div class=tree-item-date>2026-04-14 &bull; javascript-101</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
 </footer>
-
 </body>
 </html>

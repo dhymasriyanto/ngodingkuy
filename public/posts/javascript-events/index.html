@@ -1,0 +1,405 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>JavaScript Event Listeners in Action - ngodingkuy</title>
+<link rel=canonical href=https://ngodingkuy.site/posts/javascript-events/>
+<meta name=robots content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name=description content="Alright, following up on our previous note about DOM and BOM…
+So we already know how to select an element and swap its text. Cool. But a webpage where nothing …">
+<meta name=keywords content="javascript,events,dom,frontend">
+<meta name=author content="Dhymas Julyan Riyanto">
+<link rel=icon type=image/png href="/img/favicon.png?v=4">
+<link rel="shortcut icon" href="/favicon.ico?v=4">
+<link rel=alternate type=application/rss+xml href=https://ngodingkuy.site/index.xml title=ngodingkuy>
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ngodingkuy">
+<meta property="og:title" content="JavaScript Event Listeners in Action">
+<meta property="og:description" content="Alright, following up on our previous note about DOM and BOM…
+So we already know how to select an element and swap its text. Cool. But a webpage where nothing reacts when you click or scroll? Kinda …">
+<meta property="og:url" content="https://ngodingkuy.site/posts/javascript-events/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ngodingkuy.site/posts/javascript-events/javascript-events.1d9ca2e8b131c6f643e048dec7ffeffd60e8da0c811790dd8f5bc44a9f286766.png">
+<meta property="article:published_time" content="2026-04-21T09:11:28Z">
+<meta property="article:modified_time" content="2026-04-21T09:11:28Z">
+<meta property="article:tag" content="javascript"><meta property="article:tag" content="events"><meta property="article:tag" content="dom"><meta property="article:tag" content="frontend">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="JavaScript Event Listeners in Action">
+<meta name=twitter:description content="Alright, following up on our previous note about DOM and BOM…
+So we already know how to select an element and swap its text. Cool. But a webpage where nothing reacts when you click or scroll? Kinda …">
+<meta name=twitter:image content="https://ngodingkuy.site/posts/javascript-events/javascript-events.1d9ca2e8b131c6f643e048dec7ffeffd60e8da0c811790dd8f5bc44a9f286766.png">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"JavaScript Event Listeners in Action","description":"Alright, following up on our previous note about DOM and BOM…\nSo we already know how to select an element and swap its text. Cool. But a webpage where nothing reacts when you click or scroll? Kinda lifeless, isn’t it? :v\nTo actually make elements …","url":"https://ngodingkuy.site/posts/javascript-events/","datePublished":"2026-04-21T09:11:28Z","dateModified":"2026-04-21T09:11:28Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://ngodingkuy.site/posts/javascript-events/"},"author":{"@type":"Person","name":"Dhymas Julyan Riyanto"},"publisher":{"@type":"Organization","name":"ngodingkuy","logo":{"@type":"ImageObject","url":"https://ngodingkuy.site/img/favicon.png"}},"image":"https://ngodingkuy.site/posts/javascript-events/javascript-events.1d9ca2e8b131c6f643e048dec7ffeffd60e8da0c811790dd8f5bc44a9f286766.png"}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698131873730251" crossorigin=anonymous></script>
+<script>(function(){var a=localStorage.getItem('theme');(a==='dark'||!a&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)&&document.documentElement.classList.add('dark-theme')})();function toggleTheme(){var c=document.documentElement,a=c.classList.toggle('dark-theme'),b;try{localStorage.setItem('theme',a?'dark':'light')}catch(a){}updateThemeToggleUI(),b=document.getElementById('disqus_thread'),b&&(b.style.backgroundColor=a?'#15260f':'#dff5df',b.style.color=a?'#dff5df':'#000000',b.style.colorScheme=a?'dark':'light'),typeof DISQUS!='undefined'&&setTimeout(function(){DISQUS.reset({reload:!0,config:function(){this.page.url=window.location.href,this.page.identifier=window.location.pathname,this.language="en"}})},50)}function updateThemeToggleUI(){var a=document.getElementById('theme-toggle'),b;if(!a)return;b=document.documentElement.classList.contains('dark-theme'),a.textContent=b?'[ Light ]':'[ Dark ]',a.setAttribute('aria-label',b?'Switch to light mode':'Switch to dark mode')}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',updateThemeToggleUI):updateThemeToggleUI()</script>
+<link rel=stylesheet href="/css/style.css?v=10">
+</head>
+<body>
+<header class=site-header id=top>
+<div class=container>
+<h1 class=site-title><a href=/>&lt;ngodingkuy/></a></h1>
+<p class=site-subtitle>learn it, write it, re-learn it.</p>
+<nav class=site-nav>
+<a href=/>[ Home ]</a>
+<a href=/posts/>[ Posts ]</a>
+<a href=/categories/>[ Categories ]</a>
+<a href=/search/>[ Search ]</a>
+<a href=/about/>[ About ]</a>
+<button type=button id=theme-toggle class=theme-toggle-btn onclick=toggleTheme() aria-label="Toggle theme">[ Dark ]</button>
+</nav>
+</div>
+</header>
+<main class=container>
+<nav class=breadcrumb-nav>
+<a href=/>&lt;- Back to Home</a> | <a href=/posts/>All Posts</a>
+</nav>
+<article class=post>
+<h1>JavaScript Event Listeners in Action</h1>
+<div class=post-meta>
+<span class=author>By Dhymas Julyan Riyanto</span>
+<span class=meta-sep>&bull;</span>
+<time datetime=2026-04-21>April 21, 2026</time>
+<span class=meta-sep>&bull;</span>
+<span class=post-categories>
+Categories:
+<a href=/categories/javascript/>[Javascript]</a>
+</span>
+</div>
+<div class=post-banner>
+<img src=/posts/javascript-events/javascript-events.1d9ca2e8b131c6f643e048dec7ffeffd60e8da0c811790dd8f5bc44a9f286766.png alt="JavaScript Event Listeners in Action" loading=lazy>
+</div>
+<div class=post-content>
+<p>Alright, following up on our previous note about DOM and BOM&mldr;</p>
+<p>So we already know how to select an element and swap its text. Cool. But a webpage where nothing reacts when you click or scroll? Kinda lifeless, isn&rsquo;t it? :v</p>
+<p>To actually make elements respond when users interact with the page, we need <strong>Event Listeners</strong>.</p>
+<hr>
+<h2 id=wait-what-is-an-event-anyway>Wait, what is an event anyway?</h2>
+<p>An &ldquo;event&rdquo; is basically anything that happens inside the browser.</p>
+<p>A user clicking a button? That&rsquo;s an event.
+Someone pressing a key on their keyboard? An event.
+Scrolling down the page? Resizing the browser window? Submitting a form?</p>
+<p>All of those are events.</p>
+<p>By default, the browser notices these actions, but it won&rsquo;t do anything special unless we explicitly tell it: <em>&ldquo;Hey, keep an ear out for this specific action, and run this code when it happens."</em></p>
+<p>That &ldquo;ear&rdquo; is what we call an event listener.</p>
+<hr>
+<h2 id=meet-addeventlistener>Meet <code>addEventListener()</code></h2>
+<p>The most common (and cleanest) way to listen to events in modern JavaScript is using <code>addEventListener()</code>.</p>
+<p>The syntax looks like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#a6e22e>eventType</span>, <span style=color:#a6e22e>callbackFunction</span>);
+</code></pre></div><p>Simple, right? We just need two main ingredients:</p>
+<ol>
+<li>What kind of event we&rsquo;re waiting for (like <code>'click'</code>, <code>'keydown'</code>, etc.).</li>
+<li>What function should run once that event actually happens.</li>
+</ol>
+<p>Let&rsquo;s try a quick example. Say we have a button and a simple text element:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// 1. Grab the elements first
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>actionBtn</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#action-btn&#34;</span>);
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>statusText</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#status-text&#34;</span>);
+
+<span style=color:#75715e>// 2. Attach our listener
+</span><span style=color:#75715e></span><span style=color:#a6e22e>actionBtn</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;click&#34;</span>, () =&gt; {
+    <span style=color:#a6e22e>statusText</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Button clicked! System is alive :&#39;)&#34;</span>;
+    <span style=color:#a6e22e>statusText</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;seagreen&#34;</span>;
+});
+</code></pre></div><p>Now, whenever someone clicks <code>#action-btn</code>, the callback function fires immediately, updates the text, and turns it green. Done! Hehe&mldr;</p>
+<hr>
+<h2 id=wait-whats-inside-that-e-parameter>Wait, what&rsquo;s inside that <code>(e)</code> parameter?</h2>
+<p>Whenever an event triggers, the browser doesn&rsquo;t just run your function blindly&mldr; It actually hands you a package of useful details about what just happened.</p>
+<p>We usually catch it by adding <code>e</code> (or <code>event</code>) into our callback:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>box</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;.interactive-box&#34;</span>);
+
+<span style=color:#a6e22e>box</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;mousemove&#34;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+    <span style=color:#75715e>// See where the cursor is right now!
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Cursor coordinates: X = </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>clientX</span><span style=color:#e6db74>}</span><span style=color:#e6db74>, Y = </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>clientY</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+});
+</code></pre></div><p>A few properties you&rsquo;ll probably reach for all the time:</p>
+<ul>
+<li><code>e.target</code> : Points to the exact element that triggered the event (super useful when handling dynamic lists).</li>
+<li><code>e.type</code> : Tells you the event name (e.g. <code>'click'</code>, <code>'submit'</code>).</li>
+<li><code>e.key</code> : Tells you which key got pressed when working with keyboard events.</li>
+</ul>
+<hr>
+<h2 id=epreventdefault--stop-right-there><code>e.preventDefault()</code> &mldr; Stop right there!</h2>
+<p>Some elements in HTML have built-in default habits.</p>
+<p>For instance:</p>
+<ul>
+<li>When someone clicks a link (<code>&lt;a></code>), the browser immediately jumps to that URL.</li>
+<li>When someone submits a <code>&lt;form></code>, the browser reloads the entire page.</li>
+</ul>
+<p>Back in the day, that was fine. But in modern web apps, reloading the whole page just to submit a form feels clumsy and slow.</p>
+<p>That&rsquo;s where <code>e.preventDefault()</code> comes in handy:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>loginForm</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#login-form&#34;</span>);
+
+<span style=color:#a6e22e>loginForm</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;submit&#34;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+    <span style=color:#75715e>// Don&#39;t reload the page, please!
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>preventDefault</span>();
+
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>username</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#username-input&#34;</span>).<span style=color:#a6e22e>value</span>;
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Logging in user: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>username</span><span style=color:#e6db74>}</span><span style=color:#e6db74>...`</span>);
+    <span style=color:#75715e>// Send data via fetch() or do your magic here
+</span><span style=color:#75715e></span>});
+</code></pre></div><p>With <code>e.preventDefault()</code>, the browser stops its default reload behavior, and lets our JavaScript handle everything smoothly in the background.</p>
+<hr>
+<h2 id=events-youll-probably-use-everyday>Events you&rsquo;ll probably use everyday</h2>
+<p>You don&rsquo;t need to memorize every single event out there (there are tons!), but here are the ones you&rsquo;ll end up using 90% of the time:</p>
+<ul>
+<li><strong>Mouse</strong>: <code>'click'</code>, <code>'dblclick'</code>, <code>'mouseenter'</code>, <code>'mouseleave'</code></li>
+<li><strong>Keyboard</strong>: <code>'keydown'</code>, <code>'keyup'</code> (useful for detecting <code>Enter</code>, <code>Escape</code>, etc.)</li>
+<li><strong>Forms</strong>: <code>'submit'</code>, <code>'input'</code> (fires on every keystroke), <code>'change'</code> (great for dropdowns and checkboxes)</li>
+<li><strong>Window</strong>: <code>'scroll'</code>, <code>'resize'</code>, <code>'DOMContentLoaded'</code> (fires when HTML finishes parsing)</li>
+</ul>
+<p>For example, closing a modal dialog when the user hits the <code>Escape</code> key:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript>window.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;keydown&#34;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#34;Escape&#34;</span>) {
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Escape pressed. Closing popup modal...&#34;</span>);
+    }
+});
+</code></pre></div><hr>
+<p>And that&rsquo;s pretty much the foundation of event listeners. Once you get the hang of <code>addEventListener</code> and how to inspect the <code>(e)</code> object, building interactive widgets suddenly feels way less intimidating.</p>
+<p>Got any questions or spotted a silly typo? Drop it in the comments below!</p>
+<p>Catch you in the next one, hehe&mldr; :')</p>
+</div>
+<div class=post-tags-section>
+<span class=tags-label>Tags:</span>
+<a class=tag-badge href=/tags/javascript/>#javascript</a>
+<a class=tag-badge href=/tags/events/>#events</a>
+<a class=tag-badge href=/tags/dom/>#dom</a>
+<a class=tag-badge href=/tags/frontend/>#frontend</a>
+</div>
+</article>
+<nav class=post-pagination>
+<div class=prev-post>
+<span class=nav-label>&lt;- Previous:</span><br>
+<a href=https://ngodingkuy.site/posts/javascript-101/>Javascript in Action</a>
+</div>
+<div class=next-post>
+<span class=nav-label>Next -></span><br>
+<a href=https://ngodingkuy.site/posts/javascript-dom-manipulation/>DOM Manipulation & Creating Elements</a>
+</div>
+</nav>
+<section class=other-posts>
+<h2>Other Posts</h2>
+<ul class=other-posts-list>
+<li>
+<time datetime=2026-10-09>2026-10-09</time>
+<a href=https://ngodingkuy.site/posts/javascript-web-workers/>Multi-Threading with Web Workers</a>
+</li>
+<li>
+<time datetime=2026-10-02>2026-10-02</time>
+<a href=https://ngodingkuy.site/posts/javascript-canvas-basics/>Drawing in the Browser with HTML5 Canvas</a>
+</li>
+<li>
+<time datetime=2026-09-23>2026-09-23</time>
+<a href=https://ngodingkuy.site/posts/javascript-indexeddb-basics/>Beyond LocalStorage: Storing Data with IndexedDB</a>
+</li>
+<li>
+<time datetime=2026-09-14>2026-09-14</time>
+<a href=https://ngodingkuy.site/posts/javascript-intersection-observer/>Modern Lazy Loading with Intersection Observer</a>
+</li>
+<li>
+<time datetime=2026-09-05>2026-09-05</time>
+<a href=https://ngodingkuy.site/posts/javascript-debounce-and-throttle/>Event Optimization: Debounce vs Throttle</a>
+</li>
+</ul>
+</section>
+<div class=disqus-section>
+<h3 class=disqus-title>Comments</h3>
+<div id=disqus_thread></div>
+<script>var disqus_config=function(){this.page.url="https://ngodingkuy.site/posts/javascript-events/",this.page.identifier="/posts/javascript-events/",this.language="en"};(function(){var a=document.getElementById('disqus_thread'),b,c,d;a&&(b=document.documentElement.classList.contains('dark-theme'),a.style.backgroundColor=b?'#15260f':'#dff5df',a.style.color=b?'#dff5df':'#000000',a.style.colorScheme=b?'dark':'light'),c=document,d=c.createElement('script'),d.src='https://ngodingkuy.disqus.com/embed.js',d.setAttribute('data-timestamp',+new Date),(c.head||c.body).appendChild(d)})()</script>
+<noscript>Please enable JavaScript to view comments powered by Disqus.</noscript>
+</div>
+<aside id=tree-drawer class=tree-drawer aria-label="Course Curriculum Tree">
+<div class=tree-drawer-header>
+<div class=tree-drawer-title-row>
+<strong class=tree-drawer-title>[ Javascript Tree ]</strong>
+<button type=button class="btn btn-sm" onclick=toggleTreeDrawer(!1) aria-label="Close sidebar">[ X ]</button>
+</div>
+<div class=tree-drawer-meta>
+<span>Series: <a href=/categories/javascript/>[Javascript]</a></span> &bull;
+<span>21 articles</span>
+</div>
+<div class=tree-drawer-order>Order: Earliest &rarr; Recent</div>
+</div>
+<div class=tree-items-list id=tree-items-list>
+<a href=/posts/javascript-101/ class=tree-item>
+<span class=tree-item-num>01.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Javascript in Action</div>
+<div class=tree-item-date>2026-04-14 &bull; javascript-101</div>
+</div>
+</a>
+<a href=/posts/javascript-events/ class="tree-item active" id=tree-active-item>
+<span class=tree-item-num>▶ 02.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Event Listeners in Action</div>
+<div class=tree-item-date>2026-04-21 &bull; javascript-events</div>
+</div>
+</a>
+<a href=/posts/javascript-dom-manipulation/ class=tree-item>
+<span class=tree-item-num>03.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>DOM Manipulation & Creating Elements</div>
+<div class=tree-item-date>2026-04-29 &bull; javascript-dom-manipulation</div>
+</div>
+</a>
+<a href=/posts/javascript-event-delegation/ class=tree-item>
+<span class=tree-item-num>04.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Delegation & Bubbling</div>
+<div class=tree-item-date>2026-05-08 &bull; javascript-event-delegation</div>
+</div>
+</a>
+<a href=/posts/javascript-localstorage/ class=tree-item>
+<span class=tree-item-num>05.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Saving Client Data with LocalStorage</div>
+<div class=tree-item-date>2026-05-17 &bull; javascript-localstorage</div>
+</div>
+</a>
+<a href=/posts/javascript-timers/ class=tree-item>
+<span class=tree-item-num>06.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>JavaScript Timers: setTimeout & setInterval</div>
+<div class=tree-item-date>2026-05-26 &bull; javascript-timers</div>
+</div>
+</a>
+<a href=/posts/javascript-callbacks-and-promises/ class=tree-item>
+<span class=tree-item-num>07.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Escaping Callback Hell with Promises</div>
+<div class=tree-item-date>2026-06-05 &bull; javascript-callbacks-and-promises</div>
+</div>
+</a>
+<a href=/posts/javascript-async-await/ class=tree-item>
+<span class=tree-item-num>08.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Cleaner Code with Async and Await</div>
+<div class=tree-item-date>2026-06-14 &bull; javascript-async-await</div>
+</div>
+</a>
+<a href=/posts/javascript-fetch-api/ class=tree-item>
+<span class=tree-item-num>09.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Talking to External APIs with Fetch</div>
+<div class=tree-item-date>2026-06-24 &bull; javascript-fetch-api</div>
+</div>
+</a>
+<a href=/posts/javascript-es6-arrays/ class=tree-item>
+<span class=tree-item-num>10.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Essential Modern Array Methods</div>
+<div class=tree-item-date>2026-07-03 &bull; javascript-es6-arrays</div>
+</div>
+</a>
+<a href=/posts/javascript-destructuring-and-spread/ class=tree-item>
+<span class=tree-item-num>11.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Destructuring & the Spread Operator</div>
+<div class=tree-item-date>2026-07-13 &bull; javascript-destructuring-and-spread</div>
+</div>
+</a>
+<a href=/posts/javascript-modules/ class=tree-item>
+<span class=tree-item-num>12.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modular JavaScript with ES Modules</div>
+<div class=tree-item-date>2026-07-22 &bull; javascript-modules</div>
+</div>
+</a>
+<a href=/posts/javascript-closures-and-scope/ class=tree-item>
+<span class=tree-item-num>13.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Understanding Closures & Scope</div>
+<div class=tree-item-date>2026-07-31 &bull; javascript-closures-and-scope</div>
+</div>
+</a>
+<a href=/posts/javascript-this-keyword/ class=tree-item>
+<span class=tree-item-num>14.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Demystifying the 'this' Keyword</div>
+<div class=tree-item-date>2026-08-09 &bull; javascript-this-keyword</div>
+</div>
+</a>
+<a href=/posts/javascript-classes-and-prototypes/ class=tree-item>
+<span class=tree-item-num>15.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Classes & Prototypes in JavaScript</div>
+<div class=tree-item-date>2026-08-18 &bull; javascript-classes-and-prototypes</div>
+</div>
+</a>
+<a href=/posts/javascript-custom-error-handling/ class=tree-item>
+<span class=tree-item-num>16.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Robust Error Handling & Custom Errors</div>
+<div class=tree-item-date>2026-08-27 &bull; javascript-custom-error-handling</div>
+</div>
+</a>
+<a href=/posts/javascript-debounce-and-throttle/ class=tree-item>
+<span class=tree-item-num>17.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Event Optimization: Debounce vs Throttle</div>
+<div class=tree-item-date>2026-09-05 &bull; javascript-debounce-and-throttle</div>
+</div>
+</a>
+<a href=/posts/javascript-intersection-observer/ class=tree-item>
+<span class=tree-item-num>18.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Modern Lazy Loading with Intersection Observer</div>
+<div class=tree-item-date>2026-09-14 &bull; javascript-intersection-observer</div>
+</div>
+</a>
+<a href=/posts/javascript-indexeddb-basics/ class=tree-item>
+<span class=tree-item-num>19.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Beyond LocalStorage: Storing Data with IndexedDB</div>
+<div class=tree-item-date>2026-09-23 &bull; javascript-indexeddb-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-canvas-basics/ class=tree-item>
+<span class=tree-item-num>20.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Drawing in the Browser with HTML5 Canvas</div>
+<div class=tree-item-date>2026-10-02 &bull; javascript-canvas-basics</div>
+</div>
+</a>
+<a href=/posts/javascript-web-workers/ class=tree-item>
+<span class=tree-item-num>21.</span>
+<div class=tree-item-body>
+<div class=tree-item-title>Multi-Threading with Web Workers</div>
+<div class=tree-item-date>2026-10-09 &bull; javascript-web-workers</div>
+</div>
+</a>
+</div>
+<div class=tree-drawer-footer>
+<a href=/categories/ class=tree-all-series-btn>[ All Categories &rarr; ]</a>
+</div>
+</aside>
+<button type=button id=tree-drawer-toggle class=tree-drawer-toggle onclick=toggleTreeDrawer() title="Toggle Curriculum Tree" aria-label="Toggle Tree Sidebar">[ > ]</button>
+<script>function toggleTreeDrawer(c){var b=document.getElementById('tree-drawer'),a=document.getElementById('tree-drawer-toggle'),e,f,d;if(!b||!a)return;e=b.classList.contains('open'),f=c!==void 0?c:!e,f?(b.classList.add('open'),a.classList.add('open'),a.innerHTML='&lt;',d=document.getElementById('tree-active-item'),d&&setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},50)):(b.classList.remove('open'),a.classList.remove('open'),a.innerHTML='&gt;')}</script>
+</main>
+<footer class=site-footer>
+<div class=container>
+<p class=footer-nav>
+<a href=/>[ Home ]</a>
+<span class=sep>|</span>
+<a href=/posts/>[ Posts ]</a>
+<span class=sep>|</span>
+<a href=/categories/>[ Categories ]</a>
+<span class=sep>|</span>
+<a href=/search/>[ Search ]</a>
+<span class=sep>|</span>
+<a href=/about/>[ About ]</a>
+<span class=sep>|</span>
+<a href=#top>[ Back to Top ]</a>
+</p>
+<p class=footer-social>
+<span class=social-label>Connect:</span>
+<a href=https://github.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ GitHub ]</a><span class=sep>|</span>
+<a href=https://instagram.com/dhymasriyanto target=_blank rel="noopener noreferrer">[ Instagram ]</a><span class=sep>|</span>
+<a href=https://facebook.com/dhymas.riyanto.3 target=_blank rel="noopener noreferrer">[ Facebook ]</a><span class=sep>|</span>
+<a href=mailto:gojin003@gmail.com id=email-contact-link title=gojin003@gmail.com>[ Email ]</a>
+</p>
+<p class=footer-credit>Built with Hugo &bull; ngodingkuy theme</p>
+</div>
+<script>(function(){const a=document.getElementById('email-contact-link');a&&a.addEventListener('click',function(c){const b='gojin003@gmail.com';navigator.clipboard&&navigator.clipboard.writeText&&navigator.clipboard.writeText(b).then(function(){const c=a.textContent;a.textContent='[ Copied: '+b+' ]',setTimeout(function(){a.textContent=c},2500)}).catch(function(){})}),typeof updateThemeToggleUI=='function'&&updateThemeToggleUI()})()</script>
+</footer>
+</body>
+</html>
